@@ -23,9 +23,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [t T13 __deprecated__ ]
 "8598 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _RB5 `Vb ~T13 @X0 0 e@31757 ]
-"125 user.h
+"126 user.h
 [v _ir_get_human_code `(uc ~T0 @X0 0 ef1`i ]
-"128
+"129
 [v _get_next_state `(i ~T0 @X0 0 ef2`i`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -3162,35 +3162,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 "95
 [v _human_code `uc ~T0 @X0 1 e ]
 [; ;user.h: 95: char human_code;
-[; ;user.h: 97: void put_num(char num);
-[; ;user.h: 98: void put_nums(char nums[]);
-[; ;user.h: 99: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
-[; ;user.h: 100: char get_num(char num);
-[; ;user.h: 101: void point_enable(void);
-[; ;user.h: 102: void point_disable(void);
-[; ;user.h: 103: void point_toggle(void);
-[; ;user.h: 105: void buzzer_enable(void);
-[; ;user.h: 106: void buzzer_disable(void);
-[; ;user.h: 107: void buzzer_toggle(void);
-[; ;user.h: 109: void ce_enable(void);
-[; ;user.h: 110: void ce_disable(void);
-[; ;user.h: 111: char byte_read(char address);
-[; ;user.h: 112: void byte_write(char address, char value);
-[; ;user.h: 113: char get_seconds_reg(char seconds);
-[; ;user.h: 114: char get_hour_reg(char hour);
-[; ;user.h: 115: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 116: void get_time(char data[]);
-[; ;user.h: 118: void send_command(char command);
-[; ;user.h: 119: void io_as_input(void);
-[; ;user.h: 120: void io_as_output(void);
-[; ;user.h: 123: char ir_is_code_number(char human_code);
-[; ;user.h: 125: char ir_get_human_code(int code);
-[; ;user.h: 128: int get_next_state(int state,int code);
-[; ;user.h: 133: void InitApp(void);
+"96
+[v _aux1 `uc ~T0 @X0 -> 6 `i e ]
+[; ;user.h: 96: char aux1[6];
+[; ;user.h: 98: void put_num(char num);
+[; ;user.h: 99: void put_nums(char nums[]);
+[; ;user.h: 100: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 101: char get_num(char num);
+[; ;user.h: 102: void point_enable(void);
+[; ;user.h: 103: void point_disable(void);
+[; ;user.h: 104: void point_toggle(void);
+[; ;user.h: 106: void buzzer_enable(void);
+[; ;user.h: 107: void buzzer_disable(void);
+[; ;user.h: 108: void buzzer_toggle(void);
+[; ;user.h: 110: void ce_enable(void);
+[; ;user.h: 111: void ce_disable(void);
+[; ;user.h: 112: char byte_read(char address);
+[; ;user.h: 113: void byte_write(char address, char value);
+[; ;user.h: 114: char get_seconds_reg(char seconds);
+[; ;user.h: 115: char get_hour_reg(char hour);
+[; ;user.h: 116: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 117: void get_time(char data[]);
+[; ;user.h: 119: void send_command(char command);
+[; ;user.h: 120: void io_as_input(void);
+[; ;user.h: 121: void io_as_output(void);
+[; ;user.h: 124: char ir_is_code_number(char human_code);
+[; ;user.h: 126: char ir_get_human_code(int code);
+[; ;user.h: 129: int get_next_state(int state,int code);
+[; ;user.h: 134: void InitApp(void);
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-[v F3410 `(v ~T0 @X0 1 tf ]
+[v F3411 `(v ~T0 @X0 1 tf ]
 "30 interrupts.c
-[v _high_isr `IF3410 ~T0 @X0 1 e ]
+[v _high_isr `IF3411 ~T0 @X0 1 e ]
 "39
 {
 [; ;interrupts.c: 30: void interrupt high_isr(void)
@@ -3270,9 +3273,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "85
 }
 [; ;interrupts.c: 85: }
-[; ;interrupts.c: 90: if(final_code !=0xff)
+[; ;interrupts.c: 90: if(final_code !=0xffff)
 "90
-[e $ ! != _final_code -> 255 `i 330  ]
+[e $ ! != -> _final_code `ui -> 65535 `ui 330  ]
 [; ;interrupts.c: 91: {
 "91
 {
@@ -3296,21 +3299,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 323 ]
 [; ;interrupts.c: 98: }
-[; ;interrupts.c: 101: }
-"101
+[; ;interrupts.c: 99: }
+"99
 [e :UE 322 ]
-}
-[v $root$_low_isr `(v ~T0 @X0 0 e ]
-[v F3419 `(v ~T0 @X0 1 tf ]
-"105
-[v _low_isr `ILF3419 ~T0 @X0 1 e ]
-"113
-{
-[; ;interrupts.c: 105: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 113: {
-[e :U _low_isr ]
-[f ]
-[; ;interrupts.c: 140: }
-"140
-[e :UE 331 ]
 }

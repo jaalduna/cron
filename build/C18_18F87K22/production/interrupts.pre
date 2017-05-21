@@ -4341,11 +4341,14 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.42/include/stdbool.h"
 typedef unsigned char bool;
 
-# 93 "user.h"
+# 94 "user.h"
 int state, next;
+char human_code;
+char aux1[6];
 
 void put_num(char num);
 void put_nums(char nums[]);
+void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
 char get_num(char num);
 void point_enable(void);
 void point_disable(void);
@@ -4367,6 +4370,15 @@ void get_time(char data[]);
 void send_command(char command);
 void io_as_input(void);
 void io_as_output(void);
+
+
+char ir_is_code_number(char human_code);
+
+char ir_get_human_code(int code);
+
+
+int get_next_state(int state,int code);
+
 
 
 
@@ -4401,28 +4413,15 @@ final_code |= code[i]<<i;
 }
 
 
-if(state == 0 & final_code == 0xAEBA) next = 1;
 
-if(state == 1 && final_code == 0xAAEE) next = 2;
-if(state == 2 && final_code == 0xAAEE) next = 3;
-if(state == 3 && final_code == 0xAAEE) next = 4;
-if(state == 4 && final_code == 0xAAEE) next = 1;
-if((state == 1 || state == 2 || state == 3 || state == 4) && final_code == 0xAABA) next = 0;
 
+if(final_code !=0xffff)
+{
+human_code = ir_get_human_code(final_code);
+next = get_next_state(state,final_code);
+}
 
 RBIF = 0;
 INTCONbits.GIE = 1;
 }
-
-
-}
-
-
-
-void low_priority interrupt low_isr(void)
-
-# 114
-{
-
-# 141
 }

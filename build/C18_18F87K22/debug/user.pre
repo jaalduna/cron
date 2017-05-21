@@ -4344,6 +4344,7 @@ typedef unsigned char bool;
 # 94 "user.h"
 int state, next;
 char human_code;
+char aux1[6];
 
 void put_num(char num);
 void put_nums(char nums[]);
@@ -4664,9 +4665,17 @@ next = 4;
 else if(state == 4 && code == 0xAAEE)
 next = 1;
 else if((state == 1 || state == 2 || state == 3 || state == 4) && code == 0xAEBA)
+{
 next = 0;
+char seconds = 0;
+char minutes = aux1[0] + aux1[1]*10;
+char hour = aux1[2] + aux1[3]*10;
+set_time(seconds,minutes,hour);
+}
 else
 next = next;
+
+return next;
 }
 
 
@@ -4700,13 +4709,13 @@ break;
 case 0xAAEE:
 human_read_code = 14;
 break;
-case 0x6BB9:
+case 0xEBBA:
 human_read_code = 1;
 break;
-case 0x6EAD:
+case 0xEEAE:
 human_read_code = 2;
 break;
-case 0x3BAD:
+case 0x1111:
 human_read_code = 3;
 break;
 case 0xAEE9:
@@ -4727,7 +4736,7 @@ break;
 case 0x6EB9:
 human_read_code = 9;
 break;
-case 0xBAB9:
+case 0xBABA:
 human_read_code = 0;
 break;
 case 0xAABA:

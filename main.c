@@ -44,7 +44,7 @@ void main(void)
 
     /* TODO <INSERT USER APPLICATION CODE HERE> */
 
-    char aux1[NUM_DIGITS]; //variable array to hold display values
+    
     aux1[0] = 1;
     aux1[1] = 2;
     aux1[2] = 3;
@@ -72,27 +72,48 @@ void main(void)
                 
                 //check if code is a valid number
                 if(ir_is_code_number(human_code) && human_code <=2)
-                    aux1[3] = human_code;
-                    next = STATE_HH2;
-                //lets update aux2
+                {
+                    aux1[3] = human_code; //update number
+                    next = STATE_HH2;   //update state
+                }
+                    //lets update aux2
                 put_nums(aux1);
-                __delay_ms(500);
+                __delay_ms(500 
+                        
                 put_nums_individual(aux1[5], aux1[4], 'V',aux1[2],aux1[1],aux1[0]);
                 __delay_ms(500);
                 break;
             case STATE_HH2:
+                
+                 if(ir_is_code_number(human_code) && ((aux1[2]<2 && human_code <=9) || human_code <=3))
+                 {
+                     aux1[2] = human_code; //update number
+                     next = STATE_MM1;   //update state
+                 }
+                    
                 put_nums(aux1);
                 __delay_ms(500);
-                 put_nums_individual(aux1[5], aux1[4], aux1[3],'V',aux1[1],aux1[0]);
+                 put_nums_individual(aux1[5], aux1[4], aux1[2],'V',aux1[1],aux1[0]);
                 __delay_ms(500);
                 break;
             case STATE_MM1:
+                
+                if(ir_is_code_number(human_code) && human_code <=5) //check for a valid number
+                 {
+                     aux1[1] = human_code; //update number
+                     next = STATE_MM2;   //update state
+                 }
                 put_nums(aux1);
                 __delay_ms(500);
                  put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],'V',aux1[0]);
                 __delay_ms(500);
                 break;   
             case STATE_MM2:
+                if(ir_is_code_number(human_code) && human_code <=9) //check for a valid number
+                 {
+                     aux1[0] = human_code; //update number
+                     next = STATE_HH1;   //update state
+                 }
                 put_nums(aux1);
                 __delay_ms(500);
                  put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],aux1[1],'V');

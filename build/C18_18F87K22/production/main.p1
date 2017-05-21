@@ -2,18 +2,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "19 system.h
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"121 user.h
+"134 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
-"113
+"117
 [v _get_time `(v ~T0 @X0 0 ef1`*uc ]
-"96
+"99
 [v _put_nums `(v ~T0 @X0 0 ef1`*uc ]
 [v F3316 `(v ~T0 @X0 1 tf1`ul ]
 "164 /Applications/microchip/xc8/v1.42/include/pic18.h
 [v __delay `JF3316 ~T0 @X0 0 e ]
 [p i __delay ]
-"100 user.h
+"104 user.h
 [v _point_toggle `(v ~T0 @X0 0 ef ]
+"124
+[v _ir_is_code_number `(uc ~T0 @X0 0 ef1`uc ]
+"100
+[v _put_nums_individual `(v ~T0 @X0 0 ef6`uc`uc`uc`uc`uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3143,31 +3147,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
-"93 user.h
+"94 user.h
 [v _state `i ~T0 @X0 1 e ]
 [v _next `i ~T0 @X0 1 e ]
-[; ;user.h: 93: int state, next;
-[; ;user.h: 95: void put_num(char num);
-[; ;user.h: 96: void put_nums(char nums[]);
-[; ;user.h: 97: char get_num(char num);
-[; ;user.h: 98: void point_enable(void);
-[; ;user.h: 99: void point_disable(void);
-[; ;user.h: 100: void point_toggle(void);
-[; ;user.h: 102: void buzzer_enable(void);
-[; ;user.h: 103: void buzzer_disable(void);
-[; ;user.h: 104: void buzzer_toggle(void);
-[; ;user.h: 106: void ce_enable(void);
-[; ;user.h: 107: void ce_disable(void);
-[; ;user.h: 108: char byte_read(char address);
-[; ;user.h: 109: void byte_write(char address, char value);
-[; ;user.h: 110: char get_seconds_reg(char seconds);
-[; ;user.h: 111: char get_hour_reg(char hour);
-[; ;user.h: 112: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 113: void get_time(char data[]);
-[; ;user.h: 115: void send_command(char command);
-[; ;user.h: 116: void io_as_input(void);
-[; ;user.h: 117: void io_as_output(void);
-[; ;user.h: 121: void InitApp(void);
+[; ;user.h: 94: int state, next;
+"95
+[v _human_code `uc ~T0 @X0 1 e ]
+[; ;user.h: 95: char human_code;
+"96
+[v _aux1 `uc ~T0 @X0 -> 6 `i e ]
+[; ;user.h: 96: char aux1[6];
+[; ;user.h: 98: void put_num(char num);
+[; ;user.h: 99: void put_nums(char nums[]);
+[; ;user.h: 100: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 101: char get_num(char num);
+[; ;user.h: 102: void point_enable(void);
+[; ;user.h: 103: void point_disable(void);
+[; ;user.h: 104: void point_toggle(void);
+[; ;user.h: 106: void buzzer_enable(void);
+[; ;user.h: 107: void buzzer_disable(void);
+[; ;user.h: 108: void buzzer_toggle(void);
+[; ;user.h: 110: void ce_enable(void);
+[; ;user.h: 111: void ce_disable(void);
+[; ;user.h: 112: char byte_read(char address);
+[; ;user.h: 113: void byte_write(char address, char value);
+[; ;user.h: 114: char get_seconds_reg(char seconds);
+[; ;user.h: 115: char get_hour_reg(char hour);
+[; ;user.h: 116: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 117: void get_time(char data[]);
+[; ;user.h: 119: void send_command(char command);
+[; ;user.h: 120: void io_as_input(void);
+[; ;user.h: 121: void io_as_output(void);
+[; ;user.h: 124: char ir_is_code_number(char human_code);
+[; ;user.h: 126: char ir_get_human_code(int code);
+[; ;user.h: 129: int get_next_state(int state,int code);
+[; ;user.h: 134: void InitApp(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3213,9 +3227,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 43: InitApp();
 "43
 [e ( _InitApp ..  ]
-"47
-[v _aux1 `uc ~T0 @X0 -> 6 `i a ]
-[; ;main.c: 47: char aux1[6];
 [; ;main.c: 48: aux1[0] = 1;
 "48
 [e = *U + &U _aux1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 1 `i `uc ]
@@ -3259,64 +3270,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 64: put_nums(aux1);
 "64
 [e ( _put_nums (1 &U _aux1 ]
-[; ;main.c: 65: _delay((unsigned long)((200)*(20000000L/4000.0)));
+[; ;main.c: 65: _delay((unsigned long)((500)*(20000000L/4000.0)));
 "65
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 [; ;main.c: 66: point_toggle();
 "66
 [e ( _point_toggle ..  ]
-[; ;main.c: 68: _delay((unsigned long)((200)*(20000000L/4000.0)));
+[; ;main.c: 68: _delay((unsigned long)((500)*(20000000L/4000.0)));
 "68
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 [; ;main.c: 69: point_toggle();
 "69
 [e ( _point_toggle ..  ]
+[; ;main.c: 70: break;
+"70
+[e $U 327  ]
 [; ;main.c: 71: case 1:
 "71
 [e :U 330 ]
-[; ;main.c: 73: temp = aux1[3];
-"73
-[e = _temp *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
-[; ;main.c: 74: put_nums(aux1);
+[; ;main.c: 74: if(ir_is_code_number(human_code) && human_code <=2)
 "74
-[e ( _put_nums (1 &U _aux1 ]
-[; ;main.c: 75: _delay((unsigned long)((500)*(20000000L/4000.0)));
+[e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i <= -> _human_code `i -> 2 `i 331  ]
+[; ;main.c: 75: aux1[3] = human_code;
 "75
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;main.c: 76: aux1[3] = 0;
-"76
-[e = *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 77: put_nums(aux1);
-"77
-[e ( _put_nums (1 &U _aux1 ]
-[; ;main.c: 78: aux1[3] = temp;
+[e = *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
+[e :U 331 ]
+[; ;main.c: 78: put_nums(aux1);
 "78
-[e = *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _temp ]
+[e ( _put_nums (1 &U _aux1 ]
 [; ;main.c: 79: _delay((unsigned long)((500)*(20000000L/4000.0)));
 "79
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-[; ;main.c: 81: default: ;
+[; ;main.c: 80: put_nums_individual(aux1[5], aux1[4], 'V',aux1[2],aux1[1],aux1[0]);
+"80
+[e ( _put_nums_individual (4 , , , , , *U + &U _aux1 * -> -> -> 5 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 86 `ui `uc *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
+[; ;main.c: 81: _delay((unsigned long)((500)*(20000000L/4000.0)));
 "81
-[e :U 331 ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 82: break;
+"82
+[e $U 327  ]
+[; ;main.c: 83: case 2:
 "83
+[e :U 332 ]
+[; ;main.c: 85: if(ir_is_code_number(human_code) && ((aux1[3]<2 && human_code <=9) || human_code <=3))
+"85
+[e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i || && < -> *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux `i -> 2 `i <= -> _human_code `i -> 9 `i <= -> _human_code `i -> 3 `i 333  ]
+[; ;main.c: 86: aux1[2] = human_code;
+"86
+[e = *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
+[e :U 333 ]
+[; ;main.c: 87: put_nums(aux1);
+"87
+[e ( _put_nums (1 &U _aux1 ]
+[; ;main.c: 88: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"88
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 89: put_nums_individual(aux1[5], aux1[4], aux1[3],'V',aux1[1],aux1[0]);
+"89
+[e ( _put_nums_individual (4 , , , , , *U + &U _aux1 * -> -> -> 5 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 86 `ui `uc *U + &U _aux1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
+[; ;main.c: 90: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"90
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 91: break;
+"91
+[e $U 327  ]
+[; ;main.c: 92: case 3:
+"92
+[e :U 334 ]
+[; ;main.c: 93: put_nums(aux1);
+"93
+[e ( _put_nums (1 &U _aux1 ]
+[; ;main.c: 94: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"94
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 95: put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],'V',aux1[0]);
+"95
+[e ( _put_nums_individual (4 , , , , , *U + &U _aux1 * -> -> -> 5 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 86 `ui `uc *U + &U _aux1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
+[; ;main.c: 96: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"96
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 97: break;
+"97
+[e $U 327  ]
+[; ;main.c: 98: case 4:
+"98
+[e :U 335 ]
+[; ;main.c: 99: put_nums(aux1);
+"99
+[e ( _put_nums (1 &U _aux1 ]
+[; ;main.c: 100: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"100
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 101: put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],aux1[1],'V');
+"101
+[e ( _put_nums_individual (4 , , , , , *U + &U _aux1 * -> -> -> 5 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 4 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux *U + &U _aux1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _aux1 `ui `ux -> -> 86 `ui `uc ]
+[; ;main.c: 102: _delay((unsigned long)((500)*(20000000L/4000.0)));
+"102
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 103: break;
+"103
+[e $U 327  ]
+[; ;main.c: 104: default: ;
+"104
+[e :U 336 ]
+"106
 }
-[; ;main.c: 83: }
+[; ;main.c: 106: }
 [e $U 327  ]
 "61
 [e :U 328 ]
 [e [\ _state , $ -> 0 `i 329
  , $ -> 1 `i 330
- 331 ]
-"83
+ , $ -> 2 `i 332
+ , $ -> 3 `i 334
+ , $ -> 4 `i 335
+ 336 ]
+"106
 [e :U 327 ]
-"84
+"107
 }
 [e :U 324 ]
 "57
 [e $U 325  ]
 [e :U 326 ]
-[; ;main.c: 84: }
-[; ;main.c: 85: };
-"85
+[; ;main.c: 107: }
+[; ;main.c: 108: };
+"108
 [e :UE 323 ]
 }

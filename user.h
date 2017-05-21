@@ -54,16 +54,16 @@
 #define IR_DOWN         0xEBAD //code 12
 #define IR_LEFT         0xAAE9 //code 13
 #define IR_RIGHT        0xAAEE //revised code 14
-#define IR_ONE          0x6BB9 //code 1
-#define IR_TWO          0x6EAD //code 2
-#define IR_THREE        0x3BAD //code 3
+#define IR_ONE          0xEBBA //code 1
+#define IR_TWO          0xEEAE //code 2
+#define IR_THREE        0x1111 //code 3
 #define IR_FOUR         0xAEE9 //code 4
 #define IR_FIVE         0xBBA9 //code 5
 #define IR_SIX          0xBBB9 //code 6
 #define IR_SEVEN        0xABA9 //code 7
 #define IR_EIGHT        0x6EE9 //code 8
 #define IR_NINE         0x6EB9 //code 9
-#define IR_ZERO         0xBAB9 //code 0
+#define IR_ZERO         0xBABA //code 0
 #define IR_ASTERISC     0xAABA //revised code 15
 #define IR_GATO         0xAEBA //revised code 16
 
@@ -93,6 +93,7 @@
 
 int state, next;
 char human_code; //code contains the last received code
+char aux1[NUM_DIGITS]; //variable array to hold display values
 
 void put_num(char num); //put a single number on the display
 void put_nums(char nums[]); //update all the numbers from the display

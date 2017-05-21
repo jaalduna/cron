@@ -4347,6 +4347,7 @@ void ConfigureOscillator(void);
 # 94 "user.h"
 int state, next;
 char human_code;
+char aux1[6];
 
 void put_num(char num);
 void put_nums(char nums[]);
@@ -4460,7 +4461,7 @@ InitApp();
 
 
 
-char aux1[6];
+
 aux1[0] = 1;
 aux1[1] = 2;
 aux1[2] = 3;
@@ -4488,8 +4489,10 @@ case 1:
 
 
 if(ir_is_code_number(human_code) && human_code <=2)
+{
 aux1[3] = human_code;
 next = 2;
+}
 
 put_nums(aux1);
 _delay((unsigned long)((500)*(20000000L/4000.0)));
@@ -4497,6 +4500,9 @@ put_nums_individual(aux1[5], aux1[4], 'V',aux1[2],aux1[1],aux1[0]);
 _delay((unsigned long)((500)*(20000000L/4000.0)));
 break;
 case 2:
+
+if(ir_is_code_number(human_code) && ((aux1[3]<2 && human_code <=9) || human_code <=3))
+aux1[2] = human_code;
 put_nums(aux1);
 _delay((unsigned long)((500)*(20000000L/4000.0)));
 put_nums_individual(aux1[5], aux1[4], aux1[3],'V',aux1[1],aux1[0]);

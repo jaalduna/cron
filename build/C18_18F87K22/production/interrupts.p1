@@ -23,6 +23,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [t T13 __deprecated__ ]
 "8598 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _RB5 `Vb ~T13 @X0 0 e@31757 ]
+"126 user.h
+[v _ir_get_human_code `(uc ~T0 @X0 0 ef1`i ]
+"129
+[v _get_next_state `(i ~T0 @X0 0 ef2`i`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3151,35 +3155,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"93 user.h
+"94 user.h
 [v _state `i ~T0 @X0 1 e ]
 [v _next `i ~T0 @X0 1 e ]
-[; ;user.h: 93: int state, next;
-[; ;user.h: 95: void put_num(char num);
-[; ;user.h: 96: void put_nums(char nums[]);
-[; ;user.h: 97: char get_num(char num);
-[; ;user.h: 98: void point_enable(void);
-[; ;user.h: 99: void point_disable(void);
-[; ;user.h: 100: void point_toggle(void);
-[; ;user.h: 102: void buzzer_enable(void);
-[; ;user.h: 103: void buzzer_disable(void);
-[; ;user.h: 104: void buzzer_toggle(void);
-[; ;user.h: 106: void ce_enable(void);
-[; ;user.h: 107: void ce_disable(void);
-[; ;user.h: 108: char byte_read(char address);
-[; ;user.h: 109: void byte_write(char address, char value);
-[; ;user.h: 110: char get_seconds_reg(char seconds);
-[; ;user.h: 111: char get_hour_reg(char hour);
-[; ;user.h: 112: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 113: void get_time(char data[]);
-[; ;user.h: 115: void send_command(char command);
-[; ;user.h: 116: void io_as_input(void);
-[; ;user.h: 117: void io_as_output(void);
-[; ;user.h: 121: void InitApp(void);
+[; ;user.h: 94: int state, next;
+"95
+[v _human_code `uc ~T0 @X0 1 e ]
+[; ;user.h: 95: char human_code;
+"96
+[v _aux1 `uc ~T0 @X0 -> 6 `i e ]
+[; ;user.h: 96: char aux1[6];
+[; ;user.h: 98: void put_num(char num);
+[; ;user.h: 99: void put_nums(char nums[]);
+[; ;user.h: 100: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 101: char get_num(char num);
+[; ;user.h: 102: void point_enable(void);
+[; ;user.h: 103: void point_disable(void);
+[; ;user.h: 104: void point_toggle(void);
+[; ;user.h: 106: void buzzer_enable(void);
+[; ;user.h: 107: void buzzer_disable(void);
+[; ;user.h: 108: void buzzer_toggle(void);
+[; ;user.h: 110: void ce_enable(void);
+[; ;user.h: 111: void ce_disable(void);
+[; ;user.h: 112: char byte_read(char address);
+[; ;user.h: 113: void byte_write(char address, char value);
+[; ;user.h: 114: char get_seconds_reg(char seconds);
+[; ;user.h: 115: char get_hour_reg(char hour);
+[; ;user.h: 116: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 117: void get_time(char data[]);
+[; ;user.h: 119: void send_command(char command);
+[; ;user.h: 120: void io_as_input(void);
+[; ;user.h: 121: void io_as_output(void);
+[; ;user.h: 124: char ir_is_code_number(char human_code);
+[; ;user.h: 126: char ir_get_human_code(int code);
+[; ;user.h: 129: int get_next_state(int state,int code);
+[; ;user.h: 134: void InitApp(void);
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-[v F3395 `(v ~T0 @X0 1 tf ]
+[v F3411 `(v ~T0 @X0 1 tf ]
 "30 interrupts.c
-[v _high_isr `IF3395 ~T0 @X0 1 e ]
+[v _high_isr `IF3411 ~T0 @X0 1 e ]
 "39
 {
 [; ;interrupts.c: 30: void interrupt high_isr(void)
@@ -3259,61 +3273,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "85
 }
 [; ;interrupts.c: 85: }
-[; ;interrupts.c: 88: if(state == 0 & final_code == 0xAEBA) next = 1;
-"88
-[e $ ! & == _state -> 0 `i == -> _final_code `ui -> 44730 `ui 330  ]
-[e = _next -> 1 `i ]
-[e :U 330 ]
-[; ;interrupts.c: 90: if(state == 1 && final_code == 0xAAEE) next = 2;
+[; ;interrupts.c: 90: if(final_code !=0xffff)
 "90
-[e $ ! && == _state -> 1 `i == -> _final_code `ui -> 43758 `ui 331  ]
-[e = _next -> 2 `i ]
-[e :U 331 ]
-[; ;interrupts.c: 91: if(state == 2 && final_code == 0xAAEE) next = 3;
+[e $ ! != -> _final_code `ui -> 65535 `ui 330  ]
+[; ;interrupts.c: 91: {
 "91
-[e $ ! && == _state -> 2 `i == -> _final_code `ui -> 43758 `ui 332  ]
-[e = _next -> 3 `i ]
-[e :U 332 ]
-[; ;interrupts.c: 92: if(state == 3 && final_code == 0xAAEE) next = 4;
+{
+[; ;interrupts.c: 92: human_code = ir_get_human_code(final_code);
 "92
-[e $ ! && == _state -> 3 `i == -> _final_code `ui -> 43758 `ui 333  ]
-[e = _next -> 4 `i ]
-[e :U 333 ]
-[; ;interrupts.c: 93: if(state == 4 && final_code == 0xAAEE) next = 1;
+[e = _human_code ( _ir_get_human_code (1 _final_code ]
+[; ;interrupts.c: 93: next = get_next_state(state,final_code);
 "93
-[e $ ! && == _state -> 4 `i == -> _final_code `ui -> 43758 `ui 334  ]
-[e = _next -> 1 `i ]
-[e :U 334 ]
-[; ;interrupts.c: 94: if((state == 1 || state == 2 || state == 3 || state == 4) && final_code == 0xAABA) next = 0;
+[e = _next ( _get_next_state (2 , _state _final_code ]
 "94
-[e $ ! && || || || == _state -> 1 `i == _state -> 2 `i == _state -> 3 `i == _state -> 4 `i == -> _final_code `ui -> 43706 `ui 335  ]
-[e = _next -> 0 `i ]
-[e :U 335 ]
-[; ;interrupts.c: 97: RBIF = 0;
-"97
+}
+[e :U 330 ]
+[; ;interrupts.c: 94: }
+[; ;interrupts.c: 96: RBIF = 0;
+"96
 [e = _RBIF -> -> 0 `i `b ]
-[; ;interrupts.c: 98: INTCONbits.GIE = 1;
-"98
+[; ;interrupts.c: 97: INTCONbits.GIE = 1;
+"97
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"99
+"98
 }
 [e :U 323 ]
+[; ;interrupts.c: 98: }
 [; ;interrupts.c: 99: }
-[; ;interrupts.c: 102: }
-"102
+"99
 [e :UE 322 ]
-}
-[v $root$_low_isr `(v ~T0 @X0 0 e ]
-[v F3404 `(v ~T0 @X0 1 tf ]
-"106
-[v _low_isr `ILF3404 ~T0 @X0 1 e ]
-"114
-{
-[; ;interrupts.c: 106: void low_priority interrupt low_isr(void)
-[; ;interrupts.c: 114: {
-[e :U _low_isr ]
-[f ]
-[; ;interrupts.c: 141: }
-"141
-[e :UE 336 ]
 }

@@ -305,9 +305,17 @@ int get_next_state(int state,int code)
      else if(state == STATE_MM2 && code == IR_RIGHT) 
             next = STATE_HH1;
      else if((state == STATE_HH1 || state == STATE_HH2 || state == STATE_MM1 || state == STATE_MM2) && code == IR_ESC) 
+     {
             next = STATE_TIME;
-        else
+            char seconds = 0;
+            char minutes = aux1[0] + aux1[1]*10;
+            char hour = aux1[2] + aux1[3]*10;
+            set_time(seconds,minutes,hour);
+     }
+     else
             next = next;
+     
+     return next;
 }
 
 /*is_code_number return 1 if human_code is a number or 0 if not*/

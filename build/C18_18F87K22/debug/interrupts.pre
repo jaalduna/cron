@@ -4344,6 +4344,7 @@ typedef unsigned char bool;
 # 94 "user.h"
 int state, next;
 char human_code;
+char aux1[6];
 
 void put_num(char num);
 void put_nums(char nums[]);
@@ -4414,7 +4415,7 @@ final_code |= code[i]<<i;
 
 
 
-if(final_code !=0xff)
+if(final_code !=0xffff)
 {
 human_code = ir_get_human_code(final_code);
 next = get_next_state(state,final_code);
@@ -4423,16 +4424,4 @@ next = get_next_state(state,final_code);
 RBIF = 0;
 INTCONbits.GIE = 1;
 }
-
-
-}
-
-
-
-void low_priority interrupt low_isr(void)
-
-# 113
-{
-
-# 140
 }
