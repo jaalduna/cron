@@ -1,0 +1,280 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2550 ]
+[d frameptr 4065 ]
+"62 /Applications/microchip/xc8/v1.42/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /Applications/microchip/xc8/v1.42/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 /Applications/microchip/xc8/v1.42/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 /Applications/microchip/xc8/v1.42/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 /Applications/microchip/xc8/v1.42/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 /Applications/microchip/xc8/v1.42/sources/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 /Applications/microchip/xc8/v1.42/sources/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 /Applications/microchip/xc8/v1.42/sources/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 /Applications/microchip/xc8/v1.42/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"30 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+[v _high_isr high_isr `II(v  1 e 1 0 ]
+"106
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+"37 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"24 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+"28 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+"51
+[v _put_num put_num `(v  1 e 1 0 ]
+"63
+[v _put_nums put_nums `(v  1 e 1 0 ]
+"72
+[v _get_num get_num `(uc  1 e 1 0 ]
+"95
+[v _point_enable point_enable `(v  1 e 1 0 ]
+"100
+[v _point_disable point_disable `(v  1 e 1 0 ]
+"105
+[v _point_toggle point_toggle `(v  1 e 1 0 ]
+"113
+[v _buzzer_enable buzzer_enable `(v  1 e 1 0 ]
+"118
+[v _buzzer_disable buzzer_disable `(v  1 e 1 0 ]
+"131
+[v _ce_enable ce_enable `(v  1 e 1 0 ]
+"134
+[v _ce_disable ce_disable `(v  1 e 1 0 ]
+"139
+[v _byte_read byte_read `(uc  1 e 1 0 ]
+"164
+[v _byte_write byte_write `(v  1 e 1 0 ]
+"188
+[v _get_time get_time `(v  1 e 1 0 ]
+"205
+[v _get_seconds_reg get_seconds_reg `(uc  1 e 1 0 ]
+"235
+[v _get_hour_reg get_hour_reg `(uc  1 e 1 0 ]
+"254
+[v _send_command send_command `(v  1 e 1 0 ]
+"269
+[v _io_as_input io_as_input `(v  1 e 1 0 ]
+"274
+[v _io_as_output io_as_output `(v  1 e 1 0 ]
+"5157 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"5398
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"5685
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+"7399
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S22 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7431
+[s S31 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S40 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S44 . 1 `S22 1 . 1 0 `S31 1 . 1 0 `S40 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES44  1 e 1 @4082 ]
+"8578
+[v _RA2 RA2 `VEb  1 e 0 @31746 ]
+"8580
+[v _RA3 RA3 `VEb  1 e 0 @31747 ]
+"8584
+[v _RA5 RA5 `VEb  1 e 0 @31749 ]
+"8588
+[v _RB0 RB0 `VEb  1 e 0 @31752 ]
+"8590
+[v _RB1 RB1 `VEb  1 e 0 @31753 ]
+"8594
+[v _RB3 RB3 `VEb  1 e 0 @31755 ]
+"8596
+[v _RB4 RB4 `VEb  1 e 0 @31756 ]
+"8598
+[v _RB5 RB5 `VEb  1 e 0 @31757 ]
+"8606
+[v _RBIF RBIF `VEb  1 e 0 @32656 ]
+"8880
+[v _TRISA2 TRISA2 `VEb  1 e 0 @31890 ]
+"8882
+[v _TRISA3 TRISA3 `VEb  1 e 0 @31891 ]
+"8886
+[v _TRISA5 TRISA5 `VEb  1 e 0 @31893 ]
+"8892
+[v _TRISB1 TRISB1 `VEb  1 e 0 @31897 ]
+"8896
+[v _TRISB3 TRISB3 `VEb  1 e 0 @31899 ]
+"8898
+[v _TRISB4 TRISB4 `VEb  1 e 0 @31900 ]
+"93 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.h
+[v _state state `i  1 e 2 0 ]
+[v _next next `i  1 e 2 0 ]
+"37 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"47
+[v main@aux1 aux1 `[6]uc  1 a 6 37 ]
+"55
+[v main@temp temp `uc  1 a 1 36 ]
+"85
+} 0
+"63 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+[v _put_nums put_nums `(v  1 e 1 0 ]
+{
+"65
+[v put_nums@i i `i  1 a 2 26 ]
+"63
+[v put_nums@nums nums `*.39uc  1 p 2 24 ]
+"70
+} 0
+"51
+[v _put_num put_num `(v  1 e 1 0 ]
+{
+[v put_num@num num `uc  1 a 1 wreg ]
+"54
+[v put_num@i i `i  1 a 2 22 ]
+"53
+[v put_num@mask mask `uc  1 a 1 20 ]
+"51
+[v put_num@num num `uc  1 a 1 wreg ]
+"53
+[v put_num@num num `uc  1 a 1 19 ]
+"61
+} 0
+"72
+[v _get_num get_num `(uc  1 e 1 0 ]
+{
+[v get_num@num num `uc  1 a 1 wreg ]
+[v get_num@num num `uc  1 a 1 wreg ]
+[v get_num@num num `uc  1 a 1 17 ]
+"93
+} 0
+"105
+[v _point_toggle point_toggle `(v  1 e 1 0 ]
+{
+"111
+} 0
+"95
+[v _point_enable point_enable `(v  1 e 1 0 ]
+{
+"98
+} 0
+"100
+[v _point_disable point_disable `(v  1 e 1 0 ]
+{
+"103
+} 0
+"188
+[v _get_time get_time `(v  1 e 1 0 ]
+{
+"190
+[v get_time@aux aux `uc  1 a 1 33 ]
+"195
+[v get_time@hours hours `uc  1 a 1 32 ]
+"193
+[v get_time@minutes minutes `uc  1 a 1 31 ]
+"191
+[v get_time@seconds seconds `uc  1 a 1 30 ]
+"188
+[v get_time@data data `*.39uc  1 p 2 28 ]
+"203
+} 0
+"139
+[v _byte_read byte_read `(uc  1 e 1 0 ]
+{
+[v byte_read@address address `uc  1 a 1 wreg ]
+"147
+[v byte_read@i i `i  1 a 2 26 ]
+"140
+[v byte_read@res res `uc  1 a 1 25 ]
+"139
+[v byte_read@address address `uc  1 a 1 wreg ]
+[v byte_read@address address `uc  1 a 1 24 ]
+"162
+} 0
+"254
+[v _send_command send_command `(v  1 e 1 0 ]
+{
+[v send_command@command command `uc  1 a 1 wreg ]
+"256
+[v send_command@i i `i  1 a 2 20 ]
+"254
+[v send_command@command command `uc  1 a 1 wreg ]
+"257
+[v send_command@command command `uc  1 a 1 19 ]
+"267
+} 0
+"274
+[v _io_as_output io_as_output `(v  1 e 1 0 ]
+{
+"277
+} 0
+"269
+[v _io_as_input io_as_input `(v  1 e 1 0 ]
+{
+"272
+} 0
+"131
+[v _ce_enable ce_enable `(v  1 e 1 0 ]
+{
+"133
+} 0
+"134
+[v _ce_disable ce_disable `(v  1 e 1 0 ]
+{
+"137
+} 0
+"28
+[v _InitApp InitApp `(v  1 e 1 0 ]
+{
+"49
+} 0
+"24 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+{
+"31
+} 0
+"106 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+[v _low_isr low_isr `IIL(v  1 e 1 0 ]
+{
+"141
+} 0
+"30
+[v _high_isr high_isr `II(v  1 e 1 0 ]
+{
+"73
+[v high_isr@code code `[47]uc  1 a 47 17 ]
+"72
+[v high_isr@i i `i  1 a 2 67 ]
+"81
+[v high_isr@final_code final_code `i  1 a 2 65 ]
+"70
+[v high_isr@aux aux `uc  1 a 1 64 ]
+"102
+} 0
