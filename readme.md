@@ -11,3 +11,4 @@ Display refresh, should be done on a timer interrupt routine to enable the main 
 1. Implement DOWN
 1. Implement CRON
 1. Implement INTERVAL
+1. Fix buzzer 
