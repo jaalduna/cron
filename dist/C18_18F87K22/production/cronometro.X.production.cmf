@@ -12,43 +12,45 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/C18_18F87K22/production/cronometro.X.production.obj
-cinit CODE 0 B9A B9A 1A 1
-intcode_body CODE 0 2BE 2BE 162 1
-text0 CODE 0 12 12 2AC 1
-text1 CODE 0 A6E A6E 4E 1
-text2 CODE 0 ABC ABC 48 1
-text3 CODE 0 866 866 7A 1
-text4 CODE 0 728 728 B0 1
-text5 CODE 0 BCC BCC 10 1
-text6 CODE 0 BE8 BE8 4 1
-text7 CODE 0 BEC BEC 4 1
-text8 CODE 0 950 950 6E 1
-text9 CODE 0 676 676 B2 1
-nvCOMRAM COMRAM 1 5A 5A 2 1
-text10 CODE 0 7D8 7D8 8E 1
-text11 CODE 0 8E0 8E0 70 1
-text12 CODE 0 BF0 BF0 4 1
-text13 CODE 0 BF4 BF4 4 1
-text14 CODE 0 BF8 BF8 4 1
-text15 CODE 0 BDC BDC 6 1
-text16 CODE 0 B3E B3E 30 1
-text17 CODE 0 C04 C04 2 1
-text19 CODE 0 420 420 142 1
-text20 CODE 0 562 562 114 1
-text21 CODE 0 B04 B04 3A 1
-text22 CODE 0 A18 A18 56 1
-text23 CODE 0 B6E B6E 2C 1
-text24 CODE 0 BB4 BB4 18 1
-text25 CODE 0 9BE 9BE 5A 1
-text26 CODE 0 BFC BFC 4 1
-text27 CODE 0 C00 C00 4 1
-text28 CODE 0 BE2 BE2 6 1
-cstackCOMRAM COMRAM 1 1 1 59 1
-cstackBANK0 BANK0 1 60 60 13 1
-temp COMRAM 1 5C 5C 1 1
-bssBANK0 BANK0 1 73 73 9 1
+cinit CODE 0 AE4 AE4 1A 1
+intcode_body CODE 0 12 12 2B8 1
+text0 CODE 0 2CA 2CA 130 1
+text1 CODE 0 956 956 56 1
+text2 CODE 0 63C 63C F4 1
+text3 CODE 0 7DC 7DC 6E 1
+text4 CODE 0 84A 84A 5A 1
+text5 CODE 0 B30 B30 4 1
+text6 CODE 0 B34 B34 4 1
+text7 CODE 0 B38 B38 4 1
+text8 CODE 0 B24 B24 6 1
+text9 CODE 0 B3C B3C 4 1
+text10 CODE 0 A02 A02 46 1
+text11 CODE 0 B58 B58 2 1
+text13 CODE 0 B40 B40 4 1
+text14 CODE 0 B16 B16 E 1
+text15 CODE 0 A82 A82 36 1
+text16 CODE 0 8FE 8FE 58 1
+text17 CODE 0 730 730 AC 1
+text18 CODE 0 B44 B44 4 1
+text19 CODE 0 B48 B48 4 1
+text20 CODE 0 3FA 3FA 12E 1
+text21 CODE 0 528 528 114 1
+text22 CODE 0 A48 A48 3A 1
+text23 CODE 0 9AC 9AC 56 1
+text24 CODE 0 AB8 AB8 2C 1
+text25 CODE 0 AFE AFE 18 1
+text26 CODE 0 8A4 8A4 5A 1
+text27 CODE 0 B4C B4C 4 1
+text28 CODE 0 B50 B50 4 1
+text29 CODE 0 B2A B2A 6 1
+text30 CODE 0 B54 B54 4 1
+nvBANK0 BANK0 1 B1 B1 2 1
+cstackCOMRAM COMRAM 1 1 1 38 1
+cstackBANK0 BANK0 1 60 60 41 1
+temp COMRAM 1 39 39 1 1
+bssBANK0 BANK0 1 A1 A1 10 1
 intcode CODE 0 8 8 6 1
-$/tmp/xcoyurU7i.obj
+$/tmp/xcbkSPaQT.obj
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -59,9 +61,9 @@ config CONFIG 0 300000 300000 E 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 7C-7FF 1
+RAM B3-7FF 1
 SFR F60-FFF 1
-BANK0 7C-FF 1
+BANK0 B3-FF 1
 BANK1 100-1FF 1
 BANK2 200-2FF 1
 BANK3 300-3FF 1
@@ -70,16 +72,16 @@ BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
 CONST 4-7 1
-CONST C06-7FFF 1
-STACK 7C-7FF 1
-SMALLCONST C06-7FFF 1
+CONST B5A-7FFF 1
+STACK B3-7FF 1
+SMALLCONST B5A-7FFF 1
 CODE 4-7 1
-CODE C06-7FFF 1
-BIGRAM 5D-5F 1
-BIGRAM 7C-7FF 1
-COMRAM 5D-5F 1
+CODE B5A-7FFF 1
+BIGRAM 3A-5F 1
+BIGRAM B3-7FF 1
+COMRAM 3A-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST C06-7FFF 1
+MEDIUMCONST B5A-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -94,326 +96,358 @@ MEDIUMCONST C06-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/C18_18F87K22/production/cronometro.X.production.obj
-8 intcode CODE >30:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+8 intcode CODE >32:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
 8 intcode CODE >31:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
-BE2 text28 CODE >145:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE2 text28 CODE >146:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE4 text28 CODE >147:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE6 text28 CODE >148:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-C00 text27 CODE >142:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-C00 text27 CODE >143:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-C02 text27 CODE >144:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BFC text26 CODE >285:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BFC text26 CODE >287:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BFE text26 CODE >288:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9BE text25 CODE >265:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9C0 text25 CODE >268:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9C4 text25 CODE >269:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9DC text25 CODE >271:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9FC text25 CODE >272:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9FE text25 CODE >273:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A06 text25 CODE >274:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A08 text25 CODE >275:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A10 text25 CODE >269:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A16 text25 CODE >278:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BB4 text24 CODE >175:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BB6 text24 CODE >177:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BBA text24 CODE >180:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BC0 text24 CODE >181:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BC6 text24 CODE >183:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BCA text24 CODE >184:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B6E text23 CODE >246:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B70 text23 CODE >248:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B74 text23 CODE >249:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B7A text23 CODE >251:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B7E text23 CODE >252:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B80 text23 CODE >253:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B86 text23 CODE >255:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B8E text23 CODE >259:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B96 text23 CODE >262:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A18 text22 CODE >216:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A1A text22 CODE >218:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A1E text22 CODE >219:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A24 text22 CODE >221:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A28 text22 CODE >222:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A2A text22 CODE >223:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A30 text22 CODE >225:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A38 text22 CODE >227:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A3E text22 CODE >229:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A46 text22 CODE >231:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A4C text22 CODE >233:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A54 text22 CODE >235:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A5A text22 CODE >237:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A62 text22 CODE >241:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A6A text22 CODE >244:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B04 text21 CODE >186:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B06 text21 CODE >189:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B0E text21 CODE >190:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B16 text21 CODE >191:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B1E text21 CODE >193:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B28 text21 CODE >194:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B32 text21 CODE >195:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B3C text21 CODE >198:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-562 text20 CODE >295:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-562 text20 CODE >297:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-576 text20 CODE >298:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-578 text20 CODE >299:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-58E text20 CODE >300:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-598 text20 CODE >301:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-5B0 text20 CODE >302:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-5BA text20 CODE >303:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-5D2 text20 CODE >304:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-5DC text20 CODE >305:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-5F4 text20 CODE >306:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-600 text20 CODE >307:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-634 text20 CODE >309:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-63E text20 CODE >310:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-642 text20 CODE >311:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-650 text20 CODE >312:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-65E text20 CODE >313:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-66C text20 CODE >316:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-66C text20 CODE >318:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-674 text20 CODE >319:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-420 text19 CODE >332:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-420 text19 CODE >335:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-422 text19 CODE >338:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-426 text19 CODE >339:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-428 text19 CODE >341:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-42C text19 CODE >342:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-42E text19 CODE >344:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-432 text19 CODE >345:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-434 text19 CODE >347:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-438 text19 CODE >348:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-43A text19 CODE >350:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-43E text19 CODE >351:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-440 text19 CODE >353:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-444 text19 CODE >354:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-446 text19 CODE >356:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-44A text19 CODE >357:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-44C text19 CODE >359:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-450 text19 CODE >360:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-452 text19 CODE >362:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-456 text19 CODE >363:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-458 text19 CODE >365:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-45C text19 CODE >366:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-45E text19 CODE >368:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-462 text19 CODE >369:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-464 text19 CODE >371:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-468 text19 CODE >372:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-46A text19 CODE >374:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-46E text19 CODE >375:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-470 text19 CODE >377:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-474 text19 CODE >378:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-476 text19 CODE >380:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-47A text19 CODE >381:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-47C text19 CODE >383:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-480 text19 CODE >384:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-482 text19 CODE >386:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-486 text19 CODE >387:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-488 text19 CODE >389:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-48A text19 CODE >390:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-48C text19 CODE >335:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-2BE intcode_body CODE >30:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-2F8 intcode_body CODE >66:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-2FC intcode_body CODE >69:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-2FE intcode_body CODE >70:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-302 intcode_body CODE >75:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-318 intcode_body CODE >76:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-330 intcode_body CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-344 intcode_body CODE >79:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-352 intcode_body CODE >76:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-358 intcode_body CODE >81:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-360 intcode_body CODE >82:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-378 intcode_body CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3A4 intcode_body CODE >82:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3AA intcode_body CODE >90:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3B4 intcode_body CODE >92:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3C4 intcode_body CODE >93:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3E0 intcode_body CODE >96:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3E2 intcode_body CODE >97:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-3E4 intcode_body CODE >99:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
-C04 text17 CODE >24:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
-C04 text17 CODE >31:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
-B3E text16 CODE >28:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B3E text16 CODE >32:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B40 text16 CODE >33:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B42 text16 CODE >35:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B46 text16 CODE >36:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B4A text16 CODE >37:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B4E text16 CODE >38:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B52 text16 CODE >39:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B54 text16 CODE >40:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B56 text16 CODE >41:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B58 text16 CODE >42:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B5A text16 CODE >46:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B62 text16 CODE >47:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B6C text16 CODE >49:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BDC text15 CODE >145:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BDC text15 CODE >146:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BDE text15 CODE >147:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE0 text15 CODE >148:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF8 text14 CODE >142:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF8 text14 CODE >143:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BFA text14 CODE >144:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF4 text13 CODE >280:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF4 text13 CODE >282:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF6 text13 CODE >283:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF0 text12 CODE >285:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF0 text12 CODE >287:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BF2 text12 CODE >288:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8E0 text11 CODE >265:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8E4 text11 CODE >268:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8E8 text11 CODE >269:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-908 text11 CODE >271:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-932 text11 CODE >272:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-934 text11 CODE >273:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-93C text11 CODE >274:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-93E text11 CODE >275:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-946 text11 CODE >269:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-94E text11 CODE >278:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7D8 text10 CODE >150:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7DC text10 CODE >151:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7E2 text10 CODE >154:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7E6 text10 CODE >156:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7EE text10 CODE >157:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-7F2 text10 CODE >159:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-812 text10 CODE >160:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-812 text10 CODE >161:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-814 text10 CODE >162:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-81C text10 CODE >163:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-84A text10 CODE >164:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-84C text10 CODE >165:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-854 text10 CODE >159:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-85C text10 CODE >169:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-860 text10 CODE >172:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-676 text9 CODE >199:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-676 text9 CODE >201:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-67C text9 CODE >202:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-688 text9 CODE >203:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-68E text9 CODE >204:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-69A text9 CODE >205:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-6A0 text9 CODE >206:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-6AC text9 CODE >208:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-6BC text9 CODE >209:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-6D4 text9 CODE >210:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-6EA text9 CODE >211:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-702 text9 CODE >212:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-714 text9 CODE >213:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-726 text9 CODE >214:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-950 text8 CODE >322:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-950 text8 CODE >323:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-954 text8 CODE >325:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9B6 text8 CODE >326:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-9BA text8 CODE >328:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BEC text7 CODE >111:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BEC text7 CODE >113:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BEE text7 CODE >114:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE8 text6 CODE >106:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BE8 text6 CODE >108:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BEA text6 CODE >109:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BCC text5 CODE >116:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BCC text5 CODE >118:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BD0 text5 CODE >119:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-BD6 text5 CODE >121:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-728 text4 CODE >82:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-72C text4 CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-72E text4 CODE >86:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-732 text4 CODE >87:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-736 text4 CODE >88:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-73A text4 CODE >89:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-73E text4 CODE >90:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-742 text4 CODE >91:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-746 text4 CODE >92:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-74A text4 CODE >93:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-74E text4 CODE >94:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-752 text4 CODE >95:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-756 text4 CODE >96:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-75A text4 CODE >97:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-75E text4 CODE >98:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-762 text4 CODE >99:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-766 text4 CODE >100:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-76A text4 CODE >101:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-76E text4 CODE >102:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-770 text4 CODE >103:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-772 text4 CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-866 text3 CODE >51:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-86A text3 CODE >53:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-870 text3 CODE >55:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-890 text3 CODE >57:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8D2 text3 CODE >58:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8D4 text3 CODE >59:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8D6 text3 CODE >55:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-8DE text3 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-ABC text2 CODE >63:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-ABC text2 CODE >66:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-ADC text2 CODE >68:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-AFA text2 CODE >66:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-B02 text2 CODE >70:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A6E text1 CODE >72:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A72 text1 CODE >74:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A7E text1 CODE >75:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A8A text1 CODE >76:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-A96 text1 CODE >77:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-AA2 text1 CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-AAE text1 CODE >79:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-ABA text1 CODE >80:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
-12 text0 CODE >37:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-12 text0 CODE >40:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-16 text0 CODE >43:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-1A text0 CODE >48:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-20 text0 CODE >49:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-26 text0 CODE >50:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-2C text0 CODE >51:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-32 text0 CODE >52:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-38 text0 CODE >53:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-3E text0 CODE >59:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-46 text0 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-48 text0 CODE >63:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-58 text0 CODE >64:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-68 text0 CODE >65:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-84 text0 CODE >66:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-88 text0 CODE >68:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-A4 text0 CODE >69:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-A8 text0 CODE >70:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-AA text0 CODE >74:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-C0 text0 CODE >75:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-C4 text0 CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-D4 text0 CODE >79:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-F0 text0 CODE >80:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-10E text0 CODE >81:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-12A text0 CODE >85:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-150 text0 CODE >86:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-154 text0 CODE >87:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-164 text0 CODE >88:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-180 text0 CODE >89:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-19E text0 CODE >90:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-1BA text0 CODE >93:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-1CA text0 CODE >94:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-1E6 text0 CODE >95:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-204 text0 CODE >96:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-220 text0 CODE >99:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-230 text0 CODE >100:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-24C text0 CODE >101:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-26A text0 CODE >102:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-286 text0 CODE >106:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-288 text0 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-2BC text0 CODE >57:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
-B9A cinit CODE >1787:/tmp/xcwN0L7XZ
-B9A cinit CODE >1789:/tmp/xcwN0L7XZ
-B9A cinit CODE >1792:/tmp/xcwN0L7XZ
-B9A cinit CODE >1810:/tmp/xcwN0L7XZ
-B9E cinit CODE >1811:/tmp/xcwN0L7XZ
-BA0 cinit CODE >1812:/tmp/xcwN0L7XZ
-BA0 cinit CODE >1813:/tmp/xcwN0L7XZ
-BA2 cinit CODE >1814:/tmp/xcwN0L7XZ
-BA4 cinit CODE >1815:/tmp/xcwN0L7XZ
-BA6 cinit CODE >1821:/tmp/xcwN0L7XZ
-BA6 cinit CODE >1823:/tmp/xcwN0L7XZ
-BA8 cinit CODE >1824:/tmp/xcwN0L7XZ
-BAA cinit CODE >1826:/tmp/xcwN0L7XZ
-BAC cinit CODE >1827:/tmp/xcwN0L7XZ
-BAE cinit CODE >1828:/tmp/xcwN0L7XZ
-BB0 cinit CODE >1829:/tmp/xcwN0L7XZ
+B54 text30 CODE >132:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B54 text30 CODE >134:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B56 text30 CODE >135:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B2A text29 CODE >153:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B2A text29 CODE >154:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B2C text29 CODE >155:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B2E text29 CODE >156:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B50 text28 CODE >150:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B50 text28 CODE >151:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B52 text28 CODE >152:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B4C text27 CODE >319:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B4C text27 CODE >321:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B4E text27 CODE >322:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8A4 text26 CODE >299:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8A6 text26 CODE >302:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8AA text26 CODE >303:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8C2 text26 CODE >305:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8E2 text26 CODE >306:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8E4 text26 CODE >307:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8EC text26 CODE >308:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8EE text26 CODE >309:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8F6 text26 CODE >303:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8FC text26 CODE >312:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AFE text25 CODE >183:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B00 text25 CODE >185:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B04 text25 CODE >188:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B0A text25 CODE >189:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B10 text25 CODE >191:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B14 text25 CODE >192:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AB8 text24 CODE >280:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+ABA text24 CODE >282:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+ABE text24 CODE >283:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AC4 text24 CODE >285:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AC8 text24 CODE >286:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+ACA text24 CODE >287:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AD0 text24 CODE >289:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AD8 text24 CODE >293:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AE0 text24 CODE >296:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9AC text23 CODE >250:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9AE text23 CODE >252:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9B2 text23 CODE >253:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9B8 text23 CODE >255:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9BC text23 CODE >256:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9BE text23 CODE >257:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9C4 text23 CODE >259:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9CC text23 CODE >261:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9D2 text23 CODE >263:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9DA text23 CODE >265:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9E0 text23 CODE >267:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9E8 text23 CODE >269:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9EE text23 CODE >271:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9F6 text23 CODE >275:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9FE text23 CODE >278:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A48 text22 CODE >194:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A4A text22 CODE >197:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A52 text22 CODE >198:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A5A text22 CODE >199:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A62 text22 CODE >201:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A6C text22 CODE >202:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A76 text22 CODE >203:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A80 text22 CODE >206:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+528 text21 CODE >329:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+528 text21 CODE >331:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+53C text21 CODE >332:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+53E text21 CODE >333:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+554 text21 CODE >334:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+55E text21 CODE >335:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+576 text21 CODE >336:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+580 text21 CODE >337:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+598 text21 CODE >338:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+5A2 text21 CODE >339:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+5BA text21 CODE >340:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+5C6 text21 CODE >341:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+5FA text21 CODE >343:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+604 text21 CODE >344:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+608 text21 CODE >345:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+616 text21 CODE >346:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+624 text21 CODE >347:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+632 text21 CODE >350:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+632 text21 CODE >352:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+63A text21 CODE >353:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+3FA text20 CODE >366:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+3FA text20 CODE >369:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+3FC text20 CODE >372:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+400 text20 CODE >373:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+402 text20 CODE >375:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+406 text20 CODE >376:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+408 text20 CODE >378:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+40C text20 CODE >379:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+40E text20 CODE >381:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+412 text20 CODE >382:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+414 text20 CODE >384:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+418 text20 CODE >385:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+41A text20 CODE >387:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+41E text20 CODE >388:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+420 text20 CODE >390:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+424 text20 CODE >391:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+426 text20 CODE >393:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+42A text20 CODE >394:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+42C text20 CODE >396:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+430 text20 CODE >397:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+432 text20 CODE >399:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+436 text20 CODE >400:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+438 text20 CODE >402:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+43C text20 CODE >403:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+43E text20 CODE >405:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+442 text20 CODE >406:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+444 text20 CODE >408:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+448 text20 CODE >409:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+44A text20 CODE >411:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+44E text20 CODE >412:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+450 text20 CODE >414:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+454 text20 CODE >415:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+456 text20 CODE >417:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+45A text20 CODE >418:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+45C text20 CODE >420:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+460 text20 CODE >421:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+462 text20 CODE >423:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+464 text20 CODE >424:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+466 text20 CODE >369:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B48 text19 CODE >119:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B48 text19 CODE >121:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B4A text19 CODE >122:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B44 text18 CODE >114:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B44 text18 CODE >116:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B46 text18 CODE >117:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+730 text17 CODE >90:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+732 text17 CODE >92:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+734 text17 CODE >94:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+738 text17 CODE >95:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+73C text17 CODE >96:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+740 text17 CODE >97:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+744 text17 CODE >98:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+748 text17 CODE >99:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+74C text17 CODE >100:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+750 text17 CODE >101:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+754 text17 CODE >102:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+758 text17 CODE >103:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+75C text17 CODE >104:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+760 text17 CODE >105:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+764 text17 CODE >106:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+768 text17 CODE >107:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+76C text17 CODE >108:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+770 text17 CODE >109:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+774 text17 CODE >110:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+776 text17 CODE >111:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+778 text17 CODE >92:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8FE text16 CODE >59:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+900 text16 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+904 text16 CODE >63:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+91C text16 CODE >65:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+94A text16 CODE >66:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+94C text16 CODE >67:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+94E text16 CODE >63:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+954 text16 CODE >69:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A82 text15 CODE >71:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A82 text15 CODE >74:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A9A text15 CODE >76:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AB0 text15 CODE >74:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+AB6 text15 CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B16 text14 CODE >430:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B16 text14 CODE >432:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B22 text14 CODE >433:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B40 text13 CODE >137:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B40 text13 CODE >139:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B42 text13 CODE >140:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+12 intcode_body CODE >32:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+4C intcode_body CODE >68:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+50 intcode_body CODE >71:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+52 intcode_body CODE >72:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+58 intcode_body CODE >77:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+6E intcode_body CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+8E intcode_body CODE >80:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+A6 intcode_body CODE >81:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+B6 intcode_body CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+BE intcode_body CODE >83:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+C8 intcode_body CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+E8 intcode_body CODE >86:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+11C intcode_body CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+124 intcode_body CODE >92:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+132 intcode_body CODE >94:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+142 intcode_body CODE >95:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+15E intcode_body CODE >98:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+160 intcode_body CODE >99:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+162 intcode_body CODE >100:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+164 intcode_body CODE >101:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+168 intcode_body CODE >104:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+188 intcode_body CODE >106:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1AC intcode_body CODE >104:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1B4 intcode_body CODE >109:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1BC intcode_body CODE >111:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1C2 intcode_body CODE >115:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1C8 intcode_body CODE >121:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1E8 intcode_body CODE >122:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1EC intcode_body CODE >121:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1F4 intcode_body CODE >124:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+1FC intcode_body CODE >126:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+200 intcode_body CODE >127:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+204 intcode_body CODE >128:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+206 intcode_body CODE >129:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+21C intcode_body CODE >131:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+220 intcode_body CODE >132:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+224 intcode_body CODE >135:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+22E intcode_body CODE >140:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+234 intcode_body CODE >141:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+236 intcode_body CODE >143:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+23C intcode_body CODE >144:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+23E intcode_body CODE >146:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+244 intcode_body CODE >147:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+246 intcode_body CODE >149:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+24C intcode_body CODE >151:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+24E intcode_body CODE >137:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+278 intcode_body CODE >154:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+28C intcode_body CODE >155:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+28E intcode_body CODE >157:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/interrupts.c
+B58 text11 CODE >24:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
+B58 text11 CODE >31:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
+A02 text10 CODE >28:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A02 text10 CODE >32:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A04 text10 CODE >33:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A06 text10 CODE >35:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A0A text10 CODE >36:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A0E text10 CODE >37:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A12 text10 CODE >38:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A16 text10 CODE >39:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A1A text10 CODE >40:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A1C text10 CODE >41:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A1E text10 CODE >42:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A20 text10 CODE >43:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A24 text10 CODE >44:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A26 text10 CODE >46:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A2A text10 CODE >47:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A2C text10 CODE >48:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A2E text10 CODE >49:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A30 text10 CODE >50:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A32 text10 CODE >54:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A3C text10 CODE >55:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+A46 text10 CODE >57:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B3C text9 CODE >137:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B3C text9 CODE >139:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B3E text9 CODE >140:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B24 text8 CODE >153:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B24 text8 CODE >154:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B26 text8 CODE >155:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B28 text8 CODE >156:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B38 text7 CODE >150:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B38 text7 CODE >151:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B3A text7 CODE >152:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B34 text6 CODE >314:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B34 text6 CODE >316:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B36 text6 CODE >317:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B30 text5 CODE >319:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B30 text5 CODE >321:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+B32 text5 CODE >322:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+84A text4 CODE >299:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+84C text4 CODE >302:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+850 text4 CODE >303:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+868 text4 CODE >305:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+888 text4 CODE >306:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+88A text4 CODE >307:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+892 text4 CODE >308:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+894 text4 CODE >309:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+89C text4 CODE >303:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+8A2 text4 CODE >312:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7DC text3 CODE >158:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7DE text3 CODE >159:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7E2 text3 CODE >162:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7E6 text3 CODE >164:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7EC text3 CODE >165:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+7F0 text3 CODE >167:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+808 text3 CODE >168:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+808 text3 CODE >169:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+80A text3 CODE >170:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+812 text3 CODE >171:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+832 text3 CODE >172:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+834 text3 CODE >173:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+83C text3 CODE >167:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+842 text3 CODE >177:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+846 text3 CODE >180:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+63C text2 CODE >208:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+63C text2 CODE >210:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+640 text2 CODE >211:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+648 text2 CODE >212:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+64C text2 CODE >213:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+654 text2 CODE >214:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+658 text2 CODE >215:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+660 text2 CODE >218:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+66E text2 CODE >219:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+684 text2 CODE >221:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+68C text2 CODE >224:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+6A0 text2 CODE >231:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+6C4 text2 CODE >232:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+6CA text2 CODE >234:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+6DE text2 CODE >235:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+6F4 text2 CODE >239:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+708 text2 CODE >240:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+71C text2 CODE >246:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+72E text2 CODE >248:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+956 text1 CODE >356:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+956 text1 CODE >357:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+958 text1 CODE >359:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9A4 text1 CODE >360:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+9A8 text1 CODE >362:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+2CA text0 CODE >37:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2CA text0 CODE >40:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2CE text0 CODE >43:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2D2 text0 CODE >48:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2D8 text0 CODE >49:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2DE text0 CODE >50:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2E4 text0 CODE >51:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2EA text0 CODE >52:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2F0 text0 CODE >53:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2F6 text0 CODE >56:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+2FA text0 CODE >59:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+302 text0 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+304 text0 CODE >64:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+31A text0 CODE >71:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+31C text0 CODE >75:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+332 text0 CODE >77:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+336 text0 CODE >78:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+340 text0 CODE >79:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+344 text0 CODE >81:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+346 text0 CODE >84:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+36C text0 CODE >86:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+370 text0 CODE >87:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+37A text0 CODE >93:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+390 text0 CODE >95:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+394 text0 CODE >96:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+39E text0 CODE >101:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+3B4 text0 CODE >103:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+3B8 text0 CODE >104:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+3C2 text0 CODE >105:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+3C4 text0 CODE >61:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+3F8 text0 CODE >57:/Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
+AE4 cinit CODE >1795:/tmp/xcqMwinS6
+AE4 cinit CODE >1797:/tmp/xcqMwinS6
+AE4 cinit CODE >1800:/tmp/xcqMwinS6
+AE4 cinit CODE >1824:/tmp/xcqMwinS6
+AE8 cinit CODE >1825:/tmp/xcqMwinS6
+AEA cinit CODE >1826:/tmp/xcqMwinS6
+AEA cinit CODE >1827:/tmp/xcqMwinS6
+AEC cinit CODE >1828:/tmp/xcqMwinS6
+AEE cinit CODE >1829:/tmp/xcqMwinS6
+AF0 cinit CODE >1835:/tmp/xcqMwinS6
+AF0 cinit CODE >1837:/tmp/xcqMwinS6
+AF2 cinit CODE >1838:/tmp/xcqMwinS6
+AF4 cinit CODE >1840:/tmp/xcqMwinS6
+AF6 cinit CODE >1841:/tmp/xcqMwinS6
+AF8 cinit CODE >1842:/tmp/xcqMwinS6
+AFA cinit CODE >1843:/tmp/xcqMwinS6
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -426,102 +460,102 @@ BB0 cinit CODE >1829:/tmp/xcwN0L7XZ
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-get_time@data 6B 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@data 9C 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__Hspace_1 7C 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+__Hspace_1 B3 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_IESO$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/C18_18F87K22/production/cronometro.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcoyurU7i.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/xcbkSPaQT.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_ofi2_send_command A18 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_put_nums_individual ABC 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_ofi2_send_command 8FE 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/C18_18F87K22/production/cronometro.X.production.obj
-get_time@hours 6F 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@hours 38 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 _RBIF 7F90 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/xcoyurU7i.obj
-_aux1 76 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_main 12 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_next 73 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-btemp 5C 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/xcbkSPaQT.obj
+_aux1 AA 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_main 2CA 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_next A1 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+btemp 39 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_ir_get_human_code 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-start E 0 CODE 0 init /tmp/xcoyurU7i.obj
+start E 0 CODE 0 init /tmp/xcbkSPaQT.obj
 __size_of_main 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_human_code 75 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_get_num 728 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
+_human_code A3 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_get_num 730 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@sec_reg B 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@seconds A 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_ce_disable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hpowerup E 0 CODE 0 powerup dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_ConfigureOscillator C06 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_ConfigureOscillator B5A 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
 get_seconds_reg@res 1 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num0 6B 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num1 6A 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num2 69 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num3 68 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num4 67 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums_individual@num5 6C 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/xcoyurU7i.obj
-intlevel0 0 0 CODE 0 text /tmp/xcoyurU7i.obj
-intlevel1 0 0 CODE 0 text /tmp/xcoyurU7i.obj
-intlevel2 0 0 CODE 0 text /tmp/xcoyurU7i.obj
-intlevel3 0 0 CODE 0 text /tmp/xcoyurU7i.obj
+__accesstop 60 0 ABS 0 - /tmp/xcbkSPaQT.obj
+intlevel0 0 0 CODE 0 text /tmp/xcbkSPaQT.obj
+intlevel1 0 0 CODE 0 text /tmp/xcbkSPaQT.obj
+intlevel2 0 0 CODE 0 text /tmp/xcbkSPaQT.obj
+intlevel3 0 0 CODE 0 text /tmp/xcbkSPaQT.obj
 __size_of_point_disable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_USBDIV$1 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_InitApp B3E 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_ofi2_ce_enable C04 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
+_InitApp A02 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_ofi2_ce_enable B54 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_EBTR2$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+__size_of_buzzer_enable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hifardata 0 0 CODE 0 ifardata dist/C18_18F87K22/production/cronometro.X.production.obj
-_io_as_output BF0 0 CODE 0 text12 dist/C18_18F87K22/production/cronometro.X.production.obj
+_io_as_output B30 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
+_update_display B16 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
+update_display@counter E 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/C18_18F87K22/production/cronometro.X.production.obj
-_io_as_input BF4 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
+_io_as_input B34 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/xcoyurU7i.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/xcoyurU7i.obj
-high_isr@aux 55 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-_send_command 8E0 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_point_disable BF0 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/xcbkSPaQT.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/xcbkSPaQT.obj
+high_isr@aux 95 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_send_command 84A 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_point_disable B4C 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
 byte_write@address 7 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@hour_reg D 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+_buzzer_disable B3C 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/C18_18F87K22/production/cronometro.X.production.obj
-_get_next_state 562 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
+_get_next_state 528 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_buzzer_enable B58 0 CODE 0 text30 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/C18_18F87K22/production/cronometro.X.production.obj
 get_next_state@seconds 12 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+__LnvBANK0 0 0 ABS 0 nvBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintcodelo E 0 CODE 0 intcodelo dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_io_as_output 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _INTCON FF2 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-i2_ce_disable BE2 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_ir_get_human_code 562 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
-__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+i2_ce_disable B2A 0 CODE 0 text29 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_update_display B24 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_ir_get_human_code 528 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_send_command 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lintcodelo E 0 CODE 0 intcodelo dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-start_initialization B9A 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_io_as_output BF4 0 CODE 0 text12 dist/C18_18F87K22/production/cronometro.X.production.obj
+start_initialization AE4 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_io_as_output B34 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
 get_hour_reg@hour 2 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums@nums 67 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+put_nums@nums 8 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_ir_is_code_number 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@min_reg C 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@minutes 8 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-_put_num$845 64 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_byte_write BB4 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
+_put_num$857 5 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+_byte_write AFE 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
 ___rparam_used 1 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_get_next_state 676 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_buzzer_disable B40 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_get_next_state 63C 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WDTPS$32768 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-get_time@aux 70 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_get_seconds_reg A6E 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_send_command 950 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@aux 37 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_get_seconds_reg A02 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
+_TMR0IF 7F92 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_send_command 8A4 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
 _TRISA2 7C92 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _TRISA3 7C93 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _TRISA5 7C95 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -531,8 +565,8 @@ _TRISB4 7C9C 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 ?_get_next_state E 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_ofi2_ce_disable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_put_num 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_point_enable BE8 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
-ir_is_code_number@human_code 60 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_point_enable B44 0 CODE 0 text18 dist/C18_18F87K22/production/cronometro.X.production.obj
+ir_is_code_number@human_code 26 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbank0 0 0 ABS 0 bank0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbank1 0 0 ABS 0 bank1 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbank2 0 0 ABS 0 bank2 dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -564,10 +598,10 @@ ir_get_human_code@human_read_code 5 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/pr
 __size_ofi2_ce_enable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/C18_18F87K22/production/cronometro.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcoyurU7i.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcbkSPaQT.obj
 get_next_state@state E 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_ofi2_io_as_output 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_ce_enable BFC 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_ce_enable B3C 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hcomram 0 0 ABS 0 comram dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hconfig 30000E 0 CONFIG 0 config dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -580,10 +614,10 @@ __Lbank4 0 0 ABS 0 bank4 dist/C18_18F87K22/production/cronometro.X.production.ob
 __Lbank5 0 0 ABS 0 bank5 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbank6 0 0 ABS 0 bank6 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbank7 0 0 ABS 0 bank7 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_ofi2_ce_disable BE8 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_ofi2_ce_disable B30 0 CODE 0 text29 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lconst 0 0 CONST 0 const dist/C18_18F87K22/production/cronometro.X.production.obj
-send_command@command 62 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+send_command@command 28 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lidata 0 0 CODE 0 idata dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lidloc 200000 0 IDLOC 0 idloc dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lnvbit 0 0 COMRAM 1 nvbit dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -608,28 +642,29 @@ __Hdata 0 0 ABS 0 data dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hinit 12 0 CODE 0 init dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/C18_18F87K22/production/cronometro.X.production.obj
-__Htemp 5D 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
+__Htemp 3A 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext 0 0 ABS 0 text dist/C18_18F87K22/production/cronometro.X.production.obj
 __Labs1 0 0 ABS 0 abs1 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ldata 0 0 ABS 0 data dist/C18_18F87K22/production/cronometro.X.production.obj
 __Linit E 0 CODE 0 init dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/C18_18F87K22/production/cronometro.X.production.obj
-__Ltemp 5C 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
+__Ltemp 39 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext 0 0 ABS 0 text dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_XINST$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_byte_write BCC 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
+__pnvBANK0 B1 0 BANK0 1 nvBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_byte_write B16 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_ofi2_send_command 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_ir_get_human_code 420 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
-int$flags 5C 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
+_ir_get_human_code 3FA 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
+int$flags 39 0 COMRAM 1 temp dist/C18_18F87K22/production/cronometro.X.production.obj
 get_next_state@minutes 13 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-put_num@mask 63 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+put_num@mask 4 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 i2send_command@i 4 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-_get_seconds_reg A18 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
+_get_seconds_reg 9AC 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/C18_18F87K22/production/cronometro.X.production.obj
-_ce_enable BF8 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
+_ce_enable B38 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hirdata 0 0 CODE 0 irdata dist/C18_18F87K22/production/cronometro.X.production.obj
 _RA2 7C02 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _RA3 7C03 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -640,42 +675,41 @@ _RB3 7C0B 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _RB4 7C0C 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 _RB5 7C0D 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __S0 30000E 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__S1 7C 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+__S1 B3 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __S2 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_VREGEN$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_point_enable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 get_seconds_reg@seconds 2 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-__pnvCOMRAM 5A 0 COMRAM 1 nvCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-byte_read@i 69 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+byte_read@i 2F 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_PLLDIV$1 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-high_isr@final_code 56 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+high_isr@final_code 96 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_PBADEN$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-get_time@seconds 6D 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@seconds 34 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 byte_write@value 6 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_get_num 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hnvrram 0 0 COMRAM 1 nvrram dist/C18_18F87K22/production/cronometro.X.production.obj
-_point_toggle BCC 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
-int_func 2BE 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
+int_func 12 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
+__HnvBANK0 0 0 ABS 0 nvBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_ir_is_code_number 9BE 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_ir_is_code_number 9AC 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_get_time 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_point_enable BEC 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_point_enable B48 0 CODE 0 text18 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hramtop 800 0 RAM 0 ramtop dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hrparam 0 0 COMRAM 1 rparam dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_put_num 8E0 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_put_num 956 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_high_isr 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hstruct 0 0 COMRAM 1 struct dist/C18_18F87K22/production/cronometro.X.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext10 0 0 ABS 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext11 0 0 ABS 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
-__Htext12 0 0 ABS 0 text12 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext13 0 0 ABS 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext14 0 0 ABS 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext15 0 0 ABS 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext16 0 0 ABS 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext17 0 0 ABS 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext19 0 0 ABS 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext20 0 0 ABS 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext21 0 0 ABS 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -686,27 +720,31 @@ __Htext25 0 0 ABS 0 text25 dist/C18_18F87K22/production/cronometro.X.production.
 __Htext26 0 0 ABS 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext27 0 0 ABS 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Htext28 0 0 ABS 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_io_as_input BF8 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_io_as_input B38 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_InitApp 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext10 7D8 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext11 8E0 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext12 BF0 0 CODE 0 text12 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext13 BF4 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext14 BF8 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext15 BDC 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext16 B3E 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext17 C04 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext19 420 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext20 562 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext21 B04 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext22 A18 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext23 B6E 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext24 BB4 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext25 9BE 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext26 BFC 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext27 C00 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext28 BE2 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
-__pintcode_body 2BE 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext10 A02 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext11 B58 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext13 B40 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext14 B16 0 CODE 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext15 A82 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext16 8FE 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext17 730 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext18 B44 0 CODE 0 text18 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext19 B48 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext20 3FA 0 CODE 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext21 528 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext22 A48 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext23 9AC 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext24 AB8 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext25 AFE 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext26 8A4 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext27 B4C 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext28 B50 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext29 B2A 0 CODE 0 text29 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext30 B54 0 CODE 0 text30 dist/C18_18F87K22/production/cronometro.X.production.obj
+__pintcode_body 12 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbigram 0 0 ABS 0 bigram dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_BOR$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -714,77 +752,80 @@ __CFG_BORV$3 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.ob
 __Lcomram 0 0 ABS 0 comram dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_set_time 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__size_of_point_toggle 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lfarbss 0 0 FARRAM 0 farbss dist/C18_18F87K22/production/cronometro.X.production.obj
-_ce_disable BDC 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
+_ce_disable B24 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lfardata 0 0 FARRAM 0 fardata dist/C18_18F87K22/production/cronometro.X.production.obj
-put_num@i 65 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+put_num@i 6 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_get_seconds_reg 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CCP2MX$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_put_nums 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-stackhi 7FF 0 ABS 0 - /tmp/xcoyurU7i.obj
-stacklo 7C 0 ABS 0 - /tmp/xcoyurU7i.obj
+stackhi 7FF 0 ABS 0 - /tmp/xcbkSPaQT.obj
+stacklo B3 0 ABS 0 - /tmp/xcbkSPaQT.obj
 __Lintcode 8 0 CODE 0 intcode dist/C18_18F87K22/production/cronometro.X.production.obj
-_get_time 676 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
+_get_time 63C 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lirdata 0 0 CODE 0 irdata dist/C18_18F87K22/production/cronometro.X.production.obj
-byte_read@res 68 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+byte_read@res 2E 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 _high_isr 8 0 CODE 0 intcode dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_point_toggle BDC 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@aux_hour 35 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lspace_0 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lspace_1 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_get_hour_reg B6E 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
+_get_hour_reg AB8 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
 get_hour_reg@res 1 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+update_display@digits C 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 get_next_state@code 10 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 get_next_state@hour 14 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_get_time 728 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_get_time 730 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
+i2_buzzer_disable B40 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_LVP$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_get_num 7D8 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_get_num 7DC 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__size_of_update_display 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_high_isr 420 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_high_isr 2CA 0 CODE 0 intcode_body dist/C18_18F87K22/production/cronometro.X.production.obj
 set_time@hour 9 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CPUDIV$OSC1_PLL2 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-end_of_initialization BA6 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+_masked_digits A4 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+end_of_initialization AF0 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lnvrram 0 0 COMRAM 1 nvrram dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_byte_read 866 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_num@num 62 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_ir_is_code_number 950 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
-i2_ce_enable C00 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
-__size_of_put_nums_individual 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_byte_read 84A 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
+put_num@num 3 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+_ir_is_code_number 956 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
+i2_ce_enable B50 0 CODE 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_byte_read 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/C18_18F87K22/production/cronometro.X.production.obj
-_set_time B04 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
+_set_time A48 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-get_time@minutes 6E 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@minutes 36 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lramtop 800 0 RAM 0 ramtop dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lrparam 0 0 COMRAM 1 rparam dist/C18_18F87K22/production/cronometro.X.production.obj
-__pcinit B9A 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext0 12 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext1 A6E 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext2 ABC 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext3 866 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext4 728 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext5 BCC 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext6 BE8 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext7 BEC 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext8 950 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ptext9 676 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_InitApp B6E 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
+__pcinit AE4 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext0 2CA 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext1 956 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext2 63C 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext3 7DC 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext4 84A 0 CODE 0 text4 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext5 B30 0 CODE 0 text5 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext6 B34 0 CODE 0 text6 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext7 B38 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext8 B24 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ptext9 B3C 0 CODE 0 text9 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_InitApp A48 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lstruct 0 0 COMRAM 1 struct dist/C18_18F87K22/production/cronometro.X.production.obj
+__size_of_buzzer_disable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_byte_write 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_get_next_state 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext10 0 0 ABS 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
-__Ltext12 0 0 ABS 0 text12 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext13 0 0 ABS 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext14 0 0 ABS 0 text14 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext15 0 0 ABS 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext17 0 0 ABS 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext19 0 0 ABS 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext20 0 0 ABS 0 text20 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext21 0 0 ABS 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -795,47 +836,55 @@ __Ltext25 0 0 ABS 0 text25 dist/C18_18F87K22/production/cronometro.X.production.
 __Ltext26 0 0 ABS 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext27 0 0 ABS 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Ltext28 0 0 ABS 0 text28 dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_set_time B3E 0 CODE 0 text21 dist/C18_18F87K22/production/cronometro.X.production.obj
-__ramtop 800 0 RAM 0 ramtop /tmp/xcoyurU7i.obj
-__end_of_ce_disable BE2 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
-_byte_read 7D8 0 CODE 0 text10 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/C18_18F87K22/production/cronometro.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_set_time A82 0 CODE 0 text22 dist/C18_18F87K22/production/cronometro.X.production.obj
+__ramtop 800 0 RAM 0 ramtop /tmp/xcbkSPaQT.obj
+__end_of_ce_disable B2A 0 CODE 0 text8 dist/C18_18F87K22/production/cronometro.X.production.obj
+_byte_read 7DC 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lpowerup E 0 CODE 0 powerup dist/C18_18F87K22/production/cronometro.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_get_hour_reg 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-get_num@num 60 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-_put_nums ABC 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_num@num 1 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+_put_nums A82 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_ConfigureOscillator 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WDT$ON 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-high_isr@code 26 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+high_isr@code 60 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_FOSC$HS 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_put_nums B04 0 CODE 0 text2 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_put_nums AB8 0 CODE 0 text15 dist/C18_18F87K22/production/cronometro.X.production.obj
 ___param_bank 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of__initialization BA6 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of__initialization AF0 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+_INTCON2 FF1 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRT2$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRT3$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRTB$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/C18_18F87K22/production/cronometro.X.production.obj
+high_isr@i_136 9A 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-high_isr@i 58 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-_put_nums_individual A6E 0 CODE 0 text1 dist/C18_18F87K22/production/cronometro.X.production.obj
+high_isr@i 98 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __size_of_io_as_input 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_get_hour_reg B9A 0 CODE 0 text23 dist/C18_18F87K22/production/cronometro.X.production.obj
-put_nums@i 69 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-i2_io_as_output BFC 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_get_hour_reg AE4 0 CODE 0 text24 dist/C18_18F87K22/production/cronometro.X.production.obj
+put_nums@i A 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+i2_io_as_output B4C 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-byte_read@address 67 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
-send_command@i 63 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+byte_read@address 2D 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_ofi2_buzzer_disable B44 0 CODE 0 text13 dist/C18_18F87K22/production/cronometro.X.production.obj
+send_command@i 29 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
 _SSPCON1 FC6 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_of_main 2BE 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
+get_time@format 9E 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_of_main 3FA 0 CODE 0 text0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __pintcode 8 0 CODE 0 intcode dist/C18_18F87K22/production/cronometro.X.production.obj
-_ConfigureOscillator C04 0 CODE 0 text17 dist/C18_18F87K22/production/cronometro.X.production.obj
+__size_ofi2_buzzer_disable 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+_ConfigureOscillator B58 0 CODE 0 text11 dist/C18_18F87K22/production/cronometro.X.production.obj
+_T0CON FD5 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
+high_isr@digits 8F 0 BANK0 1 cstackBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __HRAM 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
@@ -846,24 +895,26 @@ __LRAM 1 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lbss 0 0 RAM 1 bss dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lram 0 0 ABS 0 ram dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/C18_18F87K22/production/cronometro.X.production.obj
-i2_send_command 9BE 0 CODE 0 text25 dist/C18_18F87K22/production/cronometro.X.production.obj
+i2_send_command 8A4 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CP2$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CP3$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_state 5A 0 COMRAM 1 nvCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
-_put_num 866 0 CODE 0 text3 dist/C18_18F87K22/production/cronometro.X.production.obj
+_state B1 0 BANK0 1 nvBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_put_num 8FE 0 CODE 0 text16 dist/C18_18F87K22/production/cronometro.X.production.obj
 _CCP2CON FBA 0 ABS 0 - dist/C18_18F87K22/production/cronometro.X.production.obj
-_point_disable BEC 0 CODE 0 text7 dist/C18_18F87K22/production/cronometro.X.production.obj
-__initialization B9A 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
-__pbssBANK0 73 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
+_point_disable B48 0 CODE 0 text19 dist/C18_18F87K22/production/cronometro.X.production.obj
+__initialization AE4 0 CODE 0 cinit dist/C18_18F87K22/production/cronometro.X.production.obj
+_buzzer_enable B54 0 CODE 0 text30 dist/C18_18F87K22/production/cronometro.X.production.obj
+__pbssBANK0 A1 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 i2send_command@command 3 0 COMRAM 1 cstackCOMRAM dist/C18_18F87K22/production/cronometro.X.production.obj
+_counter B0 0 BANK0 1 bssBANK0 dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hfardata 0 0 FARRAM 0 fardata dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/C18_18F87K22/production/cronometro.X.production.obj
 __Lifardata 0 0 CODE 0 ifardata dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/C18_18F87K22/production/cronometro.X.production.obj
 __Hintcode E 0 CODE 0 intcode dist/C18_18F87K22/production/cronometro.X.production.obj
-__end_ofi2_io_as_output C00 0 CODE 0 text26 dist/C18_18F87K22/production/cronometro.X.production.obj
+__end_ofi2_io_as_output B50 0 CODE 0 text27 dist/C18_18F87K22/production/cronometro.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -889,8 +940,8 @@ __end_ofi2_io_as_output C00 0 CODE 0 text26 dist/C18_18F87K22/production/cronome
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-cstackCOMRAM 1 1 1 5C 1
-cstackBANK0 1 60 60 1C 1
+cstackCOMRAM 1 1 1 39 1
+cstackBANK0 1 60 60 53 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 BFE 1
+intcode 0 8 8 B52 1
 config 0 300000 300000 E 1

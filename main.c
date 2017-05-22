@@ -53,20 +53,26 @@ void main(void)
     aux1[5] = 6;
     
     char temp; //variable to hold values of aux1
-    
+    char format = 1;
+    buzzer_disable();
     while(1)
     {       
         state = next;
         
         switch(state){
                 case STATE_TIME:
-                    get_time(aux1);
-                    put_nums(aux1);
+                    
+                    if(human_code == 13)
+                        format = 0;
+                    else if (human_code == 14)
+                        format = 1;
+                    get_time(aux1,format);
+                    /*put_nums(aux1);
                     __delay_ms(500);
                     point_toggle();
                     //buzzer_toggle();
                     __delay_ms(500);
-                    point_toggle(); 
+                    point_toggle(); */
                     break;
             case STATE_HH1:
                 
@@ -75,13 +81,8 @@ void main(void)
                 {
                     aux1[3] = human_code; //update number
                     next = STATE_HH2;   //update state
+                    human_code = -1;
                 }
-                    //lets update aux2
-                put_nums(aux1);
-                __delay_ms(500 
-                        
-                put_nums_individual(aux1[5], aux1[4], 'V',aux1[2],aux1[1],aux1[0]);
-                __delay_ms(500);
                 break;
             case STATE_HH2:
                 
@@ -89,12 +90,8 @@ void main(void)
                  {
                      aux1[2] = human_code; //update number
                      next = STATE_MM1;   //update state
+                     human_code = -1;
                  }
-                    
-                put_nums(aux1);
-                __delay_ms(500);
-                 put_nums_individual(aux1[5], aux1[4], aux1[2],'V',aux1[1],aux1[0]);
-                __delay_ms(500);
                 break;
             case STATE_MM1:
                 
@@ -102,23 +99,22 @@ void main(void)
                  {
                      aux1[1] = human_code; //update number
                      next = STATE_MM2;   //update state
+                     human_code = -1;
                  }
-                put_nums(aux1);
-                __delay_ms(500);
-                 put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],'V',aux1[0]);
-                __delay_ms(500);
                 break;   
             case STATE_MM2:
                 if(ir_is_code_number(human_code) && human_code <=9) //check for a valid number
                  {
                      aux1[0] = human_code; //update number
                      next = STATE_HH1;   //update state
-                 }
-                put_nums(aux1);
-                __delay_ms(500);
-                 put_nums_individual(aux1[5], aux1[4], aux1[3],aux1[2],aux1[1],'V');
-                __delay_ms(500);
-                break;      
+                     human_code = -1;
+                 }       
+                break;    
+                
+            case STATE_UP:
+                break;
+            case STATE_DOWN:
+                break;
             default: ;
                 
         }              

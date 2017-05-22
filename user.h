@@ -49,21 +49,21 @@
 
 /*Defines for IR control buttons*/
 
-#define IR_UP           0xABB9 //code 10
-#define IR_OK           0xEAA9 //code 11
-#define IR_DOWN         0xEBAD //code 12
-#define IR_LEFT         0xAAE9 //code 13
+#define IR_UP           0xABBa //revised code 10
+#define IR_OK           0xEAAA //revised code 11
+#define IR_DOWN         0xEBAE //revised code 12
+#define IR_LEFT         0xAAEA //revised code 13
 #define IR_RIGHT        0xAAEE //revised code 14
-#define IR_ONE          0xEBBA //code 1
-#define IR_TWO          0xEEAE //code 2
-#define IR_THREE        0x1111 //code 3
-#define IR_FOUR         0xAEE9 //code 4
-#define IR_FIVE         0xBBA9 //code 5
-#define IR_SIX          0xBBB9 //code 6
-#define IR_SEVEN        0xABA9 //code 7
-#define IR_EIGHT        0x6EE9 //code 8
-#define IR_NINE         0x6EB9 //code 9
-#define IR_ZERO         0xBABA //code 0
+#define IR_ONE          0xEBBA //revised code 1
+#define IR_TWO          0xEEAE //revised code 2
+#define IR_THREE        0xBBAE //revised code 3
+#define IR_FOUR         0xAEEA //revised code 4
+#define IR_FIVE         0xBBAA //revised code 5
+#define IR_SIX          0xBBBA //revised code 6
+#define IR_SEVEN        0xABAA //revised code 7
+#define IR_EIGHT        0xEEEA //revised code 8
+#define IR_NINE         0xEEBA //revised code 9
+#define IR_ZERO         0xBABA //revised code 0
 #define IR_ASTERISC     0xAABA //revised code 15
 #define IR_GATO         0xAEBA //revised code 16
 
@@ -88,8 +88,13 @@
 #define STATE_MM1        3
 #define STATE_MM2        4
 
+#define STATE_UP         5
+#define STATE_DOWN       6
 
 
+//Defines for TIME division for display update
+#define NUM_TIME_STEPS 10 //divider for 1 second
+#define TIME_STEP 1000/NUM_TIME_STEP //time step in miliseconds
 
 int state, next;
 char human_code; //code contains the last received code
@@ -114,7 +119,7 @@ void byte_write(char address, char value);
 char get_seconds_reg(char seconds);
 char get_hour_reg(char hour);
 void set_time(char seconds, char minutes, char hour);
-void get_time(char data[]);
+void get_time(char data[], unsigned char format);
 
 void send_command(char command);
 void io_as_input(void);
@@ -131,4 +136,7 @@ int get_next_state(int state,int code);
 //then evaluate the next state outside the interrupt routine
 //generate also a global variable for the recieved_code and take
 
+/*update_display() update the display every xx ms. counter is used to update take a count for the period of time where we are, usefull for blinking double point and numbers in setup mode*/
+void update_display(char digits[], char *counter);
 void InitApp(void);         /* I/O and Peripheral Initialization */
+

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/Applications/microchip/xc8/v1.42/dat/en_msgs.txt -cs \
   -h+dist/C18_18F87K22/debug/cronometro.X.debug.sym \
   --cmf=dist/C18_18F87K22/debug/cronometro.X.debug.cmf -z -Q18F2550 \
-  -o/tmp/xcpYzGBPH -Mdist/C18_18F87K22/debug/cronometro.X.debug.map -E1 \
+  -o/tmp/xcVKETnV1 -Mdist/C18_18F87K22/debug/cronometro.X.debug.map -E1 \
   -ver=XC8 -ASTACK=0400h-07ffh -pstack=STACK -ACODE=00h-07CFFh \
   -ACONST=00h-07CFFh -ASMALLCONST=0800h-08FFhx117 \
   -AMEDIUMCONST=0800h-07CFFh -ACOMRAM=01h-05Fh -AABS1=00h-03EEh,0400h-07FFh \
@@ -24,7 +24,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcmtA822A.obj dist/C18_18F87K22/debug/cronometro.X.debug.obj 
+  /tmp/xccBGgclY.obj dist/C18_18F87K22/debug/cronometro.X.debug.obj 
 
 Object code version is 3.11
 
@@ -36,48 +36,51 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcmtA822A.obj
+/tmp/xccBGgclY.obj
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        6        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/C18_18F87K22/debug/cronometro.X.debug.obj
                 intcode                               8        8        6        4       0
-                temp                                 5C       5C        1        1       1
-                text28                              BEC      BEC        6        4       0
-                text27                              C0A      C0A        4        4       0
-                text26                              C06      C06        4        4       0
-                text25                              9C8      9C8       5A        4       0
-                text24                              BBE      BBE       18        4       0
-                text23                              B78      B78       2C        4       0
-                text22                              A22      A22       56        4       0
-                text21                              B0E      B0E       3A        4       0
-                text20                              56C      56C      114        4       0
-                text19                              42A      42A      142        4       0
-                intcode_body                        2C8      2C8      162        4       0
-                text17                              C0E      C0E        2        4       0
-                text16                              B48      B48       30        4       0
-                text15                              BE6      BE6        6        4       0
-                text14                              C02      C02        4        4       0
-                text13                              BFE      BFE        4        4       0
-                text12                              BFA      BFA        4        4       0
-                text11                              8EA      8EA       70        4       0
-                text10                              7E2      7E2       8E        4       0
-                text9                               680      680       B2        4       0
-                text8                               95A      95A       6E        4       0
-                text7                               BF6      BF6        4        4       0
-                text6                               BF2      BF2        4        4       0
-                text5                               BD6      BD6       10        4       0
-                text4                               732      732       B0        4       0
-                text3                               870      870       7A        4       0
-                text2                               AC6      AC6       48        4       0
-                text1                               A78      A78       4E        4       0
-                text0                                12       12      2B6        4       0
-                cstackCOMRAM                          1        1       59        1       1
-                cstackBANK0                          60       60       13       60       1
-                bssBANK0                             73       73        9       60       1
-                cinit                               BA4      BA4       1A        4       0
-                nvCOMRAM                             5A       5A        2        1       1
+                temp                                 3A       3A        1        1       1
+                text30                              B60      B60        4        4       0
+                text29                              B36      B36        6        4       0
+                text28                              B5C      B5C        4        4       0
+                text27                              B58      B58        4        4       0
+                text26                              8AC      8AC       5A        4       0
+                text25                              B0A      B0A       18        4       0
+                text24                              ABE      ABE       2C        4       0
+                text23                              9B4      9B4       56        4       0
+                text22                              A4E      A4E       3A        4       0
+                text21                              528      528      10A        4       0
+                text20                              3FA      3FA      12E        4       0
+                text19                              B54      B54        4        4       0
+                text18                              B50      B50        4        4       0
+                text17                              738      738       AC        4       0
+                text16                              906      906       58        4       0
+                text15                              A88      A88       36        4       0
+                text14                              B22      B22        E        4       0
+                text13                              B4C      B4C        4        4       0
+                intcode_body                         12       12      2B6        4       0
+                text11                              B64      B64        2        4       0
+                text10                              A0A      A0A       44        4       0
+                text9                               B48      B48        4        4       0
+                text8                               B30      B30        6        4       0
+                text7                               B44      B44        4        4       0
+                text6                               B40      B40        4        4       0
+                text5                               B3C      B3C        4        4       0
+                text4                               852      852       5A        4       0
+                text3                               7E4      7E4       6E        4       0
+                text2                               632      632      106        4       0
+                text1                               95E      95E       56        4       0
+                text0                               2C8      2C8      132        4       0
+                cstackCOMRAM                          1        1       36        1       1
+                cstackBANK0                          60       60       42       60       1
+                bssBANK0                             A2       A2        D       60       1
+                bssCOMRAM                            37       37        3        1       1
+                cinit                               AEA      AEA       20        4       0
+                nvBANK0                              AF       AF        2       60       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -86,36 +89,38 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
                 reset_vec                             0        0        6         0
-                text28                              BEC      BEC        6         0
-                text27                              C0A      C0A        4         0
-                text26                              C06      C06        4         0
-                text25                              9C8      9C8       5A         0
-                text24                              BBE      BBE       18         0
-                text23                              B78      B78       2C         0
-                text22                              A22      A22       56         0
-                text21                              B0E      B0E       3A         0
-                text20                              56C      56C      114         0
-                text19                              42A      42A      142         0
-                intcode_body                        2C8      2C8      162         0
-                text17                              C0E      C0E        2         0
-                text16                              B48      B48       30         0
-                text15                              BE6      BE6        6         0
-                text14                              C02      C02        4         0
-                text13                              BFE      BFE        4         0
-                text12                              BFA      BFA        4         0
-                text11                              8EA      8EA       70         0
-                text10                              7E2      7E2       8E         0
-                text9                               680      680       B2         0
-                text8                               95A      95A       6E         0
-                text7                               BF6      BF6        4         0
-                text6                               BF2      BF2        4         0
-                text5                               BD6      BD6       10         0
-                text4                               732      732       B0         0
-                text3                               870      870       7A         0
-                text2                               AC6      AC6       48         0
-                text1                               A78      A78       4E         0
-                text0                                12       12      2B6         0
-                cinit                               BA4      BA4       1A         0
+                text30                              B60      B60        4         0
+                text29                              B36      B36        6         0
+                text28                              B5C      B5C        4         0
+                text27                              B58      B58        4         0
+                text26                              8AC      8AC       5A         0
+                text25                              B0A      B0A       18         0
+                text24                              ABE      ABE       2C         0
+                text23                              9B4      9B4       56         0
+                text22                              A4E      A4E       3A         0
+                text21                              528      528      10A         0
+                text20                              3FA      3FA      12E         0
+                text19                              B54      B54        4         0
+                text18                              B50      B50        4         0
+                text17                              738      738       AC         0
+                text16                              906      906       58         0
+                text15                              A88      A88       36         0
+                text14                              B22      B22        E         0
+                text13                              B4C      B4C        4         0
+                intcode_body                         12       12      2B6         0
+                text11                              B64      B64        2         0
+                text10                              A0A      A0A       44         0
+                text9                               B48      B48        4         0
+                text8                               B30      B30        6         0
+                text7                               B44      B44        4         0
+                text6                               B40      B40        4         0
+                text5                               B3C      B3C        4         0
+                text4                               852      852       5A         0
+                text3                               7E4      7E4       6E         0
+                text2                               632      632      106         0
+                text1                               95E      95E       56         0
+                text0                               2C8      2C8      132         0
+                cinit                               AEA      AEA       20         0
 
         CLASS   CONST          
 
@@ -124,9 +129,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 5C       5C        1         1
-                cstackCOMRAM                          1        1       59         1
-                nvCOMRAM                             5A       5A        2         1
+                temp                                 3A       3A        1         1
+                cstackCOMRAM                          1        1       36         1
+                bssCOMRAM                            37       37        3         1
 
         CLASS   ABS1           
 
@@ -135,8 +140,9 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          60       60       13         1
-                bssBANK0                             73       73        9         1
+                cstackBANK0                          60       60       42         1
+                bssBANK0                             A2       A2        D         1
+                nvBANK0                              AF       AF        2         1
 
         CLASS   BANK1          
 
@@ -169,9 +175,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000006  000006         0       0  CODE    
-                cstackCOMRAM                   000001  00005C  00005D         1       1  COMRAM  
-                intcode                        000008  000C08  000C10         4       0  CODE    
-                cstackBANK0                    000060  00001C  00007C        60       1  BANK0   
+                cstackCOMRAM                   000001  00003A  00003B         1       1  COMRAM  
+                intcode                        000008  000B5E  000B66         4       0  CODE    
+                cstackBANK0                    000060  000051  0000B1        60       1  BANK0   
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -179,7 +185,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            00007C-0000FF               84
+        BANK0            0000B1-0000FF               4F
         BANK1            000100-0001FF              100
         BANK2            000200-0002FF              100
         BANK3            000300-0003EE               EF
@@ -187,17 +193,17 @@ UNUSED ADDRESS RANGES
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           00005D-00005F                3
-                         00007C-0003EE              373
+        BIGRAM           00003B-00005F               25
+                         0000B1-0003EE              33E
                          000400-0007FF              400
         CODE             000006-000007                2
-                         000C10-007CFF             70F0
-        COMRAM           00005D-00005F                3
+                         000B66-007CFF             719A
+        COMRAM           00003B-00005F               25
         CONST            000006-000007                2
-                         000C10-007CFF             70F0
+                         000B66-007CFF             719A
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000C10-007CFF             70F0
-        RAM              00007C-0003EE              100
+        MEDIUMCONST      000B66-007CFF             719A
+        RAM              0000B1-0003EE              100
                          000400-0007FF              100
         SFR              000F60-000F9B               3C
                          000F9D-000FD3               37
@@ -205,7 +211,7 @@ UNUSED ADDRESS RANGES
                          000FE0-000FE2                3
                          000FE8-000FEA                3
                          000FF0-000FFB                C
-        SMALLCONST       000C10-007CFF              100
+        SMALLCONST       000B66-007CFF              100
         STACK            000400-0007FF              400
 
                                   Symbol Table
@@ -213,10 +219,11 @@ UNUSED ADDRESS RANGES
 ?_get_next_state                  cstackCOMRAM 00000E
 _ADCON1                           (abs)        000FC1
 _CCP2CON                          (abs)        000FBA
-_ConfigureOscillator              text17       000C0E
+_ConfigureOscillator              text11       000B64
 _INTCON                           (abs)        000FF2
+_INTCON2                          (abs)        000FF1
 _INTCONbits                       (abs)        000FF2
-_InitApp                          text16       000B48
+_InitApp                          text10       000A0A
 _RA2                              (abs)        007C02
 _RA3                              (abs)        007C03
 _RA5                              (abs)        007C05
@@ -227,6 +234,8 @@ _RB4                              (abs)        007C0C
 _RB5                              (abs)        007C0D
 _RBIF                             (abs)        007F90
 _SSPCON1                          (abs)        000FC6
+_T0CON                            (abs)        000FD5
+_TMR0IF                           (abs)        007F92
 _TRISA2                           (abs)        007C92
 _TRISA3                           (abs)        007C93
 _TRISA5                           (abs)        007C95
@@ -285,6 +294,7 @@ __Hbigdata                        bigdata      000000
 __Hbigram                         bigram       000000
 __Hbss                            bss          000000
 __HbssBANK0                       bssBANK0     000000
+__HbssCOMRAM                      bssCOMRAM    000000
 __Hcinit                          cinit        000000
 __Hclrtext                        clrtext      000000
 __Hcomram                         comram       000000
@@ -309,7 +319,7 @@ __Hintret                         intret       000000
 __Hintsave_regs                   intsave_regs 000000
 __Hirdata                         irdata       000000
 __Hmediumconst                    mediumconst  000000
-__HnvCOMRAM                       nvCOMRAM     000000
+__HnvBANK0                        nvBANK0      000000
 __HnvFARRAM                       nvFARRAM     000000
 __Hnvbit                          nvbit        000000
 __Hnvrram                         nvrram       000000
@@ -325,22 +335,22 @@ __Hrparam                         rparam       000000
 __Hsfr                            sfr          000000
 __Hsmallconst                     smallconst   000000
 __Hspace_0                        (abs)        30000E
-__Hspace_1                        (abs)        00007C
+__Hspace_1                        (abs)        0000B1
 __Hspace_2                        (abs)        000000
 __Hstack                          stack        000000
 __Hstruct                         struct       000000
-__Htemp                           temp         00005D
+__Htemp                           temp         00003B
 __Htext                           text         000000
 __Htext0                          text0        000000
 __Htext1                          text1        000000
 __Htext10                         text10       000000
 __Htext11                         text11       000000
-__Htext12                         text12       000000
 __Htext13                         text13       000000
 __Htext14                         text14       000000
 __Htext15                         text15       000000
 __Htext16                         text16       000000
 __Htext17                         text17       000000
+__Htext18                         text18       000000
 __Htext19                         text19       000000
 __Htext2                          text2        000000
 __Htext20                         text20       000000
@@ -352,7 +362,9 @@ __Htext25                         text25       000000
 __Htext26                         text26       000000
 __Htext27                         text27       000000
 __Htext28                         text28       000000
+__Htext29                         text29       000000
 __Htext3                          text3        000000
+__Htext30                         text30       000000
 __Htext4                          text4        000000
 __Htext5                          text5        000000
 __Htext6                          text6        000000
@@ -374,6 +386,7 @@ __Lbigdata                        bigdata      000000
 __Lbigram                         bigram       000000
 __Lbss                            bss          000000
 __LbssBANK0                       bssBANK0     000000
+__LbssCOMRAM                      bssCOMRAM    000000
 __Lcinit                          cinit        000000
 __Lclrtext                        clrtext      000000
 __Lcomram                         comram       000000
@@ -398,7 +411,7 @@ __Lintret                         intret       000000
 __Lintsave_regs                   intsave_regs 000000
 __Lirdata                         irdata       000000
 __Lmediumconst                    mediumconst  000000
-__LnvCOMRAM                       nvCOMRAM     000000
+__LnvBANK0                        nvBANK0      000000
 __LnvFARRAM                       nvFARRAM     000000
 __Lnvbit                          nvbit        000000
 __Lnvrram                         nvrram       000000
@@ -418,18 +431,18 @@ __Lspace_1                        (abs)        000000
 __Lspace_2                        (abs)        000000
 __Lstack                          stack        000000
 __Lstruct                         struct       000000
-__Ltemp                           temp         00005C
+__Ltemp                           temp         00003A
 __Ltext                           text         000000
 __Ltext0                          text0        000000
 __Ltext1                          text1        000000
 __Ltext10                         text10       000000
 __Ltext11                         text11       000000
-__Ltext12                         text12       000000
 __Ltext13                         text13       000000
 __Ltext14                         text14       000000
 __Ltext15                         text15       000000
 __Ltext16                         text16       000000
 __Ltext17                         text17       000000
+__Ltext18                         text18       000000
 __Ltext19                         text19       000000
 __Ltext2                          text2        000000
 __Ltext20                         text20       000000
@@ -441,7 +454,9 @@ __Ltext25                         text25       000000
 __Ltext26                         text26       000000
 __Ltext27                         text27       000000
 __Ltext28                         text28       000000
+__Ltext29                         text29       000000
 __Ltext3                          text3        000000
+__Ltext30                         text30       000000
 __Ltext4                          text4        000000
 __Ltext5                          text5        000000
 __Ltext6                          text6        000000
@@ -449,7 +464,7 @@ __Ltext7                          text7        000000
 __Ltext8                          text8        000000
 __Ltext9                          text9        000000
 __S0                              (abs)        30000E
-__S1                              (abs)        00007C
+__S1                              (abs)        0000B1
 __S2                              (abs)        000000
 ___inthi_sp                       stack        000000
 ___intlo_sp                       stack        000000
@@ -458,76 +473,83 @@ ___rparam_used                    (abs)        000001
 ___sp                             stack        000000
 __accesstop                       (abs)        000060
 __activetblptr                    (abs)        000002
-__end_of_ConfigureOscillator      text17       000C10
-__end_of_InitApp                  text16       000B78
-__end_of__initialization          cinit        000BB0
-__end_of_byte_read                text10       000870
-__end_of_byte_write               text24       000BD6
-__end_of_ce_disable               text15       000BEC
-__end_of_ce_enable                text14       000C06
-__end_of_get_hour_reg             text23       000BA4
-__end_of_get_next_state           text20       000680
-__end_of_get_num                  text4        0007E2
-__end_of_get_seconds_reg          text22       000A78
-__end_of_get_time                 text9        000732
-__end_of_high_isr                 intcode_body 00042A
-__end_of_io_as_input              text13       000C02
-__end_of_io_as_output             text12       000BFE
-__end_of_ir_get_human_code        text19       00056C
-__end_of_ir_is_code_number        text8        0009C8
-__end_of_main                     text0        0002C8
-__end_of_point_disable            text7        000BFA
-__end_of_point_enable             text6        000BF6
-__end_of_point_toggle             text5        000BE6
-__end_of_put_num                  text3        0008EA
-__end_of_put_nums                 text2        000B0E
-__end_of_put_nums_individual      text1        000AC6
-__end_of_send_command             text11       00095A
-__end_of_set_time                 text21       000B48
-__end_ofi2_ce_disable             text28       000BF2
-__end_ofi2_ce_enable              text27       000C0E
-__end_ofi2_io_as_output           text26       000C0A
-__end_ofi2_send_command           text25       000A22
-__initialization                  cinit        000BA4
+__end_of_ConfigureOscillator      text11       000B66
+__end_of_InitApp                  text10       000A4E
+__end_of__initialization          cinit        000AFC
+__end_of_buzzer_disable           text9        000B4C
+__end_of_buzzer_enable            text30       000B64
+__end_of_byte_read                text3        000852
+__end_of_byte_write               text25       000B22
+__end_of_ce_disable               text8        000B36
+__end_of_ce_enable                text7        000B48
+__end_of_get_hour_reg             text24       000AEA
+__end_of_get_next_state           text21       000632
+__end_of_get_num                  text17       0007E4
+__end_of_get_seconds_reg          text23       000A0A
+__end_of_get_time                 text2        000738
+__end_of_high_isr                 intcode_body 0002C8
+__end_of_io_as_input              text6        000B44
+__end_of_io_as_output             text5        000B40
+__end_of_ir_get_human_code        text20       000528
+__end_of_ir_is_code_number        text1        0009B4
+__end_of_main                     text0        0003FA
+__end_of_point_disable            text19       000B58
+__end_of_point_enable             text18       000B54
+__end_of_put_num                  text16       00095E
+__end_of_put_nums                 text15       000ABE
+__end_of_send_command             text4        0008AC
+__end_of_set_time                 text22       000A88
+__end_of_update_display           text14       000B30
+__end_ofi2_buzzer_disable         text13       000B50
+__end_ofi2_ce_disable             text29       000B3C
+__end_ofi2_ce_enable              text28       000B60
+__end_ofi2_io_as_output           text27       000B5C
+__end_ofi2_send_command           text26       000906
+__initialization                  cinit        000AEA
 __mediumconst                     mediumconst  000000
-__pbssBANK0                       bssBANK0     000073
-__pcinit                          cinit        000BA4
+__pbssBANK0                       bssBANK0     0000A2
+__pbssCOMRAM                      bssCOMRAM    000037
+__pcinit                          cinit        000AEA
 __pcstackBANK0                    cstackBANK0  000060
 __pcstackCOMRAM                   cstackCOMRAM 000001
 __pintcode                        intcode      000008
-__pintcode_body                   intcode_body 0002C8
-__pnvCOMRAM                       nvCOMRAM     00005A
-__ptext0                          text0        000012
-__ptext1                          text1        000A78
-__ptext10                         text10       0007E2
-__ptext11                         text11       0008EA
-__ptext12                         text12       000BFA
-__ptext13                         text13       000BFE
-__ptext14                         text14       000C02
-__ptext15                         text15       000BE6
-__ptext16                         text16       000B48
-__ptext17                         text17       000C0E
-__ptext19                         text19       00042A
-__ptext2                          text2        000AC6
-__ptext20                         text20       00056C
-__ptext21                         text21       000B0E
-__ptext22                         text22       000A22
-__ptext23                         text23       000B78
-__ptext24                         text24       000BBE
-__ptext25                         text25       0009C8
-__ptext26                         text26       000C06
-__ptext27                         text27       000C0A
-__ptext28                         text28       000BEC
-__ptext3                          text3        000870
-__ptext4                          text4        000732
-__ptext5                          text5        000BD6
-__ptext6                          text6        000BF2
-__ptext7                          text7        000BF6
-__ptext8                          text8        00095A
-__ptext9                          text9        000680
+__pintcode_body                   intcode_body 000012
+__pnvBANK0                        nvBANK0      0000AF
+__ptext0                          text0        0002C8
+__ptext1                          text1        00095E
+__ptext10                         text10       000A0A
+__ptext11                         text11       000B64
+__ptext13                         text13       000B4C
+__ptext14                         text14       000B22
+__ptext15                         text15       000A88
+__ptext16                         text16       000906
+__ptext17                         text17       000738
+__ptext18                         text18       000B50
+__ptext19                         text19       000B54
+__ptext2                          text2        000632
+__ptext20                         text20       0003FA
+__ptext21                         text21       000528
+__ptext22                         text22       000A4E
+__ptext23                         text23       0009B4
+__ptext24                         text24       000ABE
+__ptext25                         text25       000B0A
+__ptext26                         text26       0008AC
+__ptext27                         text27       000B58
+__ptext28                         text28       000B5C
+__ptext29                         text29       000B36
+__ptext3                          text3        0007E4
+__ptext30                         text30       000B60
+__ptext4                          text4        000852
+__ptext5                          text5        000B3C
+__ptext6                          text6        000B40
+__ptext7                          text7        000B44
+__ptext8                          text8        000B30
+__ptext9                          text9        000B48
 __ramtop                          ramtop       000800
 __size_of_ConfigureOscillator     (abs)        000000
 __size_of_InitApp                 (abs)        000000
+__size_of_buzzer_disable          (abs)        000000
+__size_of_buzzer_enable           (abs)        000000
 __size_of_byte_read               (abs)        000000
 __size_of_byte_write              (abs)        000000
 __size_of_ce_disable              (abs)        000000
@@ -545,52 +567,55 @@ __size_of_ir_is_code_number       (abs)        000000
 __size_of_main                    (abs)        000000
 __size_of_point_disable           (abs)        000000
 __size_of_point_enable            (abs)        000000
-__size_of_point_toggle            (abs)        000000
 __size_of_put_num                 (abs)        000000
 __size_of_put_nums                (abs)        000000
-__size_of_put_nums_individual     (abs)        000000
 __size_of_send_command            (abs)        000000
 __size_of_set_time                (abs)        000000
+__size_of_update_display          (abs)        000000
+__size_ofi2_buzzer_disable        (abs)        000000
 __size_ofi2_ce_disable            (abs)        000000
 __size_ofi2_ce_enable             (abs)        000000
 __size_ofi2_io_as_output          (abs)        000000
 __size_ofi2_send_command          (abs)        000000
 __smallconst                      smallconst   000000
-_aux1                             bssBANK0     000076
-_byte_read                        text10       0007E2
-_byte_write                       text24       000BBE
-_ce_disable                       text15       000BE6
-_ce_enable                        text14       000C02
-_get_hour_reg                     text23       000B78
-_get_next_state                   text20       00056C
-_get_num                          text4        000732
-_get_seconds_reg                  text22       000A22
-_get_time                         text9        000680
+_aux1                             bssBANK0     0000A8
+_buzzer_disable                   text9        000B48
+_buzzer_enable                    text30       000B60
+_byte_read                        text3        0007E4
+_byte_write                       text25       000B0A
+_ce_disable                       text8        000B30
+_ce_enable                        text7        000B44
+_counter                          bssBANK0     0000AE
+_get_hour_reg                     text24       000ABE
+_get_next_state                   text21       000528
+_get_num                          text17       000738
+_get_seconds_reg                  text23       0009B4
+_get_time                         text2        000632
 _high_isr                         intcode      000008
-_human_code                       bssBANK0     000075
-_io_as_input                      text13       000BFE
-_io_as_output                     text12       000BFA
-_ir_get_human_code                text19       00042A
-_ir_is_code_number                text8        00095A
-_main                             text0        000012
-_next                             bssBANK0     000073
-_point_disable                    text7        000BF6
-_point_enable                     text6        000BF2
-_point_toggle                     text5        000BD6
-_put_num                          text3        000870
-_put_num$845                      cstackBANK0  000064
-_put_nums                         text2        000AC6
-_put_nums_individual              text1        000A78
-_send_command                     text11       0008EA
-_set_time                         text21       000B0E
-_state                            nvCOMRAM     00005A
-btemp                             temp         00005C
-byte_read@address                 cstackBANK0  000067
-byte_read@i                       cstackBANK0  000069
-byte_read@res                     cstackBANK0  000068
+_human_code                       bssCOMRAM    000039
+_io_as_input                      text6        000B40
+_io_as_output                     text5        000B3C
+_ir_get_human_code                text20       0003FA
+_ir_is_code_number                text1        00095E
+_main                             text0        0002C8
+_masked_digits                    bssBANK0     0000A2
+_next                             bssCOMRAM    000037
+_point_disable                    text19       000B54
+_point_enable                     text18       000B50
+_put_num                          text16       000906
+_put_num$858                      cstackCOMRAM 000005
+_put_nums                         text15       000A88
+_send_command                     text4        000852
+_set_time                         text22       000A4E
+_state                            nvBANK0      0000AF
+_update_display                   text14       000B22
+btemp                             temp         00003A
+byte_read@address                 cstackCOMRAM 00002D
+byte_read@i                       cstackCOMRAM 00002F
+byte_read@res                     cstackCOMRAM 00002E
 byte_write@address                cstackCOMRAM 000007
 byte_write@value                  cstackCOMRAM 000006
-end_of_initialization             cinit        000BB0
+end_of_initialization             cinit        000AFC
 get_hour_reg@hour                 cstackCOMRAM 000002
 get_hour_reg@res                  cstackCOMRAM 000001
 get_next_state@code               cstackCOMRAM 000010
@@ -598,46 +623,46 @@ get_next_state@hour               cstackCOMRAM 000014
 get_next_state@minutes            cstackCOMRAM 000013
 get_next_state@seconds            cstackCOMRAM 000012
 get_next_state@state              cstackCOMRAM 00000E
-get_num@num                       cstackBANK0  000060
+get_num@num                       cstackCOMRAM 000001
 get_seconds_reg@res               cstackCOMRAM 000001
 get_seconds_reg@seconds           cstackCOMRAM 000002
-get_time@aux                      cstackBANK0  000070
-get_time@data                     cstackBANK0  00006B
-get_time@hours                    cstackBANK0  00006F
-get_time@minutes                  cstackBANK0  00006E
-get_time@seconds                  cstackBANK0  00006D
-high_isr@aux                      cstackCOMRAM 000055
-high_isr@code                     cstackCOMRAM 000026
-high_isr@final_code               cstackCOMRAM 000056
-high_isr@i                        cstackCOMRAM 000058
-i2_ce_disable                     text28       000BEC
-i2_ce_enable                      text27       000C0A
-i2_io_as_output                   text26       000C06
-i2_send_command                   text25       0009C8
+get_time@aux                      cstackCOMRAM 000035
+get_time@aux_hour                 cstackCOMRAM 000033
+get_time@data                     cstackBANK0  00009C
+get_time@format                   cstackBANK0  00009E
+get_time@hours                    cstackCOMRAM 000036
+get_time@minutes                  cstackCOMRAM 000034
+get_time@seconds                  cstackCOMRAM 000032
+high_isr@aux                      cstackBANK0  000095
+high_isr@code                     cstackBANK0  000060
+high_isr@digits                   cstackBANK0  00008F
+high_isr@final_code               cstackBANK0  000096
+high_isr@i                        cstackBANK0  000098
+high_isr@i_136                    cstackBANK0  00009A
+i2_buzzer_disable                 text13       000B4C
+i2_ce_disable                     text29       000B36
+i2_ce_enable                      text28       000B5C
+i2_io_as_output                   text27       000B58
+i2_send_command                   text26       0008AC
 i2send_command@command            cstackCOMRAM 000003
 i2send_command@i                  cstackCOMRAM 000004
-int$flags                         temp         00005C
-int_func                          intcode_body 0002C8
+int$flags                         temp         00003A
+int_func                          intcode_body 000012
 intlevel0                         text         000000
 intlevel1                         text         000000
 intlevel2                         text         000000
 intlevel3                         text         000000
 ir_get_human_code@code            cstackCOMRAM 000001
 ir_get_human_code@human_read_code cstackCOMRAM 000005
-ir_is_code_number@human_code      cstackBANK0  000060
-put_num@i                         cstackBANK0  000065
-put_num@mask                      cstackBANK0  000063
-put_num@num                       cstackBANK0  000062
-put_nums@i                        cstackBANK0  000069
-put_nums@nums                     cstackBANK0  000067
-put_nums_individual@num0          cstackBANK0  00006B
-put_nums_individual@num1          cstackBANK0  00006A
-put_nums_individual@num2          cstackBANK0  000069
-put_nums_individual@num3          cstackBANK0  000068
-put_nums_individual@num4          cstackBANK0  000067
-put_nums_individual@num5          cstackBANK0  00006C
-send_command@command              cstackBANK0  000062
-send_command@i                    cstackBANK0  000063
+ir_is_code_number@human_code      cstackCOMRAM 000026
+main@format                       cstackBANK0  0000A1
+put_num@i                         cstackCOMRAM 000006
+put_num@mask                      cstackCOMRAM 000004
+put_num@num                       cstackCOMRAM 000003
+put_nums@i                        cstackCOMRAM 00000A
+put_nums@nums                     cstackCOMRAM 000008
+send_command@command              cstackCOMRAM 000028
+send_command@i                    cstackCOMRAM 000029
 set_time@hour                     cstackCOMRAM 000009
 set_time@hour_reg                 cstackCOMRAM 00000D
 set_time@min_reg                  cstackCOMRAM 00000C
@@ -647,7 +672,9 @@ set_time@seconds                  cstackCOMRAM 00000A
 stackhi                           (abs)        0007FF
 stacklo                           (abs)        000400
 start                             init         00000E
-start_initialization              cinit        000BA4
+start_initialization              cinit        000AEA
+update_display@counter            cstackCOMRAM 00000E
+update_display@digits             cstackCOMRAM 00000C
 
 
 FUNCTION INFORMATION:
@@ -658,265 +685,41 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
+  format          1   65[BANK0 ] unsigned char 
   temp            1    0        unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
+      Locals:         0       1       0       0       0       0       0       0       0
       Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       2       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
+      Totals:         0       3       0       0       0       0       0       0       0
+Total ram usage:        3 bytes
  Hardware stack levels required when called:   10
  This function calls:
 		_ConfigureOscillator
 		_InitApp
+		_buzzer_disable
 		_get_time
 		_ir_is_code_number
-		_point_toggle
-		_put_nums
-		_put_nums_individual
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
- *************** function _put_nums_individual *****************
- Defined at:
-		line 72 in file "user.c"
- Parameters:    Size  Location     Type
-  num5            1    wreg     unsigned char 
-  num4            1    7[BANK0 ] unsigned char 
-  num3            1    8[BANK0 ] unsigned char 
-  num2            1    9[BANK0 ] unsigned char 
-  num1            1   10[BANK0 ] unsigned char 
-  num0            1   11[BANK0 ] unsigned char 
- Auto vars:     Size  Location     Type
-  num5            1   12[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       5       0       0       0       0       0       0       0
-      Locals:         0       1       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       6       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    7
- This function calls:
-		_get_num
-		_put_num
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _put_nums *****************
- Defined at:
-		line 63 in file "user.c"
- Parameters:    Size  Location     Type
-  nums            2    7[BANK0 ] PTR unsigned char 
-		 -> aux1(6), 
- Auto vars:     Size  Location     Type
-  i               2    9[BANK0 ] int 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
-      Locals:         0       2       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       4       0       0       0       0       0       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    7
- This function calls:
-		_get_num
-		_put_num
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _put_num *****************
- Defined at:
-		line 51 in file "user.c"
- Parameters:    Size  Location     Type
-  num             1    wreg     unsigned char 
- Auto vars:     Size  Location     Type
-  num             1    2[BANK0 ] unsigned char 
-  i               2    5[BANK0 ] int 
-  mask            1    3[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       5       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       7       0       0       0       0       0       0       0
-Total ram usage:        7 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    6
- This function calls:
-		Nothing
- This function is called by:
-		_put_nums
-		_put_nums_individual
- This function uses a non-reentrant model
-
-
- *************** function _get_num *****************
- Defined at:
-		line 82 in file "user.c"
- Parameters:    Size  Location     Type
-  num             1    wreg     unsigned char 
- Auto vars:     Size  Location     Type
-  num             1    0[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       1       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       1       0       0       0       0       0       0       0
-Total ram usage:        1 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    6
- This function calls:
-		Nothing
- This function is called by:
-		_put_nums
-		_put_nums_individual
- This function uses a non-reentrant model
-
-
- *************** function _point_toggle *****************
- Defined at:
-		line 116 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    7
- This function calls:
-		_point_disable
-		_point_enable
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _point_enable *****************
- Defined at:
-		line 106 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    6
- This function calls:
-		Nothing
- This function is called by:
-		_point_toggle
- This function uses a non-reentrant model
-
-
- *************** function _point_disable *****************
- Defined at:
-		line 111 in file "user.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		None
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    6
- This function calls:
-		Nothing
- This function is called by:
-		_point_toggle
- This function uses a non-reentrant model
-
-
  *************** function _ir_is_code_number *****************
  Defined at:
-		line 322 in file "user.c"
+		line 357 in file "user.c"
  Parameters:    Size  Location     Type
   human_code      1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  human_code      1    0[BANK0 ] unsigned char 
+  human_code      1   37[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -927,9 +730,9 @@ Total ram usage:        0 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       1       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       1       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    6
@@ -942,29 +745,31 @@ Total ram usage:        1 bytes
 
  *************** function _get_time *****************
  Defined at:
-		line 199 in file "user.c"
+		line 208 in file "user.c"
  Parameters:    Size  Location     Type
-  data            2   11[BANK0 ] PTR unsigned char 
+  data            2   60[BANK0 ] PTR unsigned char 
 		 -> aux1(6), 
+  format          1   62[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  aux             1   16[BANK0 ] unsigned char 
-  hours           1   15[BANK0 ] unsigned char 
-  minutes         1   14[BANK0 ] unsigned char 
-  seconds         1   13[BANK0 ] unsigned char 
+  aux_hour        1   50[COMRAM] unsigned char 
+  hours           1   53[COMRAM] unsigned char 
+  aux             1   52[COMRAM] unsigned char 
+  minutes         1   51[COMRAM] unsigned char 
+  seconds         1   49[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
-      Locals:         0       4       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       6       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
+      Params:         0       3       0       0       0       0       0       0       0
+      Locals:         5       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:         6       3       0       0       0       0       0       0       0
+Total ram usage:        9 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    9
  This function calls:
@@ -976,13 +781,13 @@ Total ram usage:        6 bytes
 
  *************** function _byte_read *****************
  Defined at:
-		line 150 in file "user.c"
+		line 158 in file "user.c"
  Parameters:    Size  Location     Type
   address         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  address         1    7[BANK0 ] unsigned char 
-  i               2    9[BANK0 ] int 
-  res             1    8[BANK0 ] unsigned char 
+  address         1   44[COMRAM] unsigned char 
+  i               2   46[COMRAM] int 
+  res             1   45[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -993,9 +798,9 @@ Total ram usage:        6 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       4       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       6       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0
 Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    8
@@ -1011,12 +816,12 @@ Total ram usage:        6 bytes
 
  *************** function _send_command *****************
  Defined at:
-		line 265 in file "user.c"
+		line 300 in file "user.c"
  Parameters:    Size  Location     Type
   command         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  command         1    2[BANK0 ] unsigned char 
-  i               2    3[BANK0 ] int 
+  command         1   39[COMRAM] unsigned char 
+  i               2   40[COMRAM] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1027,9 +832,9 @@ Total ram usage:        6 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       3       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       5       0       0       0       0       0       0       0
+      Locals:         3       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0
 Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    7
@@ -1042,7 +847,7 @@ Total ram usage:        5 bytes
 
  *************** function _io_as_output *****************
  Defined at:
-		line 285 in file "user.c"
+		line 320 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1072,7 +877,7 @@ Total ram usage:        0 bytes
 
  *************** function _io_as_input *****************
  Defined at:
-		line 280 in file "user.c"
+		line 315 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1102,7 +907,7 @@ Total ram usage:        0 bytes
 
  *************** function _ce_enable *****************
  Defined at:
-		line 142 in file "user.c"
+		line 150 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1132,7 +937,7 @@ Total ram usage:        0 bytes
 
  *************** function _ce_disable *****************
  Defined at:
-		line 145 in file "user.c"
+		line 153 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1160,6 +965,37 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _buzzer_disable *****************
+ Defined at:
+		line 137 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+		_buzzer_toggle
+ This function uses a non-reentrant model
+
+
  *************** function _InitApp *****************
  Defined at:
 		line 28 in file "user.c"
@@ -1170,7 +1006,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2
+		wreg, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1222,41 +1058,264 @@ Total ram usage:        0 bytes
 
  *************** function _high_isr *****************
  Defined at:
-		line 30 in file "interrupts.c"
+		line 32 in file "interrupts.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  code           47   37[COMRAM] unsigned char [47]
-  i               2   87[COMRAM] int 
-  final_code      2   85[COMRAM] int 
-  aux             1   84[COMRAM] unsigned char 
+  digits          6   47[BANK0 ] unsigned char [6]
+  i               2   58[BANK0 ] int 
+  code           47    0[BANK0 ] unsigned char [47]
+  i               2   56[BANK0 ] int 
+  final_code      2   54[BANK0 ] int 
+  aux             1   53[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:        52       0       0       0       0       0       0       0       0
+      Locals:         0      60       0       0       0       0       0       0       0
       Temps:         17       0       0       0       0       0       0       0       0
-      Totals:        69       0       0       0       0       0       0       0       0
-Total ram usage:       69 bytes
+      Totals:        17      60       0       0       0       0       0       0       0
+Total ram usage:       77 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
+		_buzzer_enable
 		_get_next_state
 		_ir_get_human_code
+		_point_disable
+		_point_enable
+		_update_display
+		i2_buzzer_disable
  This function is called by:
 		Interrupt level 2
  This function uses a non-reentrant model
 
 
+ *************** function i2_buzzer_disable *****************
+ Defined at:
+		line 137 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_high_isr
+ This function uses a non-reentrant model
+
+
+ *************** function _update_display *****************
+ Defined at:
+		line 431 in file "user.c"
+ Parameters:    Size  Location     Type
+  digits          2   11[COMRAM] PTR unsigned char 
+		 -> masked_digits(6), 
+  counter         2   13[COMRAM] PTR unsigned char 
+		 -> counter(1), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_put_nums
+ This function is called by:
+		_high_isr
+ This function uses a non-reentrant model
+
+
+ *************** function _put_nums *****************
+ Defined at:
+		line 71 in file "user.c"
+ Parameters:    Size  Location     Type
+  nums            2    7[COMRAM] PTR unsigned char 
+		 -> masked_digits(6), 
+ Auto vars:     Size  Location     Type
+  i               2    9[COMRAM] int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         2       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_get_num
+		_put_num
+ This function is called by:
+		_update_display
+ This function uses a non-reentrant model
+
+
+ *************** function _put_num *****************
+ Defined at:
+		line 59 in file "user.c"
+ Parameters:    Size  Location     Type
+  num             1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  num             1    2[COMRAM] unsigned char 
+  i               2    5[COMRAM] int 
+  mask            1    3[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         5       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         7       0       0       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_put_nums
+		_put_nums_individual
+ This function uses a non-reentrant model
+
+
+ *************** function _get_num *****************
+ Defined at:
+		line 90 in file "user.c"
+ Parameters:    Size  Location     Type
+  num             1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  num             1    0[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_put_nums
+		_put_nums_individual
+ This function uses a non-reentrant model
+
+
+ *************** function _point_enable *****************
+ Defined at:
+		line 114 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_high_isr
+		_point_toggle
+ This function uses a non-reentrant model
+
+
+ *************** function _point_disable *****************
+ Defined at:
+		line 119 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_high_isr
+		_point_toggle
+ This function uses a non-reentrant model
+
+
  *************** function _ir_get_human_code *****************
  Defined at:
-		line 332 in file "user.c"
+		line 367 in file "user.c"
  Parameters:    Size  Location     Type
   code            2    0[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -1285,7 +1344,7 @@ Total ram usage:        5 bytes
 
  *************** function _get_next_state *****************
  Defined at:
-		line 295 in file "user.c"
+		line 330 in file "user.c"
  Parameters:    Size  Location     Type
   state           2   13[COMRAM] int 
   code            2   15[COMRAM] int 
@@ -1318,7 +1377,7 @@ Total ram usage:        7 bytes
 
  *************** function _set_time *****************
  Defined at:
-		line 186 in file "user.c"
+		line 194 in file "user.c"
  Parameters:    Size  Location     Type
   seconds         1    wreg     unsigned char 
   minutes         1    7[COMRAM] unsigned char 
@@ -1355,7 +1414,7 @@ Total ram usage:        6 bytes
 
  *************** function _get_seconds_reg *****************
  Defined at:
-		line 216 in file "user.c"
+		line 251 in file "user.c"
  Parameters:    Size  Location     Type
   seconds         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1385,7 +1444,7 @@ Total ram usage:        2 bytes
 
  *************** function _get_hour_reg *****************
  Defined at:
-		line 246 in file "user.c"
+		line 281 in file "user.c"
  Parameters:    Size  Location     Type
   hour            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1415,7 +1474,7 @@ Total ram usage:        2 bytes
 
  *************** function _byte_write *****************
  Defined at:
-		line 175 in file "user.c"
+		line 183 in file "user.c"
  Parameters:    Size  Location     Type
   address         1    wreg     unsigned char 
   value           1    5[COMRAM] unsigned char 
@@ -1448,7 +1507,7 @@ Total ram usage:        2 bytes
 
  *************** function i2_send_command *****************
  Defined at:
-		line 265 in file "user.c"
+		line 300 in file "user.c"
  Parameters:    Size  Location     Type
   command         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1479,7 +1538,7 @@ Total ram usage:        5 bytes
 
  *************** function i2_io_as_output *****************
  Defined at:
-		line 285 in file "user.c"
+		line 320 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1508,7 +1567,7 @@ Total ram usage:        0 bytes
 
  *************** function i2_ce_enable *****************
  Defined at:
-		line 142 in file "user.c"
+		line 150 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1537,7 +1596,7 @@ Total ram usage:        0 bytes
 
  *************** function i2_ce_disable *****************
  Defined at:
-		line 145 in file "user.c"
+		line 153 in file "user.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1564,57 +1623,89 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _buzzer_enable *****************
+ Defined at:
+		line 132 in file "user.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_high_isr
+		_buzzer_toggle
+ This function uses a non-reentrant model
+
+
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 interrupts.c
-		_high_isr      		CODE           	0008	0000	361
+		_high_isr      		CODE           	0008	0000	701
 
-interrupts.c estimated size: 361
+interrupts.c estimated size: 701
 
 shared
-		i2_send_command		CODE           	09C8	0000	91
-		i2_ce_enable   		CODE           	0C0A	0000	5
-		__initialization		CODE           	0BA4	0000	13
-		i2_ce_disable  		CODE           	0BEC	0000	7
-		i2_io_as_output		CODE           	0C06	0000	5
+		i2_send_command		CODE           	08AC	0000	91
+		i2_ce_enable   		CODE           	0B5C	0000	5
+		__initialization		CODE           	0AEA	0000	19
+		i2_buzzer_disable		CODE           	0B4C	0000	5
+		i2_ce_disable  		CODE           	0B36	0000	7
+		i2_io_as_output		CODE           	0B58	0000	5
 
-shared estimated size: 121
+shared estimated size: 132
 
 user.c
-		_get_next_state		CODE           	056C	0000	277
-		_put_num       		CODE           	0870	0000	123
-		_put_nums      		CODE           	0AC6	0000	73
-		_byte_write    		CODE           	0BBE	0000	25
-		_get_hour_reg  		CODE           	0B78	0000	45
-		_point_toggle  		CODE           	0BD6	0000	17
-		_point_disable 		CODE           	0BF6	0000	5
-		_put_nums_individual		CODE           	0A78	0000	79
-		_ce_disable    		CODE           	0BE6	0000	7
-		_ir_get_human_code		CODE           	042A	0000	323
-		_byte_read     		CODE           	07E2	0000	143
-		_InitApp       		CODE           	0B48	0000	49
-		_get_time      		CODE           	0680	0000	179
-		_send_command  		CODE           	08EA	0000	113
-		_ir_is_code_number		CODE           	095A	0000	111
-		_get_num       		CODE           	0732	0000	177
-		_get_seconds_reg		CODE           	0A22	0000	87
-		_set_time      		CODE           	0B0E	0000	59
-		_io_as_input   		CODE           	0BFE	0000	5
-		_ce_enable     		CODE           	0C02	0000	5
-		_point_enable  		CODE           	0BF2	0000	5
-		_io_as_output  		CODE           	0BFA	0000	5
+		_get_next_state		CODE           	0528	0000	267
+		_put_num       		CODE           	0906	0000	89
+		_put_nums      		CODE           	0A88	0000	55
+		_byte_write    		CODE           	0B0A	0000	25
+		_get_hour_reg  		CODE           	0ABE	0000	45
+		_point_disable 		CODE           	0B54	0000	5
+		_ce_disable    		CODE           	0B30	0000	7
+		_ir_get_human_code		CODE           	03FA	0000	303
+		_byte_read     		CODE           	07E4	0000	111
+		_buzzer_enable 		CODE           	0B60	0000	5
+		_InitApp       		CODE           	0A0A	0000	69
+		_get_time      		CODE           	0632	0000	263
+		_buzzer_disable		CODE           	0B48	0000	5
+		_send_command  		CODE           	0852	0000	91
+		_ir_is_code_number		CODE           	095E	0000	87
+		_get_num       		CODE           	0738	0000	173
+		_get_seconds_reg		CODE           	09B4	0000	87
+		_set_time      		CODE           	0A4E	0000	59
+		_update_display		CODE           	0B22	0000	15
+		_io_as_input   		CODE           	0B40	0000	5
+		_ce_enable     		CODE           	0B44	0000	5
+		_point_enable  		CODE           	0B50	0000	5
+		_io_as_output  		CODE           	0B3C	0000	5
 
-user.c estimated size: 1912
+user.c estimated size: 1781
 
 main.c
-		_main          		CODE           	0012	0000	695
+		_main          		CODE           	02C8	0000	307
 
-main.c estimated size: 695
+main.c estimated size: 307
 
 system.c
-		_ConfigureOscillator		CODE           	0C0E	0000	3
+		_ConfigureOscillator		CODE           	0B64	0000	3
 
 system.c estimated size: 3
 

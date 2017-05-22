@@ -35,7 +35,15 @@ void InitApp(void)
     CCP2CON  = 0x00;
     SSPCON1 = 0X00; //disable SPI on PORTA.
     ADCON1 = 0X0F; //set all pins related with A/D as digital I/O
-    INTCON = 0b10001000;
+    INTCON = 0b10001000;	//enable general interrupts and interrupt on port B
+    INTCON = 0b0;
+    INTCON |= 1<<7; //global interrupt enable
+    INTCON |= 1<<3; //RB port change interrupt enable
+    INTCON |= 1<<5; //enable interrupts on timer0
+    INTCON2 = 0b10000101;
+    INTCON2 |= 1<2; //timer0 interrupt bit priority set to high
+
+    T0CON = 0b10000010; //prescaler are on T0CON<2:0> and set to 100. This should triggers an interrupts each 100ms aprox.
     TRISB1 = 0;
     TRISA2 = 0;
     TRISA5 = 0;
@@ -196,7 +204,8 @@ void set_time(char seconds, char minutes, char hour)
     
    
 }
-void get_time(char data[])
+/*returns values for display time. Formate = 1 means H1 (24H), Format = 0 means H2 (12H)*/
+void get_time(char data[], unsigned char format)
 {
    char aux = READ_RTC_0;
    char seconds =  byte_read(aux);
@@ -205,12 +214,38 @@ void get_time(char data[])
    aux = READ_RTC_2;
    char hours   =  byte_read(aux);
    
+   
    data[0] = minutes & 0x0f;
    data[1] = (minutes & 0xf0)>>4; 
-   data[2] = hours & 0x0f;
-   data[3] = (hours & 0xf0)>>4;   
-   data[4] = 1;
+   
+   if(format == 1)
+   {
+   
+        data[4] = 1;
+        data[2] = hours & 0x0f;
+        data[3] = (hours & 0xf0)>>4;  
+   
+   }
+   else
+   {   
+       data[4] = 2;
+       char aux_hour = (hours>>4 & 0x0f)*10 + (hours & 0x0f);
+       if(aux_hour<=12)
+       {
+           data[2] =  hours & 0x0f;
+           data[3] = (hours & 0xf0)>>4;
+       }
+       else
+       {
+           data[2] = (hours & 0x0f) - 2;
+           data[3] = (hours>>4 & 0x0f)-1;
+       }
+           
+   }
+   
+ 
    data[5] = 'H';
+   
 }
 
 char get_seconds_reg(char seconds)
@@ -296,6 +331,10 @@ int get_next_state(int state,int code)
 {
      if(state == STATE_TIME && code == IR_EDIT) 
             next = STATE_HH1;
+     else if(state == STATE_TIME && code == IR_UP) 
+            next = STATE_UP;
+     else if(state == STATE_TIME && code == IR_DOWN) 
+            next = STATE_DOWN;
      else if(state == STATE_HH1 && code == IR_RIGHT) 
             next = STATE_HH2;
      else if(state == STATE_HH2 && code == IR_RIGHT) 
@@ -391,3 +430,10 @@ char ir_get_human_code(int code)
                             
                 
 }
+
+
+void update_display(char digits[], unsigned char *counter)
+{
+                put_nums(digits);
+}
+

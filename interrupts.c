@@ -18,6 +18,8 @@
 
 #include "user.h"
 
+char counter;
+char masked_digits[6];
 
 
 /******************************************************************************/
@@ -72,11 +74,11 @@ void high_isr(void)
         int i;
         char code[CODE_NUM_BITS];
         //lets wait 40.5 ms, to skip the common code
-        __delay_ms(40.6);
+        __delay_ms(40.7);
         for(i = 0; i < CODE_NUM_BITS ; i ++)
         {
             code[i] = IR;
-            __delay_us(590);
+            __delay_us(565);
         }
         int final_code = 0;
         for(i = 0; i<16;i++)
@@ -96,4 +98,60 @@ void high_isr(void)
         RBIF = 0;
         INTCONbits.GIE = 1;
       }
+      else if (TMR0IF == 1)
+	{
+          int i;
+          for(i=0; i<NUM_DIGITS;i++)
+          {
+              masked_digits[i] = aux1[i];
+          }
+        //lets update time interval
+		if(counter < NUM_TIME_STEPS - 1)
+		{
+			counter = counter + 1;	
+		}
+		else
+		{
+			counter = 0;
+		}	
+          
+		char digits[6];
+		int i;
+		
+		for (i=0; i<6;i++)
+			digits[6] = i;
+        
+        if(counter == 0 )
+        {
+            point_enable();
+            buzzer_enable();
+        }
+        else if(counter == 5 && state == STATE_TIME)
+        {
+            point_disable();
+            buzzer_disable();
+        }
+        
+        if(counter >= 5)
+        {
+            switch(state)
+            {
+                case STATE_HH1:
+                    masked_digits[3] =  'V';
+                    break;
+                case STATE_HH2:
+                    masked_digits[2] =  'V';
+                    break;
+                case STATE_MM1:
+                    masked_digits[1] =  'V';
+                    break;
+                case STATE_MM2:
+                    masked_digits[0] =  'V';
+                    break;
+            }
+        }
+        
+		update_display(masked_digits, &counter);
+		TMR0IF = 0;
+	}
 }
