@@ -23,22 +23,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [t T13 __deprecated__ ]
 "8599 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _RB5 `Vb ~T13 @X0 0 e@31757 ]
-"128 user.h
+"177 user.h
 [v _ir_get_human_code `(uc ~T0 @X0 0 ef1`i ]
-"131
+"180
 [v _get_next_state `(i ~T0 @X0 0 ef2`i`i ]
 "8833 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-"104 user.h
+"148 user.h
+[v _update_point `(v ~T0 @X0 0 ef2`i`uc ]
+"149
+[v _update_buzzer `(v ~T0 @X0 0 ef2`i`uc ]
+"151
 [v _point_enable `(v ~T0 @X0 0 ef ]
-"108
-[v _buzzer_enable `(v ~T0 @X0 0 ef ]
-"105
+"152
 [v _point_disable `(v ~T0 @X0 0 ef ]
-"109
-[v _buzzer_disable `(v ~T0 @X0 0 ef ]
-"137
-[v _update_display `(v ~T0 @X0 0 ef2`*uc`*uc ]
+"8589 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
+[v _RB0 `Vb ~T13 @X0 0 e@31752 ]
+"145 user.h
+[v _put_nums `(v ~T0 @X0 0 ef1`*uc ]
+"8843 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
+[v _TMR1IF `Vb ~T0 @X0 0 e@31984 ]
+"188 user.h
+[v _update_timer1_counter_10 `(v ~T0 @X0 0 ef2`uc`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3167,42 +3173,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"96 user.h
+"135 user.h
 [v _state `i ~T0 @X0 1 e ]
 [v _next `i ~T0 @X0 1 e ]
-[; ;user.h: 96: int state, next;
-"97
+[; ;user.h: 135: int state, next;
+"136
 [v _human_code `uc ~T0 @X0 1 e ]
-[; ;user.h: 97: char human_code;
-"98
+[; ;user.h: 136: char human_code;
+"137
 [v _aux1 `uc ~T0 @X0 -> 6 `i e ]
-[; ;user.h: 98: char aux1[6];
-[; ;user.h: 100: void put_num(char num);
-[; ;user.h: 101: void put_nums(char nums[]);
-[; ;user.h: 102: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
-[; ;user.h: 103: char get_num(char num);
-[; ;user.h: 104: void point_enable(void);
-[; ;user.h: 105: void point_disable(void);
-[; ;user.h: 106: void point_toggle(void);
-[; ;user.h: 108: void buzzer_enable(void);
-[; ;user.h: 109: void buzzer_disable(void);
-[; ;user.h: 110: void buzzer_toggle(void);
-[; ;user.h: 112: void ce_enable(void);
-[; ;user.h: 113: void ce_disable(void);
-[; ;user.h: 114: char byte_read(char address);
-[; ;user.h: 115: void byte_write(char address, char value);
-[; ;user.h: 116: char get_seconds_reg(char seconds);
-[; ;user.h: 117: char get_hour_reg(char hour);
-[; ;user.h: 118: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 119: void get_time(char data[], unsigned char format);
-[; ;user.h: 121: void send_command(char command);
-[; ;user.h: 122: void io_as_input(void);
-[; ;user.h: 123: void io_as_output(void);
-[; ;user.h: 126: char ir_is_code_number(char human_code);
-[; ;user.h: 128: char ir_get_human_code(int code);
-[; ;user.h: 131: int get_next_state(int state,int code);
-[; ;user.h: 137: void update_display(char digits[], char *counter);
-[; ;user.h: 138: void InitApp(void);
+[; ;user.h: 137: char aux1[6];
+"138
+[v _buzzer_status `uc ~T0 @X0 1 e ]
+[; ;user.h: 138: char buzzer_status;
+"140
+[v _timer1_counter `uc ~T0 @X0 1 e ]
+[; ;user.h: 140: char timer1_counter;
+"141
+[v _timer1_counter_10 `uc ~T0 @X0 1 e ]
+[; ;user.h: 141: char timer1_counter_10;
+[; ;user.h: 144: void put_num(char num);
+[; ;user.h: 145: void put_nums(char nums[]);
+[; ;user.h: 146: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 147: char get_num(char num);
+[; ;user.h: 148: void update_point(int state, char counter);
+[; ;user.h: 149: void update_buzzer(int state, char counter);
+[; ;user.h: 151: void point_enable(void);
+[; ;user.h: 152: void point_disable(void);
+[; ;user.h: 153: void point_toggle(void);
+[; ;user.h: 155: void buzzer_enable(void);
+[; ;user.h: 156: void buzzer_disable(void);
+[; ;user.h: 157: void buzzer_toggle(void);
+[; ;user.h: 162: char get_seconds_reg(char seconds);
+[; ;user.h: 163: char get_hour_reg(char hour);
+[; ;user.h: 164: void get_time(char data[], unsigned char format);
+[; ;user.h: 165: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 168: void send_command(char command);
+[; ;user.h: 169: void io_as_input(void);
+[; ;user.h: 170: void io_as_output(void);
+[; ;user.h: 171: void ce_enable(void);
+[; ;user.h: 172: void ce_disable(void);
+[; ;user.h: 173: char byte_read(char address);
+[; ;user.h: 174: void byte_write(char address, char value);
+[; ;user.h: 176: char ir_is_code_number(char human_code);
+[; ;user.h: 177: char ir_get_human_code(int code);
+[; ;user.h: 180: int get_next_state(int state,int code);
+[; ;user.h: 182: void InitApp(void);
+[; ;user.h: 185: void get_timer1_counter( char data[]);
+[; ;user.h: 186: void timer1_enable(void);
+[; ;user.h: 187: void timer1_disable(void);
+[; ;user.h: 188: void update_timer1_counter_10(char state, char *counter);
 "21 interrupts.c
 [v _counter `uc ~T0 @X0 1 e ]
 [; ;interrupts.c: 21: char counter;
@@ -3210,9 +3230,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _masked_digits `uc ~T0 @X0 -> 6 `i e ]
 [; ;interrupts.c: 22: char masked_digits[6];
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-[v F3417 `(v ~T0 @X0 1 tf ]
+[v F3432 `(v ~T0 @X0 1 tf ]
 "32
-[v _high_isr `IF3417 ~T0 @X0 1 e ]
+[v _high_isr `IF3432 ~T0 @X0 1 e ]
 "41
 {
 [; ;interrupts.c: 32: void interrupt high_isr(void)
@@ -3325,188 +3345,250 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 102: {
 "102
 {
-"103
-[v _i `i ~T0 @X0 1 a ]
-[; ;interrupts.c: 103: int i;
-[; ;interrupts.c: 104: for(i=0; i<6;i++)
 "104
+[v _i `i ~T0 @X0 1 a ]
+[; ;interrupts.c: 104: int i;
+[; ;interrupts.c: 105: for(i=0; i<6;i++)
+"105
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 6 `i 333  ]
 [e $U 334  ]
-"105
-[e :U 333 ]
-[; ;interrupts.c: 105: {
-{
-[; ;interrupts.c: 106: masked_digits[i] = aux1[i];
 "106
-[e = *U + &U _masked_digits * -> -> _i `ui `ux -> -> # *U &U _masked_digits `ui `ux *U + &U _aux1 * -> -> _i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
+[e :U 333 ]
+[; ;interrupts.c: 106: {
+{
+[; ;interrupts.c: 107: masked_digits[i] = aux1[i];
 "107
+[e = *U + &U _masked_digits * -> -> _i `ui `ux -> -> # *U &U _masked_digits `ui `ux *U + &U _aux1 * -> -> _i `ui `ux -> -> # *U &U _aux1 `ui `ux ]
+"108
 }
-"104
+"105
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 333  ]
 [e :U 334 ]
-"107
+"108
 }
-[; ;interrupts.c: 107: }
-[; ;interrupts.c: 109: if(counter < 10 - 1)
-"109
-[e $ ! < -> _counter `i - -> 10 `i -> 1 `i 336  ]
-[; ;interrupts.c: 110: {
-"110
-{
-[; ;interrupts.c: 111: counter = counter + 1;
+[; ;interrupts.c: 108: }
+[; ;interrupts.c: 111: if(counter < 10 - 1)
 "111
-[e = _counter -> + -> _counter `i -> 1 `i `uc ]
+[e $ ! < -> _counter `i - -> 10 `i -> 1 `i 336  ]
+[; ;interrupts.c: 112: {
 "112
-}
-[; ;interrupts.c: 112: }
-[e $U 337  ]
-"113
-[e :U 336 ]
-[; ;interrupts.c: 113: else
-[; ;interrupts.c: 114: {
-"114
 {
-[; ;interrupts.c: 115: counter = 0;
+[; ;interrupts.c: 113: counter = counter + 1;
+"113
+[e = _counter -> + -> _counter `i -> 1 `i `uc ]
+"114
+}
+[; ;interrupts.c: 114: }
+[e $U 337  ]
 "115
-[e = _counter -> -> 0 `i `uc ]
+[e :U 336 ]
+[; ;interrupts.c: 115: else
+[; ;interrupts.c: 116: {
 "116
+{
+[; ;interrupts.c: 117: counter = 0;
+"117
+[e = _counter -> -> 0 `i `uc ]
+"118
 }
 [e :U 337 ]
-"118
+"120
 [v _digits `uc ~T0 @X0 -> 6 `i a ]
-[; ;interrupts.c: 116: }
-[; ;interrupts.c: 118: char digits[6];
-[; ;interrupts.c: 119: int i;
-[; ;interrupts.c: 121: for (i=0; i<6;i++)
-"121
+[; ;interrupts.c: 118: }
+[; ;interrupts.c: 120: char digits[6];
+[; ;interrupts.c: 121: int i;
+[; ;interrupts.c: 123: for (i=0; i<6;i++)
+"123
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 6 `i 338  ]
 [e $U 339  ]
-"122
+"124
 [e :U 338 ]
-[; ;interrupts.c: 122: digits[6] = i;
+[; ;interrupts.c: 124: digits[6] = i;
 [e = *U + &U _digits * -> -> -> 6 `i `ui `ux -> -> # *U &U _digits `ui `ux -> _i `uc ]
-"121
+"123
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 338  ]
 [e :U 339 ]
-"122
-}
-[; ;interrupts.c: 124: if(counter == 0 )
 "124
-[e $ ! == -> _counter `i -> 0 `i 341  ]
-[; ;interrupts.c: 125: {
-"125
-{
-[; ;interrupts.c: 126: point_enable();
-"126
-[e ( _point_enable ..  ]
-[; ;interrupts.c: 127: buzzer_enable();
-"127
-[e ( _buzzer_enable ..  ]
-"128
 }
-[; ;interrupts.c: 128: }
-[e $U 342  ]
-"129
-[e :U 341 ]
-[; ;interrupts.c: 129: else if(counter == 5 && state == 0)
-[e $ ! && == -> _counter `i -> 5 `i == _state -> 0 `i 343  ]
-[; ;interrupts.c: 130: {
+[; ;interrupts.c: 127: update_point(state,counter);
+"127
+[e ( _update_point (2 , _state _counter ]
+[; ;interrupts.c: 128: update_buzzer(state,counter);
+"128
+[e ( _update_buzzer (2 , _state _counter ]
+[; ;interrupts.c: 130: if(counter == 0 )
 "130
-{
-[; ;interrupts.c: 131: point_disable();
+[e $ ! == -> _counter `i -> 0 `i 341  ]
+[; ;interrupts.c: 131: {
 "131
-[e ( _point_disable ..  ]
-[; ;interrupts.c: 132: buzzer_disable();
+{
+[; ;interrupts.c: 132: point_enable();
 "132
-[e ( _buzzer_disable ..  ]
+[e ( _point_enable ..  ]
 "133
 }
-[e :U 343 ]
-"135
-[e :U 342 ]
 [; ;interrupts.c: 133: }
-[; ;interrupts.c: 135: if(counter >= 5)
-[e $ ! >= -> _counter `i -> 5 `i 344  ]
-[; ;interrupts.c: 136: {
+[e $U 342  ]
+"134
+[e :U 341 ]
+[; ;interrupts.c: 134: else if(counter == 5 && state == 0)
+[e $ ! && == -> _counter `i -> 5 `i == _state -> 0 `i 343  ]
+[; ;interrupts.c: 135: {
+"135
+{
+[; ;interrupts.c: 136: point_disable();
 "136
-{
-[; ;interrupts.c: 137: switch(state)
+[e ( _point_disable ..  ]
 "137
-[e $U 346  ]
-[; ;interrupts.c: 138: {
-"138
-{
-[; ;interrupts.c: 139: case 1:
-"139
-[e :U 347 ]
-[; ;interrupts.c: 140: masked_digits[3] = 'V';
-"140
-[e = *U + &U _masked_digits * -> -> -> 3 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
-[; ;interrupts.c: 141: break;
-"141
-[e $U 345  ]
-[; ;interrupts.c: 142: case 2:
-"142
-[e :U 348 ]
-[; ;interrupts.c: 143: masked_digits[2] = 'V';
-"143
-[e = *U + &U _masked_digits * -> -> -> 2 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
-[; ;interrupts.c: 144: break;
-"144
-[e $U 345  ]
-[; ;interrupts.c: 145: case 3:
-"145
-[e :U 349 ]
-[; ;interrupts.c: 146: masked_digits[1] = 'V';
-"146
-[e = *U + &U _masked_digits * -> -> -> 1 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
-[; ;interrupts.c: 147: break;
-"147
-[e $U 345  ]
-[; ;interrupts.c: 148: case 4:
-"148
-[e :U 350 ]
-[; ;interrupts.c: 149: masked_digits[0] = 'V';
-"149
-[e = *U + &U _masked_digits * -> -> -> 0 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
-[; ;interrupts.c: 150: break;
-"150
-[e $U 345  ]
-"151
 }
-[; ;interrupts.c: 151: }
-[e $U 345  ]
-"137
-[e :U 346 ]
-[e [\ _state , $ -> 1 `i 347
- , $ -> 2 `i 348
- , $ -> 3 `i 349
- , $ -> 4 `i 350
- 345 ]
-"151
+[e :U 343 ]
+"140
+[e :U 342 ]
+[; ;interrupts.c: 137: }
+[; ;interrupts.c: 140: if(buzzer_status)
+[e $ ! != -> _buzzer_status `i -> -> -> 0 `i `uc `i 344  ]
+[; ;interrupts.c: 141: {
+"141
+{
+[; ;interrupts.c: 142: if(RB0 == 1)
+"142
+[e $ ! == -> _RB0 `i -> 1 `i 345  ]
+[; ;interrupts.c: 143: RB0 = 0;
+"143
+[e = _RB0 -> -> 0 `i `b ]
+[e $U 346  ]
+"144
 [e :U 345 ]
-"152
+[; ;interrupts.c: 144: else
+[; ;interrupts.c: 145: RB0 = 1;
+"145
+[e = _RB0 -> -> 1 `i `b ]
+[e :U 346 ]
+"146
 }
 [e :U 344 ]
-[; ;interrupts.c: 152: }
-[; ;interrupts.c: 154: update_display(masked_digits, &counter);
+[; ;interrupts.c: 146: }
+[; ;interrupts.c: 147: if(counter >= 5)
+"147
+[e $ ! >= -> _counter `i -> 5 `i 347  ]
+[; ;interrupts.c: 148: {
+"148
+{
+[; ;interrupts.c: 149: switch(state)
+"149
+[e $U 349  ]
+[; ;interrupts.c: 150: {
+"150
+{
+[; ;interrupts.c: 151: case 1:
+"151
+[e :U 350 ]
+[; ;interrupts.c: 152: masked_digits[3] = 'V';
+"152
+[e = *U + &U _masked_digits * -> -> -> 3 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
+[; ;interrupts.c: 153: break;
+"153
+[e $U 348  ]
+[; ;interrupts.c: 154: case 2:
 "154
-[e ( _update_display (2 , &U _masked_digits &U _counter ]
-[; ;interrupts.c: 155: TMR0IF = 0;
+[e :U 351 ]
+[; ;interrupts.c: 155: masked_digits[2] = 'V';
 "155
-[e = _TMR0IF -> -> 0 `i `b ]
+[e = *U + &U _masked_digits * -> -> -> 2 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
+[; ;interrupts.c: 156: break;
 "156
-}
-[e :U 332 ]
+[e $U 348  ]
+[; ;interrupts.c: 157: case 3:
 "157
+[e :U 352 ]
+[; ;interrupts.c: 158: masked_digits[1] = 'V';
+"158
+[e = *U + &U _masked_digits * -> -> -> 1 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
+[; ;interrupts.c: 159: break;
+"159
+[e $U 348  ]
+[; ;interrupts.c: 160: case 4:
+"160
+[e :U 353 ]
+[; ;interrupts.c: 161: masked_digits[0] = 'V';
+"161
+[e = *U + &U _masked_digits * -> -> -> 0 `i `ui `ux -> -> # *U &U _masked_digits `ui `ux -> -> 86 `ui `uc ]
+[; ;interrupts.c: 162: break;
+"162
+[e $U 348  ]
+"163
+}
+[; ;interrupts.c: 163: }
+[e $U 348  ]
+"149
+[e :U 349 ]
+[e [\ _state , $ -> 1 `i 350
+ , $ -> 2 `i 351
+ , $ -> 3 `i 352
+ , $ -> 4 `i 353
+ 348 ]
+"163
+[e :U 348 ]
+"164
+}
+[e :U 347 ]
+[; ;interrupts.c: 164: }
+[; ;interrupts.c: 167: put_nums(masked_digits);
+"167
+[e ( _put_nums (1 &U _masked_digits ]
+[; ;interrupts.c: 168: TMR0IF = 0;
+"168
+[e = _TMR0IF -> -> 0 `i `b ]
+"169
+}
+[; ;interrupts.c: 169: }
+[e $U 354  ]
+"171
+[e :U 332 ]
+[; ;interrupts.c: 171: else if (TMR1IF == 1)
+[e $ ! == -> _TMR1IF `i -> 1 `i 355  ]
+[; ;interrupts.c: 172: {
+"172
+{
+[; ;interrupts.c: 174: if(timer1_counter <9)
+"174
+[e $ ! < -> _timer1_counter `i -> 9 `i 356  ]
+[; ;interrupts.c: 175: timer1_counter += 1;
+"175
+[e =+ _timer1_counter -> -> 1 `i `uc ]
+[e $U 357  ]
+"176
+[e :U 356 ]
+[; ;interrupts.c: 176: else
+[; ;interrupts.c: 177: {
+"177
+{
+[; ;interrupts.c: 178: timer1_counter = 0;
+"178
+[e = _timer1_counter -> -> 0 `i `uc ]
+[; ;interrupts.c: 179: update_timer1_counter_10(state,&timer1_counter_10);
+"179
+[e ( _update_timer1_counter_10 (2 , -> _state `uc &U _timer1_counter_10 ]
+"180
+}
+[e :U 357 ]
+[; ;interrupts.c: 180: }
+[; ;interrupts.c: 182: TMR1IF = 0;
+"182
+[e = _TMR1IF -> -> 0 `i `b ]
+"183
+}
+[e :U 355 ]
+"184
+[e :U 354 ]
 [e :U 331 ]
-[; ;interrupts.c: 156: }
-[; ;interrupts.c: 157: }
+[; ;interrupts.c: 183: }
+[; ;interrupts.c: 184: }
 [e :UE 322 ]
 }

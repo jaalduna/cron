@@ -100,11 +100,13 @@ void high_isr(void)
       }
       else if (TMR0IF == 1)
 	{
+	  /*Lets assign to masked_digits the characters stored in aux1*/
           int i;
           for(i=0; i<NUM_DIGITS;i++)
           {
               masked_digits[i] = aux1[i];
           }
+
         //lets update time interval
 		if(counter < NUM_TIME_STEPS - 1)
 		{
@@ -121,17 +123,27 @@ void high_isr(void)
 		for (i=0; i<6;i++)
 			digits[6] = i;
         
+	//update point according to state and counter
+	update_point(state,counter);
+	update_buzzer(state,counter);
+	
         if(counter == 0 )
         {
             point_enable();
-            buzzer_enable();
         }
         else if(counter == 5 && state == STATE_TIME)
         {
             point_disable();
-            buzzer_disable();
         }
         
+
+	if(buzzer_status)
+	{
+		if(BUZZER == 1)
+			BUZZER = 0;
+		else
+		   BUZZER = 1;
+	}
         if(counter >= 5)
         {
             switch(state)
@@ -151,7 +163,22 @@ void high_isr(void)
             }
         }
         
-		update_display(masked_digits, &counter);
+		//update_display(masked_digits, &counter);
+		put_nums(masked_digits);
 		TMR0IF = 0;
+	}
+
+     else if (TMR1IF == 1)
+	{
+		//lets update a counter and then write it to aux1 display varible			
+		if(timer1_counter <9)	
+			timer1_counter += 1;		
+		else
+		{
+			timer1_counter = 0;
+			update_timer1_counter_10(state,&timer1_counter_10);
+		}
+	
+		TMR1IF = 0;	
 	}
 }

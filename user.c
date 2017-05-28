@@ -38,12 +38,26 @@ void InitApp(void)
     INTCON = 0b10001000;	//enable general interrupts and interrupt on port B
     INTCON = 0b0;
     INTCON |= 1<<7; //global interrupt enable
+    INTCON |= 1<<6; //enable pheripheral interrupts 
     INTCON |= 1<<3; //RB port change interrupt enable
     INTCON |= 1<<5; //enable interrupts on timer0
     INTCON2 = 0b10000101;
     INTCON2 |= 1<2; //timer0 interrupt bit priority set to high
 
     T0CON = 0b10000010; //prescaler are on T0CON<2:0> and set to 100. This should triggers an interrupts each 100ms aprox.
+
+    /*Timer 1 configuration register*/
+    T1CON = 0x00;
+    T1CON |= 1<<7; //RD16, enable 16 bits read/write
+    T1CON |= 1<<5; //T1CKPS1 
+    T1CON |= 1<<4; //T1CKPS0
+    T1CON |= 0<<3; //T1OSCEN: disable T1 oscillator
+    T1CON |= 0 << 1; //TMR1CS: internal clock (FOSC/4) 
+    T1CON |= 0 << 0; //TMR1ON: START/STOP TMR1 
+    /*PIE1 register*/
+    PIE1 = 0x00;
+    PIE1 |= 1 << 0; //TMR1 overflow interrupt enable bit
+
     TRISB1 = 0;
     TRISA2 = 0;
     TRISA5 = 0;
@@ -56,6 +70,7 @@ void InitApp(void)
     /* Enable interrupts */
 }
 
+/*put a character on the display on the first position*/
 void put_num(char num)
 {
     char mask = 0x01;
@@ -68,6 +83,7 @@ void put_num(char num)
         }
 }
 
+/*update all characters from the display with nums array*/
 void put_nums(char nums[])
 {
     int i;
@@ -76,7 +92,7 @@ void put_nums(char nums[])
         put_num(get_num(nums[i]));
     }
 }
-/*update all the numbers from the display*/
+/*update all characters from display with individual arguments for each 7-segment display*/
 void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0)
 {
     put_num(get_num(num0));
@@ -87,6 +103,7 @@ void put_nums_individual(char num5, char num4, char num3, char num2, char num1, 
     put_num(get_num(num5));
 }
 
+/*Encode a human readable character into a 7 segment display format*/
 char get_num(char num)
 {
     switch(num)
@@ -111,16 +128,19 @@ char get_num(char num)
     }
 }
 
+/*Enables double point from display*/
 void point_enable(void)
 {
     POINT = 1;
 }
 
+/*Disable double point from display*/
 void point_disable(void)
 {
     POINT = 0;
 }
 
+/*Toggles double point from display*/
 void point_toggle(void)
 {
     if(POINT == 0)
@@ -129,33 +149,42 @@ void point_toggle(void)
         point_disable();
 }
 
+/*Enables buzzer */
 void buzzer_enable(void)
 {
-    BUZZER = 1;
+    buzzer_status= 1;
 }
-
+/*Disable buzzer */
 void buzzer_disable(void)
 {
-    BUZZER = 0;
+    buzzer_status= 0;
 }
-
+/*Toogle buzzer*/
 void buzzer_toggle(void)
 {
-    if(BUZZER == 0)
+    if(buzzer_status== 0)
         buzzer_enable();
     else
         buzzer_disable();
 }
 
-void ce_enable(void){
+/*RTC DS1302 RST (CE) enable*/
+void ce_enable(void)
+
+{
     RST = 1;
 }
-void ce_disable(void){
+
+/*RTC DS1302 RST (CE) disable*/
+void ce_disable(void)
+{
     RST = 0;
     SCLK = 0;
 }
 
-char byte_read(char address){
+/*This function reads the byte located in address from the RTC ic DS1302*/
+char byte_read(char address)
+{
     char res = 0;
     
     //ce enable
@@ -180,6 +209,7 @@ char byte_read(char address){
     return res; 
 }
 
+/*byte_write writes "value" on "address" on the RTC ic DS1302*/
 void byte_write(char address, char value)
 {
     ce_enable();
@@ -191,6 +221,7 @@ void byte_write(char address, char value)
     ce_disable();
 }
 
+/*set_time sets seconds, minuts and hour on the RTC DS1302*/
 void set_time(char seconds, char minutes, char hour)
 {
     //calculate seconds register
@@ -204,7 +235,10 @@ void set_time(char seconds, char minutes, char hour)
     
    
 }
-/*returns values for display time. Formate = 1 means H1 (24H), Format = 0 means H2 (12H)*/
+
+/*get_time update "data" with time values to be displayed. Format = 1 means H1 (24H), Format = 0 means H2 (12H).
+Format 1: H1 HH(24H):MM
+Format 0: H2 HH(12H):MM*/
 void get_time(char data[], unsigned char format)
 {
    char aux = READ_RTC_0;
@@ -248,6 +282,7 @@ void get_time(char data[], unsigned char format)
    
 }
 
+/*get_seconds_reg returns a register according to the second and minute register in DS1302.*/
 char get_seconds_reg(char seconds)
 {
     char res = 0;
@@ -278,6 +313,8 @@ char get_seconds_reg(char seconds)
     
     return res;
 }
+
+/*get_hour_reg returns a register according to the hour register in DS1302.*/
 char get_hour_reg(char hour)
 {   
     char res = 0;
@@ -297,6 +334,8 @@ char get_hour_reg(char hour)
     return res;
 
 }
+
+/*This is a low level function to send a command to DS1302*/
 void send_command(char command)
 {
     int i;
@@ -312,21 +351,20 @@ void send_command(char command)
     }
 }
 
+/*Configure pin IO, in the DS1302 interface, as input.*/
 void io_as_input(void)
 {
     TRISA3 = 1;
 }
 
+/*Configure pin IO, in the DS1302 interface, as output.*/
 void io_as_output(void)
 {
     TRISA3 = 0;
 }
 
-void get_code(char code[])
-{
-    
-}
 
+/*get_next_state retuns calculate and returns next state from the current state and the last code received.*/
 int get_next_state(int state,int code)
 {
      if(state == STATE_TIME && code == IR_EDIT) 
@@ -351,6 +389,14 @@ int get_next_state(int state,int code)
             char hour = aux1[2] + aux1[3]*10;
             set_time(seconds,minutes,hour);
      }
+     else if(state == STATE_UP && code == IR_OK)
+	   {
+		next = STATE_UP_COUNT_DOWN;
+		//lets activate timer1 counter
+		timer1_enable();
+	   } 
+     else if(state == STATE_UP_COUNT_DOWN && timer1_counter_10 == 0)
+		next = STATE_UP_COUNTING;	
      else
             next = next;
      
@@ -431,9 +477,76 @@ char ir_get_human_code(int code)
                 
 }
 
-
-void update_display(char digits[], unsigned char *counter)
+/*update_point updates double point in display according to current state and counter*/
+void update_point(int state, char counter)
 {
-                put_nums(digits);
+	if(counter == 0 && (state == STATE_TIME || state == STATE_UP || state == STATE_UP_COUNTING))
+	{
+		point_enable();
+	}
+	else if(counter == 5 && state == STATE_TIME && state != STATE_UP)
+	{
+		point_disable();	
+	}
 }
 
+/*update_buzzer updates buzzer status according to current state and counter*/
+void update_buzzer(int state, char counter)
+{
+	if(counter == 0 && (state == STATE_TIME || state == STATE_UP || state == STATE_UP_COUNTING))
+	{
+		buzzer_enable();
+	}
+	else if(counter == 5 && state == STATE_TIME && state != STATE_UP)
+	{
+		buzzer_disable();	
+	}
+}
+
+void get_timer1_counter( char data[])
+{
+   data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
+   data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+   data[2] = 0;
+   data[3] = 0;
+   data[4] = 'P'; 
+   data[5] = 'U';
+
+}
+
+void timer1_enable(void)
+{
+	    T1CON |= 1 << 0; //TMR1ON: START/STOP TMR1
+	
+}
+
+void timer1_disable(void)
+{
+	    T1CON &= ~(1 << 0); //TMR1ON: START/STOP TMR1
+}
+
+void update_timer1_counter_10(char state, char *counter)
+{
+	if(state == STATE_UP)
+		*counter = UP_INITIAL_COUNTDOWN;
+	else if(state == STATE_UP_COUNT_DOWN)
+	 	if(*counter>0)
+			if (*counter>3)
+				*counter-=1;
+			else
+			{
+				*counter-=1;
+				//put here logic to beep the buzzer
+			}
+		
+	else if(state == STATE_UP_COUNTING)
+  		if(*counter<59)		
+			*counter+=1;
+		else
+		{
+			*counter= 0;
+			//put here the logic for increment minutes, meybee create and use other variable 
+		}
+
+
+}

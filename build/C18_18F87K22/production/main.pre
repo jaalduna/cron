@@ -4344,15 +4344,23 @@ typedef unsigned char bool;
 # 19 "system.h"
 void ConfigureOscillator(void);
 
-# 96 "user.h"
+# 135 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
+char buzzer_status;
+
+char timer1_counter;
+char timer1_counter_10;
+
 
 void put_num(char num);
 void put_nums(char nums[]);
 void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
 char get_num(char num);
+void update_point(int state, char counter);
+void update_buzzer(int state, char counter);
+
 void point_enable(void);
 void point_disable(void);
 void point_toggle(void);
@@ -4361,30 +4369,36 @@ void buzzer_enable(void);
 void buzzer_disable(void);
 void buzzer_toggle(void);
 
-void ce_enable(void);
-void ce_disable(void);
-char byte_read(char address);
-void byte_write(char address, char value);
+
+
+
 char get_seconds_reg(char seconds);
 char get_hour_reg(char hour);
-void set_time(char seconds, char minutes, char hour);
 void get_time(char data[], unsigned char format);
+void set_time(char seconds, char minutes, char hour);
+
 
 void send_command(char command);
 void io_as_input(void);
 void io_as_output(void);
-
+void ce_enable(void);
+void ce_disable(void);
+char byte_read(char address);
+void byte_write(char address, char value);
 
 char ir_is_code_number(char human_code);
-
 char ir_get_human_code(int code);
 
 
 int get_next_state(int state,int code);
 
-# 137
-void update_display(char digits[], char *counter);
 void InitApp(void);
+
+
+void get_timer1_counter( char data[]);
+void timer1_enable(void);
+void timer1_disable(void);
+void update_timer1_counter_10(char state, char *counter);
 
 # 4 "/Applications/microchip/xc8/v1.42/include/__size_t.h"
 typedef unsigned size_t;
@@ -4469,6 +4483,7 @@ aux1[4] = 5;
 aux1[5] = 6;
 
 char temp;
+char format = 1;
 buzzer_disable();
 while(1)
 {
@@ -4477,9 +4492,13 @@ state = next;
 switch(state){
 case 0:
 
-get_time(aux1,1);
+if(human_code == 13)
+format = 1;
+else if (human_code == 14)
+format = 0;
+get_time(aux1,format);
 
-# 71
+# 76
 break;
 case 1:
 
@@ -4516,6 +4535,20 @@ aux1[0] = human_code;
 next = 1;
 human_code = -1;
 }
+break;
+
+case 5:
+timer1_counter_10 = 10;
+get_timer1_counter(aux1);
+
+break;
+case 11:
+get_timer1_counter(aux1);
+break;
+case 12:
+get_timer1_counter(aux1);
+break;
+case 6:
 break;
 default: ;
 

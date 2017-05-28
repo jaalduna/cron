@@ -4341,15 +4341,23 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.42/include/stdbool.h"
 typedef unsigned char bool;
 
-# 96 "user.h"
+# 135 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
+char buzzer_status;
+
+char timer1_counter;
+char timer1_counter_10;
+
 
 void put_num(char num);
 void put_nums(char nums[]);
 void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
 char get_num(char num);
+void update_point(int state, char counter);
+void update_buzzer(int state, char counter);
+
 void point_enable(void);
 void point_disable(void);
 void point_toggle(void);
@@ -4358,30 +4366,36 @@ void buzzer_enable(void);
 void buzzer_disable(void);
 void buzzer_toggle(void);
 
-void ce_enable(void);
-void ce_disable(void);
-char byte_read(char address);
-void byte_write(char address, char value);
+
+
+
 char get_seconds_reg(char seconds);
 char get_hour_reg(char hour);
-void set_time(char seconds, char minutes, char hour);
 void get_time(char data[], unsigned char format);
+void set_time(char seconds, char minutes, char hour);
+
 
 void send_command(char command);
 void io_as_input(void);
 void io_as_output(void);
-
+void ce_enable(void);
+void ce_disable(void);
+char byte_read(char address);
+void byte_write(char address, char value);
 
 char ir_is_code_number(char human_code);
-
 char ir_get_human_code(int code);
 
 
 int get_next_state(int state,int code);
 
-# 137
-void update_display(char digits[], char *counter);
 void InitApp(void);
+
+
+void get_timer1_counter( char data[]);
+void timer1_enable(void);
+void timer1_disable(void);
+void update_timer1_counter_10(char state, char *counter);
 
 # 21 "interrupts.c"
 char counter;
@@ -4429,11 +4443,13 @@ INTCONbits.GIE = 1;
 }
 else if (TMR0IF == 1)
 {
+
 int i;
 for(i=0; i<6;i++)
 {
 masked_digits[i] = aux1[i];
 }
+
 
 if(counter < 10 - 1)
 {
@@ -4450,17 +4466,27 @@ int i;
 for (i=0; i<6;i++)
 digits[6] = i;
 
+
+update_point(state,counter);
+update_buzzer(state,counter);
+
 if(counter == 0 )
 {
 point_enable();
-buzzer_enable();
 }
 else if(counter == 5 && state == 0)
 {
 point_disable();
-buzzer_disable();
 }
 
+
+if(buzzer_status)
+{
+if(RB0 == 1)
+RB0 = 0;
+else
+RB0 = 1;
+}
 if(counter >= 5)
 {
 switch(state)
@@ -4480,7 +4506,22 @@ break;
 }
 }
 
-update_display(masked_digits, &counter);
+
+put_nums(masked_digits);
 TMR0IF = 0;
+}
+
+else if (TMR1IF == 1)
+{
+
+if(timer1_counter <9)
+timer1_counter += 1;
+else
+{
+timer1_counter = 0;
+update_timer1_counter_10(state,&timer1_counter_10);
+}
+
+TMR1IF = 0;
 }
 }

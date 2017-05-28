@@ -62,10 +62,10 @@ void main(void)
         switch(state){
                 case STATE_TIME:
                     
-                    if(human_code == 13)
-                        format = 0;
-                    else if (human_code == 14)
-                        format = 1;
+                    if(human_code == HR_IR_LEFT)
+                        format = FORMAT_24H;
+                    else if (human_code == HR_IR_RIGHT)
+                        format = FORMAT_12H;
                     get_time(aux1,format);
                     /*put_nums(aux1);
                     __delay_ms(500);
@@ -112,7 +112,16 @@ void main(void)
                 break;    
                 
             case STATE_UP:
+		        timer1_counter_10 = UP_INITIAL_COUNTDOWN;	
+			get_timer1_counter(aux1);	
+			
                 break;
+	    case STATE_UP_COUNT_DOWN:
+			get_timer1_counter(aux1);	
+		break;
+	    case STATE_UP_COUNTING:
+			get_timer1_counter(aux1);
+		break;
             case STATE_DOWN:
                 break;
             default: ;

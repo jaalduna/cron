@@ -2,14 +2,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "19 system.h
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"138 user.h
+"182 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
-"109
+"156
 [v _buzzer_disable `(v ~T0 @X0 0 ef ]
-"119
+"164
 [v _get_time `(v ~T0 @X0 0 ef2`*uc`uc ]
-"126
+"176
 [v _ir_is_code_number `(uc ~T0 @X0 0 ef1`uc ]
+"185
+[v _get_timer1_counter `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3139,42 +3141,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;system.h: 19: void ConfigureOscillator(void);
-"96 user.h
+"135 user.h
 [v _state `i ~T0 @X0 1 e ]
 [v _next `i ~T0 @X0 1 e ]
-[; ;user.h: 96: int state, next;
-"97
+[; ;user.h: 135: int state, next;
+"136
 [v _human_code `uc ~T0 @X0 1 e ]
-[; ;user.h: 97: char human_code;
-"98
+[; ;user.h: 136: char human_code;
+"137
 [v _aux1 `uc ~T0 @X0 -> 6 `i e ]
-[; ;user.h: 98: char aux1[6];
-[; ;user.h: 100: void put_num(char num);
-[; ;user.h: 101: void put_nums(char nums[]);
-[; ;user.h: 102: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
-[; ;user.h: 103: char get_num(char num);
-[; ;user.h: 104: void point_enable(void);
-[; ;user.h: 105: void point_disable(void);
-[; ;user.h: 106: void point_toggle(void);
-[; ;user.h: 108: void buzzer_enable(void);
-[; ;user.h: 109: void buzzer_disable(void);
-[; ;user.h: 110: void buzzer_toggle(void);
-[; ;user.h: 112: void ce_enable(void);
-[; ;user.h: 113: void ce_disable(void);
-[; ;user.h: 114: char byte_read(char address);
-[; ;user.h: 115: void byte_write(char address, char value);
-[; ;user.h: 116: char get_seconds_reg(char seconds);
-[; ;user.h: 117: char get_hour_reg(char hour);
-[; ;user.h: 118: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 119: void get_time(char data[], unsigned char format);
-[; ;user.h: 121: void send_command(char command);
-[; ;user.h: 122: void io_as_input(void);
-[; ;user.h: 123: void io_as_output(void);
-[; ;user.h: 126: char ir_is_code_number(char human_code);
-[; ;user.h: 128: char ir_get_human_code(int code);
-[; ;user.h: 131: int get_next_state(int state,int code);
-[; ;user.h: 137: void update_display(char digits[], char *counter);
-[; ;user.h: 138: void InitApp(void);
+[; ;user.h: 137: char aux1[6];
+"138
+[v _buzzer_status `uc ~T0 @X0 1 e ]
+[; ;user.h: 138: char buzzer_status;
+"140
+[v _timer1_counter `uc ~T0 @X0 1 e ]
+[; ;user.h: 140: char timer1_counter;
+"141
+[v _timer1_counter_10 `uc ~T0 @X0 1 e ]
+[; ;user.h: 141: char timer1_counter_10;
+[; ;user.h: 144: void put_num(char num);
+[; ;user.h: 145: void put_nums(char nums[]);
+[; ;user.h: 146: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 147: char get_num(char num);
+[; ;user.h: 148: void update_point(int state, char counter);
+[; ;user.h: 149: void update_buzzer(int state, char counter);
+[; ;user.h: 151: void point_enable(void);
+[; ;user.h: 152: void point_disable(void);
+[; ;user.h: 153: void point_toggle(void);
+[; ;user.h: 155: void buzzer_enable(void);
+[; ;user.h: 156: void buzzer_disable(void);
+[; ;user.h: 157: void buzzer_toggle(void);
+[; ;user.h: 162: char get_seconds_reg(char seconds);
+[; ;user.h: 163: char get_hour_reg(char hour);
+[; ;user.h: 164: void get_time(char data[], unsigned char format);
+[; ;user.h: 165: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 168: void send_command(char command);
+[; ;user.h: 169: void io_as_input(void);
+[; ;user.h: 170: void io_as_output(void);
+[; ;user.h: 171: void ce_enable(void);
+[; ;user.h: 172: void ce_disable(void);
+[; ;user.h: 173: char byte_read(char address);
+[; ;user.h: 174: void byte_write(char address, char value);
+[; ;user.h: 176: char ir_is_code_number(char human_code);
+[; ;user.h: 177: char ir_get_human_code(int code);
+[; ;user.h: 180: int get_next_state(int state,int code);
+[; ;user.h: 182: void InitApp(void);
+[; ;user.h: 185: void get_timer1_counter( char data[]);
+[; ;user.h: 186: void timer1_enable(void);
+[; ;user.h: 187: void timer1_disable(void);
+[; ;user.h: 188: void update_timer1_counter_10(char state, char *counter);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3264,134 +3280,170 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 63: case 0:
 "63
 [e :U 329 ]
-[; ;main.c: 65: if(human_code == 10)
+[; ;main.c: 65: if(human_code == 13)
 "65
-[e $ ! == -> _human_code `i -> 10 `i 330  ]
-[; ;main.c: 66: format = 0;
+[e $ ! == -> _human_code `i -> 13 `i 330  ]
+[; ;main.c: 66: format = 1;
 "66
-[e = _format -> -> 0 `i `uc ]
+[e = _format -> -> 1 `i `uc ]
 [e $U 331  ]
 "67
 [e :U 330 ]
-[; ;main.c: 67: else if (human_code == 12)
-[e $ ! == -> _human_code `i -> 12 `i 332  ]
-[; ;main.c: 68: format = 1;
+[; ;main.c: 67: else if (human_code == 14)
+[e $ ! == -> _human_code `i -> 14 `i 332  ]
+[; ;main.c: 68: format = 0;
 "68
-[e = _format -> -> 1 `i `uc ]
+[e = _format -> -> 0 `i `uc ]
 [e :U 332 ]
-"70
+"69
 [e :U 331 ]
-[; ;main.c: 70: get_time(aux1,format);
+[; ;main.c: 69: get_time(aux1,format);
 [e ( _get_time (2 , &U _aux1 _format ]
-[; ;main.c: 77: break;
-"77
+[; ;main.c: 76: break;
+"76
 [e $U 327  ]
-[; ;main.c: 78: case 1:
-"78
+[; ;main.c: 77: case 1:
+"77
 [e :U 333 ]
-[; ;main.c: 81: if(ir_is_code_number(human_code) && human_code <=2)
-"81
+[; ;main.c: 80: if(ir_is_code_number(human_code) && human_code <=2)
+"80
 [e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i <= -> _human_code `i -> 2 `i 334  ]
-[; ;main.c: 82: {
-"82
+[; ;main.c: 81: {
+"81
 {
-[; ;main.c: 83: aux1[3] = human_code;
-"83
+[; ;main.c: 82: aux1[3] = human_code;
+"82
 [e = *U + &U _aux1 * -> -> -> 3 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
-[; ;main.c: 84: next = 2;
-"84
+[; ;main.c: 83: next = 2;
+"83
 [e = _next -> 2 `i ]
-[; ;main.c: 85: human_code = -1;
-"85
+[; ;main.c: 84: human_code = -1;
+"84
 [e = _human_code -> -U -> 1 `i `uc ]
-"86
+"85
 }
 [e :U 334 ]
-[; ;main.c: 86: }
-[; ;main.c: 87: break;
-"87
+[; ;main.c: 85: }
+[; ;main.c: 86: break;
+"86
 [e $U 327  ]
-[; ;main.c: 88: case 2:
-"88
+[; ;main.c: 87: case 2:
+"87
 [e :U 335 ]
-[; ;main.c: 90: if(ir_is_code_number(human_code) && ((aux1[2]<2 && human_code <=9) || human_code <=3))
-"90
+[; ;main.c: 89: if(ir_is_code_number(human_code) && ((aux1[2]<2 && human_code <=9) || human_code <=3))
+"89
 [e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i || && < -> *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux `i -> 2 `i <= -> _human_code `i -> 9 `i <= -> _human_code `i -> 3 `i 336  ]
-[; ;main.c: 91: {
-"91
+[; ;main.c: 90: {
+"90
 {
-[; ;main.c: 92: aux1[2] = human_code;
-"92
+[; ;main.c: 91: aux1[2] = human_code;
+"91
 [e = *U + &U _aux1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
-[; ;main.c: 93: next = 3;
-"93
+[; ;main.c: 92: next = 3;
+"92
 [e = _next -> 3 `i ]
-[; ;main.c: 94: human_code = -1;
-"94
+[; ;main.c: 93: human_code = -1;
+"93
 [e = _human_code -> -U -> 1 `i `uc ]
-"95
+"94
 }
 [e :U 336 ]
-[; ;main.c: 95: }
-[; ;main.c: 96: break;
-"96
+[; ;main.c: 94: }
+[; ;main.c: 95: break;
+"95
 [e $U 327  ]
-[; ;main.c: 97: case 3:
-"97
+[; ;main.c: 96: case 3:
+"96
 [e :U 337 ]
-[; ;main.c: 99: if(ir_is_code_number(human_code) && human_code <=5)
-"99
+[; ;main.c: 98: if(ir_is_code_number(human_code) && human_code <=5)
+"98
 [e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i <= -> _human_code `i -> 5 `i 338  ]
-[; ;main.c: 100: {
-"100
+[; ;main.c: 99: {
+"99
 {
-[; ;main.c: 101: aux1[1] = human_code;
-"101
+[; ;main.c: 100: aux1[1] = human_code;
+"100
 [e = *U + &U _aux1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
-[; ;main.c: 102: next = 4;
-"102
+[; ;main.c: 101: next = 4;
+"101
 [e = _next -> 4 `i ]
-[; ;main.c: 103: human_code = -1;
-"103
+[; ;main.c: 102: human_code = -1;
+"102
 [e = _human_code -> -U -> 1 `i `uc ]
-"104
+"103
 }
 [e :U 338 ]
-[; ;main.c: 104: }
-[; ;main.c: 105: break;
-"105
+[; ;main.c: 103: }
+[; ;main.c: 104: break;
+"104
 [e $U 327  ]
-[; ;main.c: 106: case 4:
-"106
+[; ;main.c: 105: case 4:
+"105
 [e :U 339 ]
-[; ;main.c: 108: if(ir_is_code_number(human_code) && human_code <=9)
-"108
+[; ;main.c: 106: if(ir_is_code_number(human_code) && human_code <=9)
+"106
 [e $ ! && != -> ( _ir_is_code_number (1 _human_code `i -> -> -> 0 `i `uc `i <= -> _human_code `i -> 9 `i 340  ]
-[; ;main.c: 109: {
-"109
+[; ;main.c: 107: {
+"107
 {
-[; ;main.c: 110: aux1[0] = human_code;
-"110
+[; ;main.c: 108: aux1[0] = human_code;
+"108
 [e = *U + &U _aux1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _aux1 `ui `ux _human_code ]
-[; ;main.c: 111: next = 1;
-"111
+[; ;main.c: 109: next = 1;
+"109
 [e = _next -> 1 `i ]
-[; ;main.c: 112: human_code = -1;
-"112
+[; ;main.c: 110: human_code = -1;
+"110
 [e = _human_code -> -U -> 1 `i `uc ]
-"113
+"111
 }
 [e :U 340 ]
-[; ;main.c: 113: }
-[; ;main.c: 114: break;
-"114
+[; ;main.c: 111: }
+[; ;main.c: 112: break;
+"112
 [e $U 327  ]
-[; ;main.c: 115: default: ;
-"115
+[; ;main.c: 114: case 5:
+"114
 [e :U 341 ]
-"117
+[; ;main.c: 115: timer1_counter_10 = 10;
+"115
+[e = _timer1_counter_10 -> -> 10 `i `uc ]
+[; ;main.c: 116: get_timer1_counter(aux1);
+"116
+[e ( _get_timer1_counter (1 &U _aux1 ]
+[; ;main.c: 118: break;
+"118
+[e $U 327  ]
+[; ;main.c: 119: case 11:
+"119
+[e :U 342 ]
+[; ;main.c: 120: get_timer1_counter(aux1);
+"120
+[e ( _get_timer1_counter (1 &U _aux1 ]
+[; ;main.c: 121: break;
+"121
+[e $U 327  ]
+[; ;main.c: 122: case 12:
+"122
+[e :U 343 ]
+[; ;main.c: 123: get_timer1_counter(aux1);
+"123
+[e ( _get_timer1_counter (1 &U _aux1 ]
+[; ;main.c: 124: break;
+"124
+[e $U 327  ]
+[; ;main.c: 125: case 6:
+"125
+[e :U 344 ]
+[; ;main.c: 126: break;
+"126
+[e $U 327  ]
+[; ;main.c: 127: default: ;
+"127
+[e :U 345 ]
+"129
 }
-[; ;main.c: 117: }
+[; ;main.c: 129: }
 [e $U 327  ]
 "62
 [e :U 328 ]
@@ -3400,17 +3452,21 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> 2 `i 335
  , $ -> 3 `i 337
  , $ -> 4 `i 339
- 341 ]
-"117
+ , $ -> 5 `i 341
+ , $ -> 11 `i 342
+ , $ -> 12 `i 343
+ , $ -> 6 `i 344
+ 345 ]
+"129
 [e :U 327 ]
-"118
+"130
 }
 [e :U 324 ]
 "58
 [e $U 325  ]
 [e :U 326 ]
-[; ;main.c: 118: }
-[; ;main.c: 119: };
-"119
+[; ;main.c: 130: }
+[; ;main.c: 131: };
+"131
 [e :UE 323 ]
 }

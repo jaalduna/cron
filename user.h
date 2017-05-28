@@ -70,7 +70,29 @@
 #define IR_EDIT         IR_ASTERISC
 #define IR_ESC          IR_GATO
 
+/*Human read codes*/
+#define HR_IR_UP   10
+#define HR_IR_OK	11
+#define HR_IR_DOWN	12
+#define HR_IR_LEFT 	13
+#define HR_IR_RIGHT	14
+#define HR_IR_ONE	1
+#define HR_IR_TWO	2
+#define HR_IR_THREE	3
+#define HR_IR_FOUR	4
+#define HR_IR_FIVE	5
+#define HR_IR_SIX	6
+#define HR_IR_SEVEN	7
+#define HR_IR_EIGHT	8
+#define HR_IR_NINE	9
+#define HR_IR_ZERO	0
+#define HR_IR_ASTERICS	15
+#define HR_IR_GATO	16
 
+
+/*Defines for DS1302*/
+#define FORMAT_24H	1 
+#define FORMAT_12H	0
 
 #define WRITE_RTC_0 0x80
 #define READ_RTC_0  0x81
@@ -81,7 +103,7 @@
 
 #define CODE_NUM_BITS 47
 
-//Defines for STATES
+/* Defines for STATES */
 #define STATE_TIME       0
 #define STATE_HH1        1
 #define STATE_HH2        2
@@ -90,53 +112,84 @@
 
 #define STATE_UP         5
 #define STATE_DOWN       6
+#define STATE_UP_CFG_MM1	7
+#define STATE_UP_CFG_MM2	8
+#define STATE_UP_CFG_SS1	9
+#define STATE_UP_CFG_SS2	10
+#define STATE_UP_COUNT_DOWN	11
+#define STATE_UP_COUNTING	12
+#define STATE_UP_STOP		13
+
+		
 
 
 //Defines for TIME division for display update
 #define NUM_TIME_STEPS 10 //divider for 1 second
 #define TIME_STEP 1000/NUM_TIME_STEP //time step in miliseconds
 
+
+/*Defines for UP*/
+#define UP_INITIAL_COUNTDOWN	10
+
+
 int state, next;
 char human_code; //code contains the last received code
 char aux1[NUM_DIGITS]; //variable array to hold display values
+char buzzer_status; //buzzer_status: 1 buzzer enabled, 0 buzzer disabled
 
+char timer1_counter; //counter for timer1
+char timer1_counter_10; //counter for timer1 x10
+
+/*Display related functions*/
 void put_num(char num); //put a single number on the display
 void put_nums(char nums[]); //update all the numbers from the display
 void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0); //update all the numbers from the display
 char get_num(char num);     //gets 7segment code for number between 0 and 9
+void update_point(int state, char counter);
+void update_buzzer(int state, char counter);
+
 void point_enable(void);       //enable display point
 void point_disable(void);     //disable display point
 void point_toggle(void);      //toggle display point
 
-void buzzer_enable(void);
+void buzzer_enable(void); 
 void buzzer_disable(void);
 void buzzer_toggle(void);
 
+
+
+/*Time related functions*/
+char get_seconds_reg(char seconds);
+char get_hour_reg(char hour);
+void get_time(char data[], unsigned char format);
+void set_time(char seconds, char minutes, char hour);
+
+/*RTC DS1302 related commands*/
+void send_command(char command);
+void io_as_input(void);
+void io_as_output(void);
 void ce_enable(void);
 void ce_disable(void);
 char byte_read(char address);
 void byte_write(char address, char value);
-char get_seconds_reg(char seconds);
-char get_hour_reg(char hour);
-void set_time(char seconds, char minutes, char hour);
-void get_time(char data[], unsigned char format);
 
-void send_command(char command);
-void io_as_input(void);
-void io_as_output(void);
-
-/*is_code_number return 1 if human_code is a number or 0 if not*/
-char ir_is_code_number(char human_code); //this function check code is a number (0,1,2,3,4,5,6,7,8,9)
-/*ir_get_human_code returns a human readable code for each pressed button. if a non registered code is press, then -1 is returned.*/
+char ir_is_code_number(char human_code); 
 char ir_get_human_code(int code); 
 
-
+/*General control functions*/
 int get_next_state(int state,int code); 
-//only update code when there is a valid code
-//then evaluate the next state outside the interrupt routine
-//generate also a global variable for the recieved_code and take
 
-/*update_display() update the display every xx ms. counter is used to update take a count for the period of time where we are, usefull for blinking double point and numbers in setup mode*/
-void update_display(char digits[], char *counter);
 void InitApp(void);         /* I/O and Peripheral Initialization */
+
+/*Functions related with up counter*/
+void get_timer1_counter( char data[]);
+void timer1_enable(void);
+void timer1_disable(void);
+void update_timer1_counter_10(char state, char *counter);
+
+/*Functions related with down counter*/
+/*Functions related with cron*/
+/*Functions related with interval*/
+
+/*Function related with timer 1*/
 
