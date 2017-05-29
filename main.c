@@ -235,6 +235,8 @@ void main(void)
                 timer1_counter_10 = 0;
                 timer1_counter_min = 0;
                 timer1_counter = 0;
+                current_program = 0;
+                current_type = 'f';
                 get_timer1_counter_interval(aux1,state,current_program);
                 break;
             case STATE_INTERVAL_FORCE:
@@ -243,11 +245,11 @@ void main(void)
                 break;
             case STATE_INTERVAL_COLD:
                 timer1_enable();
-                get_timer1_counter_interval(aux1,state_current_program);
+                get_timer1_counter_interval(aux1,state,current_program);
                 break;
             case STATE_INTERVAL_STOP:
                 timer1_disable();
-                get_timer1_counter_interval(aux1,state_current_program);
+                get_timer1_counter_interval(aux1,state,current_program);
                 break;
             case STATE_INTERVAL_CFG_MM1:
                 if(ir_is_code_number(human_code) && human_code <=5)
@@ -274,13 +276,29 @@ void main(void)
                 }
                 break;     
             case STATE_INTERVAL_CFG_SS2:
-                if(ir_is_code_number(human_code) && human_code <=5)
+                if(ir_is_code_number(human_code) && human_code <=9)
                 {
                     aux1[0] = human_code; //update numberS
-                    next = STATE_INTERVAL_CFG_MM2;   //update state
+                    next = STATE_INTERVAL_CFG_MM1;   //update state
                     human_code = -1;
                 }
-                break;                            
+                break; 
+            case STATE_INTERVAL_CFG_PROGRAM_SS1:
+                if(ir_is_code_number(human_code) && human_code <=9)
+                {
+                    aux1[1] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_PROGRAM_SS2;   //update state
+                    human_code = -1;
+                }
+                break;   
+            case STATE_INTERVAL_CFG_PROGRAM_SS2:
+                if(ir_is_code_number(human_code) && human_code <=9)
+                {
+                    aux1[0] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_PROGRAM_SS1;   //update state
+                    human_code = -1;
+                }
+                break;                              
             default: ;
                 
         }              

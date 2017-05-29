@@ -5,8 +5,10 @@
 [d frameptr 4065 ]
 "8 /Applications/microchip/xc8/v1.42/sources/common/awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
+[v i2___awdiv __awdiv `(i  1 e 2 0 ]
 "8 /Applications/microchip/xc8/v1.42/sources/common/awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
+[v i2___awmod __awmod `(i  1 e 2 0 ]
 "62 /Applications/microchip/xc8/v1.42/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /Applications/microchip/xc8/v1.42/sources/common/ftadd.c
@@ -35,72 +37,74 @@
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "28 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-"80
+"84
 [v _put_num put_num `(v  1 e 1 0 ]
-"93
+"97
 [v _put_nums put_nums `(v  1 e 1 0 ]
-"113
+"117
 [v _get_num get_num `(uc  1 e 1 0 ]
-"138
-[v _point_enable point_enable `(v  1 e 1 0 ]
 "144
+[v _point_enable point_enable `(v  1 e 1 0 ]
+"150
 [v _point_disable point_disable `(v  1 e 1 0 ]
-"159
+"165
 [v _buzzer_enable buzzer_enable `(v  1 e 1 0 ]
-"164
+"170
 [v _buzzer_disable buzzer_disable `(v  1 e 1 0 ]
 [v i2_buzzer_disable buzzer_disable `(v  1 e 1 0 ]
-"178
+"184
 [v _ce_enable ce_enable `(v  1 e 1 0 ]
 [v i2_ce_enable ce_enable `(v  1 e 1 0 ]
-"185
+"191
 [v _ce_disable ce_disable `(v  1 e 1 0 ]
 [v i2_ce_disable ce_disable `(v  1 e 1 0 ]
-"192
+"198
 [v _byte_read byte_read `(uc  1 e 1 0 ]
-"219
+"225
 [v _byte_write byte_write `(v  1 e 1 0 ]
-"231
+"237
 [v _set_time set_time `(v  1 e 1 0 ]
-"248
+"254
 [v _get_time get_time `(v  1 e 1 0 ]
-"292
+"298
 [v _get_seconds_reg get_seconds_reg `(uc  1 e 1 0 ]
 [v i2_get_seconds_reg get_seconds_reg `(uc  1 e 1 0 ]
-"323
+"329
 [v _get_cents_reg get_cents_reg `(uc  1 e 1 0 ]
-"331
+"337
 [v _get_hour_reg get_hour_reg `(uc  1 e 1 0 ]
-"352
+"358
 [v _send_command send_command `(v  1 e 1 0 ]
 [v i2_send_command send_command `(v  1 e 1 0 ]
-"368
-[v _io_as_input io_as_input `(v  1 e 1 0 ]
 "374
+[v _io_as_input io_as_input `(v  1 e 1 0 ]
+"380
 [v _io_as_output io_as_output `(v  1 e 1 0 ]
 [v i2_io_as_output io_as_output `(v  1 e 1 0 ]
-"381
+"387
 [v _get_next_state get_next_state `(i  1 e 2 0 ]
-"497
+"593
 [v _ir_is_code_number ir_is_code_number `(uc  1 e 1 0 ]
-"507
+"603
 [v _ir_get_human_code ir_get_human_code `(uc  1 e 1 0 ]
-"571
+"667
 [v _update_point update_point `(v  1 e 1 0 ]
-"584
+"680
 [v _update_buzzer update_buzzer `(v  1 e 1 0 ]
-"596
+"692
 [v _get_timer1_counter get_timer1_counter `(v  1 e 1 0 ]
-"607
+"703
 [v _get_timer1_counter_down get_timer1_counter_down `(v  1 e 1 0 ]
-"617
+"713
 [v _get_timer1_counter_speed get_timer1_counter_speed `(v  1 e 1 0 ]
-"628
+"723
+[v _get_timer1_counter_interval get_timer1_counter_interval `(v  1 e 1 0 ]
+"764
 [v _timer1_enable timer1_enable `(v  1 e 1 0 ]
 [v i2_timer1_enable timer1_enable `(v  1 e 1 0 ]
-"633
+"769
 [v _timer1_disable timer1_disable `(v  1 e 1 0 ]
-"638
+"774
 [v _update_timer1_counter_10 update_timer1_counter_10 `(v  1 e 1 0 ]
 "3469 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _PIE1 PIE1 `VEuc  1 e 1 @3997 ]
@@ -118,7 +122,7 @@
 [v _INTCON2 INTCON2 `VEuc  1 e 1 @4081 ]
 "7400
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
-[s S22 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S28 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -128,7 +132,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "7432
-[s S31 . 1 `uc 1 . 1 0 :1:0 
+[s S37 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -137,12 +141,12 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S40 . 1 `uc 1 . 1 0 :6:0 
+[s S46 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S44 . 1 `S22 1 . 1 0 `S31 1 . 1 0 `S40 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES44  1 e 1 @4082 ]
+[u S50 . 1 `S28 1 . 1 0 `S37 1 . 1 0 `S46 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES50  1 e 1 @4082 ]
 "8579
 [v _RA2 RA2 `VEb  1 e 0 @31746 ]
 "8581
@@ -181,195 +185,212 @@
 [v _counter counter `uc  1 e 1 0 ]
 "22
 [v _masked_digits masked_digits `[6]uc  1 e 6 0 ]
-"149 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.h
+"165 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.h
 [v _state state `i  1 e 2 0 ]
 [v _next next `i  1 e 2 0 ]
-"150
+"166
 [v _human_code human_code `uc  1 e 1 0 ]
-"151
+"167
 [v _aux1 aux1 `[6]uc  1 e 6 0 ]
-"152
+"168
 [v _buzzer_status buzzer_status `uc  1 e 1 0 ]
-"154
+"170
 [v _timer1_counter timer1_counter `uc  1 e 1 0 ]
-"155
+"171
 [v _timer1_counter_10 timer1_counter_10 `uc  1 e 1 0 ]
-"156
+"172
 [v _timer1_counter_min timer1_counter_min `uc  1 e 1 0 ]
-"158
+"174
 [v _timer1_up_limit_sec timer1_up_limit_sec `uc  1 e 1 0 ]
 [v _timer1_up_limit_min timer1_up_limit_min `uc  1 e 1 0 ]
-"159
+"175
 [v _timer1_down_init_min timer1_down_init_min `uc  1 e 1 0 ]
 [v _timer1_down_init_sec timer1_down_init_sec `uc  1 e 1 0 ]
-"161
+"177
 [v _timer1_speed_cents timer1_speed_cents `uc  1 e 1 0 ]
+"182
+[v _current_type current_type `uc  1 e 1 0 ]
+[s S21 . 2 `uc 1 seconds 1 0 `uc 1 minutes 1 1 ]
+"196
+[u S24 . 2 `S21 1 force 2 0 `S21 1 cold 2 0 ]
+[v _intervals intervals `[20]S24  1 e 40 0 ]
+"197
+[v _max_program max_program `uc  1 e 1 0 ]
+[v _current_program current_program `uc  1 e 1 0 ]
 "37 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "56
-[v main@format format `uc  1 a 1 71 ]
-"236
+[v main@format format `uc  1 a 1 22 ]
+"306
 } 0
-"628 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+"764 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
 [v _timer1_enable timer1_enable `(v  1 e 1 0 ]
 {
-"631
+"767
 } 0
-"633
+"769
 [v _timer1_disable timer1_disable `(v  1 e 1 0 ]
 {
-"636
+"772
 } 0
-"497
+"593
 [v _ir_is_code_number ir_is_code_number `(uc  1 e 1 0 ]
 {
-"498
+"594
 [v ir_is_code_number@human_code human_code `uc  1 a 1 wreg ]
 [v ir_is_code_number@human_code human_code `uc  1 a 1 wreg ]
-"500
-[v ir_is_code_number@human_code human_code `uc  1 a 1 37 ]
-"504
+"596
+[v ir_is_code_number@human_code human_code `uc  1 a 1 0 ]
+"600
 } 0
-"617
+"713
 [v _get_timer1_counter_speed get_timer1_counter_speed `(v  1 e 1 0 ]
 {
-[v get_timer1_counter_speed@data data `*.39uc  1 p 2 64 ]
-"625
+[v get_timer1_counter_speed@data data `*.39uc  1 p 2 12 ]
+"721
 } 0
-"323
+"329
 [v _get_cents_reg get_cents_reg `(uc  1 e 1 0 ]
 {
 [v get_cents_reg@cents cents `uc  1 a 1 wreg ]
-"325
-[v get_cents_reg@res res `uc  1 a 1 43 ]
-"323
+"331
+[v get_cents_reg@res res `uc  1 a 1 10 ]
+"329
 [v get_cents_reg@cents cents `uc  1 a 1 wreg ]
-"325
-[v get_cents_reg@cents cents `uc  1 a 1 44 ]
-"328
+"331
+[v get_cents_reg@cents cents `uc  1 a 1 11 ]
+"334
+} 0
+"723
+[v _get_timer1_counter_interval get_timer1_counter_interval `(v  1 e 1 0 ]
+{
+[v get_timer1_counter_interval@data data `*.39uc  1 p 2 8 ]
+[v get_timer1_counter_interval@state state `uc  1 p 1 10 ]
+[v get_timer1_counter_interval@current_program current_program `uc  1 p 1 11 ]
+"760
 } 0
 "8 /Applications/microchip/xc8/v1.42/sources/common/awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "11
-[v ___awmod@sign sign `uc  1 a 1 38 ]
-[v ___awmod@counter counter `uc  1 a 1 37 ]
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
 "8
-[v ___awmod@dividend dividend `i  1 p 2 60 ]
-[v ___awmod@divisor divisor `i  1 p 2 62 ]
+[v ___awmod@dividend dividend `i  1 p 2 0 ]
+[v ___awmod@divisor divisor `i  1 p 2 2 ]
 "35
 } 0
 "8 /Applications/microchip/xc8/v1.42/sources/common/awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "11
-[v ___awdiv@quotient quotient `i  1 a 2 39 ]
+[v ___awdiv@quotient quotient `i  1 a 2 6 ]
 "12
-[v ___awdiv@sign sign `uc  1 a 1 38 ]
-[v ___awdiv@counter counter `uc  1 a 1 37 ]
+[v ___awdiv@sign sign `uc  1 a 1 5 ]
+[v ___awdiv@counter counter `uc  1 a 1 4 ]
 "8
-[v ___awdiv@dividend dividend `i  1 p 2 60 ]
-[v ___awdiv@divisor divisor `i  1 p 2 62 ]
+[v ___awdiv@dividend dividend `i  1 p 2 0 ]
+[v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "42
 } 0
-"607 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+"703 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
 [v _get_timer1_counter_down get_timer1_counter_down `(v  1 e 1 0 ]
 {
-[v get_timer1_counter_down@data data `*.39uc  1 p 2 60 ]
-"615
+[v get_timer1_counter_down@data data `*.39uc  1 p 2 2 ]
+"711
 } 0
-"596
+"692
 [v _get_timer1_counter get_timer1_counter `(v  1 e 1 0 ]
 {
-[v get_timer1_counter@data data `*.39uc  1 p 2 60 ]
-"605
+[v get_timer1_counter@data data `*.39uc  1 p 2 2 ]
+"701
 } 0
-"292
+"298
 [v _get_seconds_reg get_seconds_reg `(uc  1 e 1 0 ]
 {
 [v get_seconds_reg@seconds seconds `uc  1 a 1 wreg ]
-"294
-[v get_seconds_reg@res res `uc  1 a 1 37 ]
-"292
+"300
+[v get_seconds_reg@res res `uc  1 a 1 0 ]
+"298
 [v get_seconds_reg@seconds seconds `uc  1 a 1 wreg ]
-"294
-[v get_seconds_reg@seconds seconds `uc  1 a 1 38 ]
-"321
+"300
+[v get_seconds_reg@seconds seconds `uc  1 a 1 1 ]
+"327
 } 0
-"248
+"254
 [v _get_time get_time `(v  1 e 1 0 ]
 {
-"272
-[v get_time@aux_hour aux_hour `uc  1 a 1 65 ]
-"255
-[v get_time@hours hours `uc  1 a 1 68 ]
-"250
-[v get_time@aux aux `uc  1 a 1 67 ]
-"253
-[v get_time@minutes minutes `uc  1 a 1 66 ]
-"251
-[v get_time@seconds seconds `uc  1 a 1 64 ]
-"248
-[v get_time@data data `*.39uc  1 p 2 60 ]
-[v get_time@format format `uc  1 p 1 62 ]
-"289
+"278
+[v get_time@aux_hour aux_hour `uc  1 a 1 16 ]
+"261
+[v get_time@hours hours `uc  1 a 1 19 ]
+"256
+[v get_time@aux aux `uc  1 a 1 18 ]
+"259
+[v get_time@minutes minutes `uc  1 a 1 17 ]
+"257
+[v get_time@seconds seconds `uc  1 a 1 15 ]
+"254
+[v get_time@data data `*.39uc  1 p 2 11 ]
+[v get_time@format format `uc  1 p 1 13 ]
+"295
 } 0
-"192
+"198
 [v _byte_read byte_read `(uc  1 e 1 0 ]
 {
 [v byte_read@address address `uc  1 a 1 wreg ]
-"201
-[v byte_read@i i `i  1 a 2 46 ]
-"194
-[v byte_read@res res `uc  1 a 1 45 ]
-"192
+"207
+[v byte_read@i i `i  1 a 2 9 ]
+"200
+[v byte_read@res res `uc  1 a 1 8 ]
+"198
 [v byte_read@address address `uc  1 a 1 wreg ]
-"194
-[v byte_read@address address `uc  1 a 1 44 ]
-"216
+"200
+[v byte_read@address address `uc  1 a 1 7 ]
+"222
 } 0
-"352
+"358
 [v _send_command send_command `(v  1 e 1 0 ]
 {
 [v send_command@command command `uc  1 a 1 wreg ]
-"354
-[v send_command@i i `i  1 a 2 40 ]
-"352
+"360
+[v send_command@i i `i  1 a 2 3 ]
+"358
 [v send_command@command command `uc  1 a 1 wreg ]
-"355
-[v send_command@command command `uc  1 a 1 39 ]
-"365
+"361
+[v send_command@command command `uc  1 a 1 2 ]
+"371
+} 0
+"380
+[v _io_as_output io_as_output `(v  1 e 1 0 ]
+{
+"383
 } 0
 "374
-[v _io_as_output io_as_output `(v  1 e 1 0 ]
+[v _io_as_input io_as_input `(v  1 e 1 0 ]
 {
 "377
 } 0
-"368
-[v _io_as_input io_as_input `(v  1 e 1 0 ]
-{
-"371
-} 0
-"178
+"184
 [v _ce_enable ce_enable `(v  1 e 1 0 ]
 {
-"182
+"188
 } 0
-"185
+"191
 [v _ce_disable ce_disable `(v  1 e 1 0 ]
 {
-"189
+"195
 } 0
-"164
+"170
 [v _buzzer_disable buzzer_disable `(v  1 e 1 0 ]
 {
-"167
+"173
 } 0
 "28
 [v _InitApp InitApp `(v  1 e 1 0 ]
 {
-"77
+"81
 } 0
 "24 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
@@ -382,7 +403,7 @@
 "120
 [v high_isr@digits digits `[6]uc  1 a 6 47 ]
 "104
-[v high_isr@i_156 i `i  1 a 2 58 ]
+[v high_isr@i_166 i `i  1 a 2 58 ]
 "75
 [v high_isr@code code `[47]uc  1 a 47 0 ]
 "74
@@ -393,188 +414,207 @@
 [v high_isr@aux aux `uc  1 a 1 53 ]
 "192
 } 0
-"638 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
+"774 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
 [v _update_timer1_counter_10 update_timer1_counter_10 `(v  1 e 1 0 ]
 {
-"639
+"775
 [v update_timer1_counter_10@state state `uc  1 a 1 wreg ]
 [v update_timer1_counter_10@state state `uc  1 a 1 wreg ]
-"638
+"774
 [v update_timer1_counter_10@counter counter `*.39uc  1 p 2 0 ]
-"640
+"776
 [v update_timer1_counter_10@state state `uc  1 a 1 3 ]
-"727
+"878
 } 0
-"571
+"667
 [v _update_point update_point `(v  1 e 1 0 ]
 {
-"572
+"668
 [v update_point@state state `i  1 p 2 0 ]
-"571
+"667
 [v update_point@counter counter `uc  1 p 1 2 ]
-"581
-} 0
-"138
-[v _point_enable point_enable `(v  1 e 1 0 ]
-{
-"141
+"677
 } 0
 "144
-[v _point_disable point_disable `(v  1 e 1 0 ]
+[v _point_enable point_enable `(v  1 e 1 0 ]
 {
 "147
 } 0
-"584
+"150
+[v _point_disable point_disable `(v  1 e 1 0 ]
+{
+"153
+} 0
+"680
 [v _update_buzzer update_buzzer `(v  1 e 1 0 ]
 {
-"585
+"681
 [v update_buzzer@state state `i  1 p 2 0 ]
-"584
+"680
 [v update_buzzer@counter counter `uc  1 p 1 2 ]
-"594
+"690
 } 0
-"164
+"170
 [v i2_buzzer_disable buzzer_disable `(v  1 e 1 0 ]
 {
-"167
+"173
 } 0
-"159
+"165
 [v _buzzer_enable buzzer_enable `(v  1 e 1 0 ]
 {
-"162
+"168
 } 0
-"93
+"97
 [v _put_nums put_nums `(v  1 e 1 0 ]
 {
-"95
+"99
 [v put_nums@i i `i  1 a 2 9 ]
-"93
+"97
 [v put_nums@nums nums `*.39uc  1 p 2 7 ]
-"100
+"104
 } 0
-"80
+"84
 [v _put_num put_num `(v  1 e 1 0 ]
 {
 [v put_num@num num `uc  1 a 1 wreg ]
-"83
+"87
 [v put_num@i i `i  1 a 2 5 ]
-"82
+"86
 [v put_num@mask mask `uc  1 a 1 3 ]
-"80
+"84
 [v put_num@num num `uc  1 a 1 wreg ]
-"82
+"86
 [v put_num@num num `uc  1 a 1 2 ]
-"90
+"94
 } 0
-"113
+"117
 [v _get_num get_num `(uc  1 e 1 0 ]
 {
 [v get_num@num num `uc  1 a 1 wreg ]
 [v get_num@num num `uc  1 a 1 wreg ]
 [v get_num@num num `uc  1 a 1 0 ]
-"135
+"141
 } 0
-"507
+"603
 [v _ir_get_human_code ir_get_human_code `(uc  1 e 1 0 ]
 {
-"509
+"605
 [v ir_get_human_code@human_read_code human_read_code `uc  1 a 1 4 ]
-"507
+"603
 [v ir_get_human_code@code code `i  1 p 2 0 ]
-"568
+"664
 } 0
-"381
+"387
 [v _get_next_state get_next_state `(i  1 e 2 0 ]
 {
-"404
-[v get_next_state@hour hour `uc  1 a 1 19 ]
-"403
-[v get_next_state@minutes minutes `uc  1 a 1 18 ]
-"402
-[v get_next_state@seconds seconds `uc  1 a 1 17 ]
-"382
+"412
+[v get_next_state@hour hour `uc  1 a 1 26 ]
+"411
+[v get_next_state@minutes minutes `uc  1 a 1 25 ]
+"410
+[v get_next_state@seconds seconds `uc  1 a 1 24 ]
+"388
 [v get_next_state@state state `i  1 p 2 13 ]
-"381
+"387
 [v get_next_state@code code `i  1 p 2 15 ]
-"494
+"590
 } 0
-"628
+"764
 [v i2_timer1_enable timer1_enable `(v  1 e 1 0 ]
 {
-"631
+"767
 } 0
-"231
+"8 /Applications/microchip/xc8/v1.42/sources/common/awmod.c
+[v i2___awmod __awmod `(i  1 e 2 0 ]
+{
+[v i2___awmod@sign __awmod `uc  1 a 1 5 ]
+[v i2___awmod@counter __awmod `uc  1 a 1 4 ]
+[v i2___awmod@dividend dividend `i  1 p 2 0 ]
+[v i2___awmod@divisor divisor `i  1 p 2 2 ]
+"35
+} 0
+"8 /Applications/microchip/xc8/v1.42/sources/common/awdiv.c
+[v i2___awdiv __awdiv `(i  1 e 2 0 ]
+{
+[v i2___awdiv@quotient __awdiv `i  1 a 2 6 ]
+[v i2___awdiv@sign __awdiv `uc  1 a 1 5 ]
+[v i2___awdiv@counter __awdiv `uc  1 a 1 4 ]
+[v i2___awdiv@dividend dividend `i  1 p 2 0 ]
+[v i2___awdiv@divisor divisor `i  1 p 2 2 ]
+"42
+} 0
+"237 /Users/joaquinpabloaldunate/MPLABXProjects/cronometro.X/user.c
 [v _set_time set_time `(v  1 e 1 0 ]
 {
 [v set_time@seconds seconds `uc  1 a 1 wreg ]
-"236
+"242
 [v set_time@hour_reg hour_reg `uc  1 a 1 12 ]
-"235
+"241
 [v set_time@min_reg min_reg `uc  1 a 1 11 ]
-"234
+"240
 [v set_time@sec_reg sec_reg `uc  1 a 1 10 ]
-"231
+"237
 [v set_time@seconds seconds `uc  1 a 1 wreg ]
 [v set_time@minutes minutes `uc  1 p 1 7 ]
 [v set_time@hour hour `uc  1 p 1 8 ]
-"234
+"240
 [v set_time@seconds seconds `uc  1 a 1 9 ]
-"243
+"249
 } 0
-"292
+"298
 [v i2_get_seconds_reg get_seconds_reg `(uc  1 e 1 0 ]
 {
 [v i2get_seconds_reg@seconds seconds `uc  1 a 1 wreg ]
 [v i2get_seconds_reg@res get_seconds_reg `uc  1 a 1 0 ]
 [v i2get_seconds_reg@seconds seconds `uc  1 a 1 wreg ]
-"294
+"300
 [v i2get_seconds_reg@seconds seconds `uc  1 a 1 1 ]
-"321
+"327
 } 0
-"331
+"337
 [v _get_hour_reg get_hour_reg `(uc  1 e 1 0 ]
 {
 [v get_hour_reg@hour hour `uc  1 a 1 wreg ]
-"333
+"339
 [v get_hour_reg@res res `uc  1 a 1 0 ]
-"331
+"337
 [v get_hour_reg@hour hour `uc  1 a 1 wreg ]
-"333
+"339
 [v get_hour_reg@hour hour `uc  1 a 1 1 ]
-"349
+"355
 } 0
-"219
+"225
 [v _byte_write byte_write `(v  1 e 1 0 ]
 {
 [v byte_write@address address `uc  1 a 1 wreg ]
 [v byte_write@address address `uc  1 a 1 wreg ]
 [v byte_write@value value `uc  1 p 1 5 ]
-"221
+"227
 [v byte_write@address address `uc  1 a 1 6 ]
-"228
+"234
 } 0
-"352
+"358
 [v i2_send_command send_command `(v  1 e 1 0 ]
 {
 [v i2send_command@command command `uc  1 a 1 wreg ]
 [v i2send_command@i send_command `i  1 a 2 3 ]
 [v i2send_command@command command `uc  1 a 1 wreg ]
-"355
+"361
 [v i2send_command@command command `uc  1 a 1 2 ]
-"365
+"371
 } 0
-"374
+"380
 [v i2_io_as_output io_as_output `(v  1 e 1 0 ]
 {
-"377
+"383
 } 0
-"178
+"184
 [v i2_ce_enable ce_enable `(v  1 e 1 0 ]
 {
-"182
+"188
 } 0
-"185
+"191
 [v i2_ce_disable ce_disable `(v  1 e 1 0 ]
 {
-"189
+"195
 } 0

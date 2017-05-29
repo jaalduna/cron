@@ -46,6 +46,10 @@
 #define SEVEN_SEG_N      0b00010101
 //H for time
 #define SEVEN_SEG_H      0b00110111
+//F for force
+#define SEVEN_SEG_F      0b01000111
+//C for cold
+#define SEVEN_SEG_C		 0b01001110
 
 /*Defines for IR control buttons*/
 
@@ -131,7 +135,7 @@
 
 #define STATE_SPEED				21
 #define STATE_SPEED_RUN			22
-#define STATE_SPEED_PAUSE			23
+#define STATE_SPEED_PAUSE		23
 
 #define STATE_INTERVAL 24
 #define STATE_INTERVAL_COUNT_DOWN 25
@@ -142,6 +146,9 @@
 #define STATE_INTERVAL_CFG_MM2 30
 #define STATE_INTERVAL_CFG_SS1 31
 #define STATE_INTERVAL_CFG_SS2 32
+
+#define STATE_INTERVAL_CFG_PROGRAM_SS1 33
+#define STATE_INTERVAL_CFG_PROGRAM_SS2 34
 
 		
 
@@ -170,25 +177,28 @@ char timer1_down_init_min, timer1_down_init_sec; //init values for DOWN counter
 char timer1_speed_cents; //centesimas de segundo
 
 
-#define NUM_INTERVALS 20;
+#define NUM_INTERVALS 20
 
 char current_type; //'f': force, 'c': cold
-struct Tiempo
+
+typedef struct
 {
 	char seconds;
 	char minutes;
-};
+} tiempo;
 
-struct Intervals
+typedef union
 {
-	Tiempo force[NUM_INTERVALS]; //init values for force part of intervals
-	Tiempo cold[NUM_INTERVALS];  //init values for cold part of intervals
-};
+	 tiempo force; //init values for force part of intervals
+	 tiempo cold;  //init values for cold part of intervals
+} INTERVAL;
 
-Intervals intervals; //
+INTERVAL intervals[NUM_INTERVALS];
 char max_program, current_program; //number of programs to run. A program is a set of force + cold.
 
-
+/*Interrupts variables*/
+//char counter;
+//char masked_digits[6];
 
 /*Display related functions*/
 void put_num(char num); //put a single number on the display
@@ -242,6 +252,6 @@ void get_timer1_counter_down( char data[]);
 /*Functions related with cron*/
 void get_timer1_counter_speed(char data[]);
 /*Functions related with interval*/
-void get_timer1_counter_interval(char data[])
+void get_timer1_counter_interval(char data[],char state, char current_program);
 /*Function related with timer 1*/
 

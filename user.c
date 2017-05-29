@@ -134,6 +134,8 @@ char get_num(char num)
         case 'D': return SEVEN_SEG_D;
         case 'N': return SEVEN_SEG_N;
         case 'V': return SEVEN_SEG_VOID;
+        case 'F': return SEVEN_SEG_F;
+        case 'C': return SEVEN_SEG_C;
         default: return SEVEN_SEG_EIGHT;  
     }
 }
@@ -388,7 +390,7 @@ int get_next_state(int state,int code)
             next = STATE_HH1;
      else if((state == STATE_TIME || state == STATE_DOWN || state == STATE_SPEED || state == STATE_INTERVAL)  && code == IR_UP) 
             next = STATE_UP;
-     else if((state == STATE_TIME || state == STATE_UP || state == STATE_SPEED || state == INTERVAL) && code == IR_DOWN) 
+     else if((state == STATE_TIME || state == STATE_UP || state == STATE_SPEED || state == STATE_INTERVAL) && code == IR_DOWN) 
             next = STATE_DOWN;
      else if((state == STATE_TIME || state == STATE_UP || state == STATE_DOWN || state == STATE_SPEED) && code == IR_RIGHT)
             next = STATE_INTERVAL;
@@ -400,7 +402,7 @@ int get_next_state(int state,int code)
             next = STATE_MM2;
      else if(state == STATE_MM2 && code == IR_RIGHT) 
             next = STATE_HH1;
-     else if((state == STATE_UP || state == STATE_DOWN || state == STATE_SPEED || state = STATE_INTERVAL) && code == IR_ZERO)
+     else if((state == STATE_UP || state == STATE_DOWN || state == STATE_SPEED || state == STATE_INTERVAL) && code == IR_ZERO)
             next = STATE_TIME;
      else if((state == STATE_HH1 || state == STATE_HH2 || state == STATE_MM1 || state == STATE_MM2) && code == IR_ESC) 
      {
@@ -489,18 +491,35 @@ int get_next_state(int state,int code)
     else if(state == STATE_INTERVAL && code == IR_OK)
     {
         next = STATE_INTERVAL_FORCE;
-        current_program = 1;
+       
+        current_program = 0;
+        timer1_counter_min = intervals[current_program].force.minutes;
+        timer1_counter_10 = intervals[current_program].force.seconds;
+        //load timer info
+        
+    }
+    else if(state == STATE_INTERVAL && code == IR_ASTERISC)
+    {
+        next = STATE_INTERVAL_CFG_MM1;
+        current_program = 0;
     }
     else if(state == STATE_INTERVAL_FORCE && timer1_counter_min == 0 && timer1_counter_10 == 0)
     {
         next = STATE_INTERVAL_COLD;
+        current_type = 'c';
+        timer1_counter_min = intervals[current_program].cold.minutes;
+        timer1_counter_10 = intervals[current_program].cold.seconds;
     }
     else if(state == STATE_INTERVAL_COLD &&  timer1_counter_min == 0 && timer1_counter_10 == 0)
     {
-        if(current_program <= max_program)
+        if(current_program < max_program -1)
         {
             next = STATE_INTERVAL_FORCE;
             current_program +=1;
+            current_type = 'f';
+            
+            timer1_counter_min = intervals[current_program].force.minutes;
+            timer1_counter_10 = intervals[current_program].force.seconds;
         }
         else
         {
@@ -508,32 +527,62 @@ int get_next_state(int state,int code)
         }
     }
     else if(state == STATE_INTERVAL_STOP && code == IR_GATO)
-    {
         next = STATE_INTERVAL;
+    else if((state == STATE_INTERVAL_CFG_MM1 || state == STATE_INTERVAL_CFG_MM2 || state == STATE_INTERVAL_CFG_SS1 || state == STATE_INTERVAL_CFG_SS2)  && code == IR_GATO)
+    {
+        next = STATE_INTERVAL_CFG_PROGRAM_SS1;
+        aux1[4] = 'V';
+        aux1[5] = 'P';
+        
+
     }
     else if((state == STATE_INTERVAL_CFG_MM1 || state == STATE_INTERVAL_CFG_MM2 || state == STATE_INTERVAL_CFG_SS1 || state == STATE_INTERVAL_CFG_SS2) && code == IR_ASTERISC)
     {
-        if(current_program <= NUM_INTERVALS)
+        
+        next = STATE_INTERVAL_CFG_MM1;
+        if(current_type == 'f') //if we are on a force state
         {
-            if(current_type == 'f')
+            intervals[current_program].force.seconds = aux1[1]*10 + aux1[0]; 
+            intervals[current_program].force.minutes = aux1[3]*10 + aux1[2]; 
+            
+            current_type = 'c';
+            if(current_program +1 <10)
+                aux1[5] = 'C';
+            else
+                aux1[5] = (current_program + 1)/10;
+            
+            aux1[4] = (current_program +1) % 10;
+        }
+        else //if we are on a cold state
+        {
+            //lets save values on cold variable.
+            intervals[current_program].cold.seconds = aux1[1]*10 + aux1[0]; 
+            intervals[current_program].cold.minutes = aux1[3]*10 + aux1[2]; 
+            
+            //lets update current_program
+            if(current_program < NUM_INTERVALS)
             {
-                intervals.force[current_program].seconds = aux1[1]*10 + aux1[0]; 
-                intervals.force[current_program].minutes = aux1[3]*10 + aux1[2]; 
-                current_type = 'c';
+                current_program +=1;
             }
             else
             {
-                intervals.force[current_program].seconds = aux1[1]*10 + aux1[0]; 
-                intervals.force[current_program].minutes = aux1[3]*10 + aux1[2]; 
-                current_type = 'f';
-                current_program +=1;
+                current_program = 0;
             }
-           
+            aux1[4] = (current_program +1) % 10;
+            //lets prepare variables for next input.
+            current_type = 'f';
+            if(current_program +1 < 10)
+                aux1[5] = 'F';
+            else
+                aux1[5] = (current_program +1)/10;
+            
+            
         }
-        else
-        {
-
-        }
+    }
+    else if((state == STATE_INTERVAL_CFG_PROGRAM_SS1 || state == STATE_INTERVAL_CFG_PROGRAM_SS2) && code == IR_GATO)
+    {
+        next = STATE_INTERVAL;
+        max_program = aux1[1]*10+ aux1[0];
     }
     else
         next = next;
@@ -677,23 +726,37 @@ void get_timer1_counter_interval(char data[],char state, char current_program)
    data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
    data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
    data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
-
-   if(state == STATE_INTERVAL_FORCE)
+  
+   
+   if(state == STATE_INTERVAL_CFG_PROGRAM_SS1 || state == STATE_INTERVAL_CFG_PROGRAM_SS2)
    {
-       data[4] = current_program;
-       data[5] = 'F';
+    data[4] = 'V';
+    data[5] = 'P';
    }
-   else if(state == STATE_INTERVAL_COLD)
+   else if(current_type == 'f')
    {
-       data[4] = current_program;
-       data[5] = 'C';    
+       if(current_program + 1 < 10)
+       {
+        data[5] = 'F';
+       }
+       else
+       {
+           data[5] = (current_program +1)/10;
+       }
+        data[4] = (current_program +1) % 10;
    }
-   else
-   {
-       data[4] = 0;
-       data[5] = 0;
-   }
-
+    else
+    {
+        if(current_program + 1 < 10)
+        {
+        data[5] = 'C';
+        }
+       else
+       {
+           data[5] = (current_program +1)/10;
+       }
+        data[4] = (current_program +1) % 10;
+    }
 }
  
 
@@ -794,6 +857,21 @@ void update_timer1_counter_10(char state, char *counter)
             if(timer1_counter_min<59)
             {
                 timer1_counter_min +=1;
+            }
+        }
+    }
+    else if(state == STATE_INTERVAL_FORCE || state == STATE_INTERVAL_COLD)
+    {
+        if(*counter >0)
+        {
+            *counter -=1;
+        }
+        else
+        {
+            if(timer1_counter_min >0)
+            {
+                timer1_counter_min -=1;
+                *counter = 59;
             }
         }
     }

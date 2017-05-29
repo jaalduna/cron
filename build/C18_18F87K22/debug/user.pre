@@ -4341,7 +4341,7 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.42/include/stdbool.h"
 typedef unsigned char bool;
 
-# 149 "user.h"
+# 165 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
@@ -4357,6 +4357,26 @@ char timer1_down_init_min, timer1_down_init_sec;
 char timer1_speed_cents;
 
 
+
+
+char current_type;
+
+typedef struct
+{
+char seconds;
+char minutes;
+} tiempo;
+
+typedef union
+{
+tiempo force;
+tiempo cold;
+} INTERVAL;
+
+INTERVAL intervals[20];
+char max_program, current_program;
+
+# 204
 void put_num(char num);
 void put_nums(char nums[]);
 void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
@@ -4408,6 +4428,8 @@ void get_timer1_counter_down( char data[]);
 
 void get_timer1_counter_speed(char data[]);
 
+void get_timer1_counter_interval(char data[],char state, char current_program);
+
 # 28 "user.c"
 void InitApp(void)
 {
@@ -4457,6 +4479,10 @@ next = 0;
 timer1_up_limit_sec = 59;
 timer1_up_limit_min = 59;
 
+
+
+current_type = 'f';
+current_program = 0;
 
 }
 
@@ -4514,6 +4540,8 @@ case 'H': return 0b00110111;
 case 'D': return 0b00111101;
 case 'N': return 0b00010101;
 case 'V': return 0b00000000;
+case 'F': return 0b01000111;
+case 'C': return 0b01001110;
 default: return 0b01111111;
 }
 }
@@ -4626,7 +4654,7 @@ byte_write(0x84,hour_reg);
 
 }
 
-# 248
+# 254
 void get_time(char data[], unsigned char format)
 {
 char aux = 0x81;
@@ -4764,10 +4792,12 @@ int get_next_state(int state,int code)
 {
 if(state == 0 && code == 0xAABA)
 next = 1;
-else if((state == 0 || state == 21) && code == 0xABBa)
+else if((state == 0 || state == 6 || state == 21 || state == 24) && code == 0xABBa)
 next = 5;
-else if((state == 0 || state == 21) && code == 0xEBAE)
+else if((state == 0 || state == 5 || state == 21 || state == 24) && code == 0xEBAE)
 next = 6;
+else if((state == 0 || state == 5 || state == 6 || state == 21) && code == 0xAAEE)
+next = 24;
 else if(state == 1 && code == 0xAAEE)
 next = 2;
 else if(state == 2 && code == 0xAAEE)
@@ -4776,7 +4806,7 @@ else if(state == 3 && code == 0xAAEE)
 next = 4;
 else if(state == 4 && code == 0xAAEE)
 next = 1;
-else if((state == 5 || state == 6 || state == 21) && code == 0xBABA)
+else if((state == 5 || state == 6 || state == 21 || state == 24) && code == 0xBABA)
 next = 0;
 else if((state == 1 || state == 2 || state == 3 || state == 4) && code == 0xAEBA)
 {
@@ -4798,7 +4828,7 @@ else if(state == 12 && timer1_counter_min == timer1_up_limit_min && timer1_count
 {
 next = 13;
 }
-else if((state == 13 || state == 12) && code == 0xAEBA)
+else if((state == 13 || state == 12 ) && code == 0xAEBA)
 next = 5;
 else if(state == 5 && code == 0xAABA)
 {
@@ -4810,14 +4840,6 @@ next = 5;
 
 timer1_up_limit_sec = aux1[1]*10+aux1[0];
 timer1_up_limit_min = aux1[3]*10 + aux1[2];
-}
-else if(state == 5 && code ==0xEBAE)
-{
-next = 6;
-}
-else if(state == 6 && code == 0xABBa)
-{
-next = 5;
 }
 else if(state == 6 && code == 0xEAAA)
 {
@@ -4869,6 +4891,102 @@ next = 22;
 else if((state == 22 || state == 23) && code == 0xAEBA)
 {
 next = 21;
+}
+else if(state == 24 && code == 0xEAAA)
+{
+next = 26;
+
+current_program = 0;
+timer1_counter_min = intervals[current_program].force.minutes;
+timer1_counter_10 = intervals[current_program].force.seconds;
+
+
+}
+else if(state == 24 && code == 0xAABA)
+{
+next = 29;
+current_program = 0;
+}
+else if(state == 26 && timer1_counter_min == 0 && timer1_counter_10 == 0)
+{
+next = 27;
+current_type = 'c';
+timer1_counter_min = intervals[current_program].cold.minutes;
+timer1_counter_10 = intervals[current_program].cold.seconds;
+}
+else if(state == 27 && timer1_counter_min == 0 && timer1_counter_10 == 0)
+{
+if(current_program < max_program -1)
+{
+next = 26;
+current_program +=1;
+current_type = 'f';
+
+timer1_counter_min = intervals[current_program].force.minutes;
+timer1_counter_10 = intervals[current_program].force.seconds;
+}
+else
+{
+next = 28;
+}
+}
+else if(state == 28 && code == 0xAEBA)
+next = 24;
+else if((state == 29 || state == 30 || state == 31 || state == 32) && code == 0xAEBA)
+{
+next = 33;
+aux1[4] = 'V';
+aux1[5] = 'P';
+
+
+}
+else if((state == 29 || state == 30 || state == 31 || state == 32) && code == 0xAABA)
+{
+
+next = 29;
+if(current_type == 'f')
+{
+intervals[current_program].force.seconds = aux1[1]*10 + aux1[0];
+intervals[current_program].force.minutes = aux1[3]*10 + aux1[2];
+
+current_type = 'c';
+if(current_program +1 <10)
+aux1[5] = 'C';
+else
+aux1[5] = (current_program + 1)/10;
+
+aux1[4] = (current_program +1) % 10;
+}
+else
+{
+
+intervals[current_program].cold.seconds = aux1[1]*10 + aux1[0];
+intervals[current_program].cold.minutes = aux1[3]*10 + aux1[2];
+
+
+if(current_program < 20)
+{
+current_program +=1;
+}
+else
+{
+current_program = 0;
+}
+aux1[4] = (current_program +1) % 10;
+
+current_type = 'f';
+if(current_program +1 < 10)
+aux1[5] = 'F';
+else
+aux1[5] = (current_program +1)/10;
+
+
+}
+}
+else if((state == 33 || state == 34) && code == 0xAEBA)
+{
+next = 24;
+max_program = aux1[1]*10+ aux1[0];
 }
 else
 next = next;
@@ -5006,6 +5124,46 @@ data[4] = get_seconds_reg(timer1_counter_min) & 0x0f;
 data[5] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
 }
 
+void get_timer1_counter_interval(char data[],char state, char current_program)
+{
+data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
+data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+
+
+if(state == 33 || state == 34)
+{
+data[4] = 'V';
+data[5] = 'P';
+}
+else if(current_type == 'f')
+{
+if(current_program + 1 < 10)
+{
+data[5] = 'F';
+}
+else
+{
+data[5] = (current_program +1)/10;
+}
+data[4] = (current_program +1) % 10;
+}
+else
+{
+if(current_program + 1 < 10)
+{
+data[5] = 'C';
+}
+else
+{
+data[5] = (current_program +1)/10;
+}
+data[4] = (current_program +1) % 10;
+}
+}
+
+
 
 void timer1_enable(void)
 {
@@ -5103,6 +5261,21 @@ else
 if(timer1_counter_min<59)
 {
 timer1_counter_min +=1;
+}
+}
+}
+else if(state == 26 || state == 27)
+{
+if(*counter >0)
+{
+*counter -=1;
+}
+else
+{
+if(timer1_counter_min >0)
+{
+timer1_counter_min -=1;
+*counter = 59;
 }
 }
 }
