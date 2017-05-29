@@ -23,27 +23,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [t T13 __deprecated__ ]
 "8599 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _RB5 `Vb ~T13 @X0 0 e@31757 ]
-"177 user.h
+"197 user.h
 [v _ir_get_human_code `(uc ~T0 @X0 0 ef1`i ]
-"180
+"200
 [v _get_next_state `(i ~T0 @X0 0 ef2`i`i ]
 "8833 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
-"148 user.h
+"168 user.h
 [v _update_point `(v ~T0 @X0 0 ef2`i`uc ]
-"149
+"169
 [v _update_buzzer `(v ~T0 @X0 0 ef2`i`uc ]
-"151
+"171
 [v _point_enable `(v ~T0 @X0 0 ef ]
-"152
+"172
 [v _point_disable `(v ~T0 @X0 0 ef ]
 "8589 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _RB0 `Vb ~T13 @X0 0 e@31752 ]
-"145 user.h
+"165 user.h
 [v _put_nums `(v ~T0 @X0 0 ef1`*uc ]
 "8843 /Applications/microchip/xc8/v1.42/include/pic18f2550.h
 [v _TMR1IF `Vb ~T0 @X0 0 e@31984 ]
-"188 user.h
+"208 user.h
 [v _update_timer1_counter_10 `(v ~T0 @X0 0 ef2`uc`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -3173,56 +3173,72 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-"135 user.h
+"149 user.h
 [v _state `i ~T0 @X0 1 e ]
 [v _next `i ~T0 @X0 1 e ]
-[; ;user.h: 135: int state, next;
-"136
+[; ;user.h: 149: int state, next;
+"150
 [v _human_code `uc ~T0 @X0 1 e ]
-[; ;user.h: 136: char human_code;
-"137
+[; ;user.h: 150: char human_code;
+"151
 [v _aux1 `uc ~T0 @X0 -> 6 `i e ]
-[; ;user.h: 137: char aux1[6];
-"138
+[; ;user.h: 151: char aux1[6];
+"152
 [v _buzzer_status `uc ~T0 @X0 1 e ]
-[; ;user.h: 138: char buzzer_status;
-"140
+[; ;user.h: 152: char buzzer_status;
+"154
 [v _timer1_counter `uc ~T0 @X0 1 e ]
-[; ;user.h: 140: char timer1_counter;
-"141
+[; ;user.h: 154: char timer1_counter;
+"155
 [v _timer1_counter_10 `uc ~T0 @X0 1 e ]
-[; ;user.h: 141: char timer1_counter_10;
-[; ;user.h: 144: void put_num(char num);
-[; ;user.h: 145: void put_nums(char nums[]);
-[; ;user.h: 146: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
-[; ;user.h: 147: char get_num(char num);
-[; ;user.h: 148: void update_point(int state, char counter);
-[; ;user.h: 149: void update_buzzer(int state, char counter);
-[; ;user.h: 151: void point_enable(void);
-[; ;user.h: 152: void point_disable(void);
-[; ;user.h: 153: void point_toggle(void);
-[; ;user.h: 155: void buzzer_enable(void);
-[; ;user.h: 156: void buzzer_disable(void);
-[; ;user.h: 157: void buzzer_toggle(void);
-[; ;user.h: 162: char get_seconds_reg(char seconds);
-[; ;user.h: 163: char get_hour_reg(char hour);
-[; ;user.h: 164: void get_time(char data[], unsigned char format);
-[; ;user.h: 165: void set_time(char seconds, char minutes, char hour);
-[; ;user.h: 168: void send_command(char command);
-[; ;user.h: 169: void io_as_input(void);
-[; ;user.h: 170: void io_as_output(void);
-[; ;user.h: 171: void ce_enable(void);
-[; ;user.h: 172: void ce_disable(void);
-[; ;user.h: 173: char byte_read(char address);
-[; ;user.h: 174: void byte_write(char address, char value);
-[; ;user.h: 176: char ir_is_code_number(char human_code);
-[; ;user.h: 177: char ir_get_human_code(int code);
-[; ;user.h: 180: int get_next_state(int state,int code);
-[; ;user.h: 182: void InitApp(void);
-[; ;user.h: 185: void get_timer1_counter( char data[]);
-[; ;user.h: 186: void timer1_enable(void);
-[; ;user.h: 187: void timer1_disable(void);
-[; ;user.h: 188: void update_timer1_counter_10(char state, char *counter);
+[; ;user.h: 155: char timer1_counter_10;
+"156
+[v _timer1_counter_min `uc ~T0 @X0 1 e ]
+[; ;user.h: 156: char timer1_counter_min;
+"158
+[v _timer1_up_limit_sec `uc ~T0 @X0 1 e ]
+[v _timer1_up_limit_min `uc ~T0 @X0 1 e ]
+[; ;user.h: 158: char timer1_up_limit_sec, timer1_up_limit_min;
+"159
+[v _timer1_down_init_min `uc ~T0 @X0 1 e ]
+[v _timer1_down_init_sec `uc ~T0 @X0 1 e ]
+[; ;user.h: 159: char timer1_down_init_min, timer1_down_init_sec;
+"161
+[v _timer1_speed_cents `uc ~T0 @X0 1 e ]
+[; ;user.h: 161: char timer1_speed_cents;
+[; ;user.h: 164: void put_num(char num);
+[; ;user.h: 165: void put_nums(char nums[]);
+[; ;user.h: 166: void put_nums_individual(char num5, char num4, char num3, char num2, char num1, char num0);
+[; ;user.h: 167: char get_num(char num);
+[; ;user.h: 168: void update_point(int state, char counter);
+[; ;user.h: 169: void update_buzzer(int state, char counter);
+[; ;user.h: 171: void point_enable(void);
+[; ;user.h: 172: void point_disable(void);
+[; ;user.h: 173: void point_toggle(void);
+[; ;user.h: 175: void buzzer_enable(void);
+[; ;user.h: 176: void buzzer_disable(void);
+[; ;user.h: 177: void buzzer_toggle(void);
+[; ;user.h: 182: char get_seconds_reg(char seconds);
+[; ;user.h: 183: char get_hour_reg(char hour);
+[; ;user.h: 184: void get_time(char data[], unsigned char format);
+[; ;user.h: 185: void set_time(char seconds, char minutes, char hour);
+[; ;user.h: 188: void send_command(char command);
+[; ;user.h: 189: void io_as_input(void);
+[; ;user.h: 190: void io_as_output(void);
+[; ;user.h: 191: void ce_enable(void);
+[; ;user.h: 192: void ce_disable(void);
+[; ;user.h: 193: char byte_read(char address);
+[; ;user.h: 194: void byte_write(char address, char value);
+[; ;user.h: 196: char ir_is_code_number(char human_code);
+[; ;user.h: 197: char ir_get_human_code(int code);
+[; ;user.h: 200: int get_next_state(int state,int code);
+[; ;user.h: 202: void InitApp(void);
+[; ;user.h: 205: void get_timer1_counter( char data[]);
+[; ;user.h: 206: void timer1_enable(void);
+[; ;user.h: 207: void timer1_disable(void);
+[; ;user.h: 208: void update_timer1_counter_10(char state, char *counter);
+[; ;user.h: 211: void get_timer1_counter_down( char data[]);
+[; ;user.h: 213: void get_timer1_counter_speed(char data[]);
 "21 interrupts.c
 [v _counter `uc ~T0 @X0 1 e ]
 [; ;interrupts.c: 21: char counter;
@@ -3230,9 +3246,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _masked_digits `uc ~T0 @X0 -> 6 `i e ]
 [; ;interrupts.c: 22: char masked_digits[6];
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-[v F3432 `(v ~T0 @X0 1 tf ]
+[v F3442 `(v ~T0 @X0 1 tf ]
 "32
-[v _high_isr `IF3432 ~T0 @X0 1 e ]
+[v _high_isr `IF3442 ~T0 @X0 1 e ]
 "41
 {
 [; ;interrupts.c: 32: void interrupt high_isr(void)
@@ -3258,9 +3274,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _code `uc ~T0 @X0 -> 47 `i a ]
 [; ;interrupts.c: 74: int i;
 [; ;interrupts.c: 75: char code[47];
-[; ;interrupts.c: 77: _delay((unsigned long)((40.7)*(20000000L/4000.0)));
+[; ;interrupts.c: 77: _delay((unsigned long)((40.63)*(20000000L/4000.0)));
 "77
-[e ( __delay (1 -> * .40.7 / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * .40.63 / -> -> 20000000 `l `d .4000.0 `ul ]
 [; ;interrupts.c: 78: for(i = 0; i < 47 ; i ++)
 "78
 {
@@ -3274,9 +3290,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 80: code[i] = RB5;
 "80
 [e = *U + &U _code * -> -> _i `ui `ux -> -> # *U &U _code `ui `ux -> -> _RB5 `i `uc ]
-[; ;interrupts.c: 81: _delay((unsigned long)((565)*(20000000L/4000000.0)));
+[; ;interrupts.c: 81: _delay((unsigned long)((580)*(20000000L/4000000.0)));
 "81
-[e ( __delay (1 -> * -> -> 565 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 580 `i `d / -> -> 20000000 `l `d .4000000.0 `ul ]
 "82
 }
 "78
@@ -3556,39 +3572,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 172: {
 "172
 {
-[; ;interrupts.c: 174: if(timer1_counter <9)
+[; ;interrupts.c: 174: if(timer1_counter <99)
 "174
-[e $ ! < -> _timer1_counter `i -> 9 `i 356  ]
-[; ;interrupts.c: 175: timer1_counter += 1;
+[e $ ! < -> _timer1_counter `i -> 99 `i 356  ]
+[; ;interrupts.c: 175: {
 "175
-[e =+ _timer1_counter -> -> 1 `i `uc ]
-[e $U 357  ]
-"176
-[e :U 356 ]
-[; ;interrupts.c: 176: else
-[; ;interrupts.c: 177: {
-"177
 {
-[; ;interrupts.c: 178: timer1_counter = 0;
-"178
-[e = _timer1_counter -> -> 0 `i `uc ]
-[; ;interrupts.c: 179: update_timer1_counter_10(state,&timer1_counter_10);
+[; ;interrupts.c: 176: timer1_counter += 1;
+"176
+[e =+ _timer1_counter -> -> 1 `i `uc ]
 "179
+}
+[; ;interrupts.c: 179: }
+[e $U 357  ]
+"181
+[e :U 356 ]
+[; ;interrupts.c: 181: else
+[; ;interrupts.c: 182: {
+"182
+{
+[; ;interrupts.c: 183: timer1_counter = 0;
+"183
+[e = _timer1_counter -> -> 0 `i `uc ]
+[; ;interrupts.c: 184: update_timer1_counter_10(state,&timer1_counter_10);
+"184
 [e ( _update_timer1_counter_10 (2 , -> _state `uc &U _timer1_counter_10 ]
-"180
+[; ;interrupts.c: 187: next = get_next_state(state,0);
+"187
+[e = _next ( _get_next_state (2 , _state -> 0 `i ]
+"188
 }
 [e :U 357 ]
-[; ;interrupts.c: 180: }
-[; ;interrupts.c: 182: TMR1IF = 0;
-"182
+[; ;interrupts.c: 188: }
+[; ;interrupts.c: 190: TMR1IF = 0;
+"190
 [e = _TMR1IF -> -> 0 `i `b ]
-"183
+"191
 }
 [e :U 355 ]
-"184
+"192
 [e :U 354 ]
 [e :U 331 ]
-[; ;interrupts.c: 183: }
-[; ;interrupts.c: 184: }
+[; ;interrupts.c: 191: }
+[; ;interrupts.c: 192: }
 [e :UE 322 ]
 }

@@ -122,8 +122,165 @@ void main(void)
 	    case STATE_UP_COUNTING:
 			get_timer1_counter(aux1);
 		break;
-            case STATE_DOWN:
+        case STATE_UP_STOP:
+            get_timer1_counter(aux1);
+        break;
+        case STATE_UP_CFG_MM1:
+                
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[3] = human_code; //update numberS
+                    next = STATE_UP_CFG_MM2;   //update state
+                    human_code = -1;
+                }
                 break;
+        case STATE_UP_CFG_MM2:
+                
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[2] = human_code; //update numberS
+                    next = STATE_UP_CFG_SS1;   //update state
+                    human_code = -1;
+                }
+                break;
+        case STATE_UP_CFG_SS1:
+                
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[1] = human_code; //update numberS
+                    next = STATE_UP_CFG_SS2;   //update state
+                    human_code = -1;
+                }
+                break;
+        case STATE_UP_CFG_SS2:
+                
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[0] = human_code; //update numberS
+                    next = STATE_UP_CFG_MM1;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_DOWN:
+                timer1_counter_10 = UP_INITIAL_COUNTDOWN;  
+                get_timer1_counter_down(aux1);   
+                break;
+            case STATE_DOWN_COUNT_DOWN:
+                get_timer1_counter_down(aux1);   
+                break;
+            case STATE_DOWN_COUNTING:
+                get_timer1_counter_down(aux1);   
+                break;     
+            case STATE_DOWN_STOP:
+                get_timer1_counter_down(aux1);   
+                break;               
+            case STATE_DOWN_CFG_MM1:
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[3] = human_code; //update numberS
+                    next = STATE_DOWN_CFG_MM2;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_DOWN_CFG_MM2:
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=9)
+                {
+                    aux1[2] = human_code; //update numberS
+                    next = STATE_DOWN_CFG_SS1;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_DOWN_CFG_SS1:
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[1] = human_code; //update numberS
+                    next = STATE_DOWN_CFG_SS2;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_DOWN_CFG_SS2:
+                //check if code is a valid number
+                if(ir_is_code_number(human_code) && human_code <=9)
+                {
+                    aux1[0] = human_code; //update numberS
+                    next = STATE_DOWN_CFG_MM1;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_SPEED:
+                timer1_disable();
+                timer1_counter_10 = 0;
+                timer1_counter_min = 0;
+                timer1_counter = 0;
+                get_timer1_counter_speed(aux1);
+                break;
+            case STATE_SPEED_RUN:
+                timer1_enable();
+                get_timer1_counter_speed(aux1);
+                break;
+            case STATE_SPEED_PAUSE:
+                timer1_disable();
+                get_timer1_counter_speed(aux1);
+                break;
+
+            case STATE_INTERVAL:
+                timer1_disable();
+                timer1_counter_10 = 0;
+                timer1_counter_min = 0;
+                timer1_counter = 0;
+                get_timer1_counter_interval(aux1,state,current_program);
+                break;
+            case STATE_INTERVAL_FORCE:
+                timer1_enable();
+                get_timer1_counter_interval(aux1,state,current_program);
+                break;
+            case STATE_INTERVAL_COLD:
+                timer1_enable();
+                get_timer1_counter_interval(aux1,state_current_program);
+                break;
+            case STATE_INTERVAL_STOP:
+                timer1_disable();
+                get_timer1_counter_interval(aux1,state_current_program);
+                break;
+            case STATE_INTERVAL_CFG_MM1:
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[3] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_MM2;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_INTERVAL_CFG_MM2:
+                if(ir_is_code_number(human_code) && human_code <=9)
+                {
+                    aux1[2] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_SS1;   //update state
+                    human_code = -1;
+                }
+                break;
+            case STATE_INTERVAL_CFG_SS1:
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[1] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_SS2;   //update state
+                    human_code = -1;
+                }
+                break;     
+            case STATE_INTERVAL_CFG_SS2:
+                if(ir_is_code_number(human_code) && human_code <=5)
+                {
+                    aux1[0] = human_code; //update numberS
+                    next = STATE_INTERVAL_CFG_MM2;   //update state
+                    human_code = -1;
+                }
+                break;                            
             default: ;
                 
         }              

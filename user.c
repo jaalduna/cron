@@ -49,8 +49,8 @@ void InitApp(void)
     /*Timer 1 configuration register*/
     T1CON = 0x00;
     T1CON |= 1<<7; //RD16, enable 16 bits read/write
-    T1CON |= 1<<5; //T1CKPS1 
-    T1CON |= 1<<4; //T1CKPS0
+    T1CON |= 0<<5; //T1CKPS1 
+    T1CON |= 0<<4; //T1CKPS0
     T1CON |= 0<<3; //T1OSCEN: disable T1 oscillator
     T1CON |= 0 << 1; //TMR1CS: internal clock (FOSC/4) 
     T1CON |= 0 << 0; //TMR1ON: START/STOP TMR1 
@@ -68,6 +68,16 @@ void InitApp(void)
     state = STATE_TIME;
     next  = STATE_TIME;
     /* Enable interrupts */
+    
+    /*lets set timer1_up_limit_sec and timer1_up_limit_min*/
+    timer1_up_limit_sec = 59;
+    timer1_up_limit_min = 59;
+
+
+    /*Initial value for Force/Cold ambiguity in Inverval configuration*/
+    current_type = 'f';
+    current_program = 0;
+    
 }
 
 /*put a character on the display on the first position*/
@@ -314,6 +324,13 @@ char get_seconds_reg(char seconds)
     return res;
 }
 
+char get_cents_reg(char cents)
+{
+    char res = 0; 
+    res = (cents/10)<<4 | (cents % 10);
+    return res;
+}
+
 /*get_hour_reg returns a register according to the hour register in DS1302.*/
 char get_hour_reg(char hour)
 {   
@@ -369,10 +386,12 @@ int get_next_state(int state,int code)
 {
      if(state == STATE_TIME && code == IR_EDIT) 
             next = STATE_HH1;
-     else if(state == STATE_TIME && code == IR_UP) 
+     else if((state == STATE_TIME || state == STATE_DOWN || state == STATE_SPEED || state == STATE_INTERVAL)  && code == IR_UP) 
             next = STATE_UP;
-     else if(state == STATE_TIME && code == IR_DOWN) 
+     else if((state == STATE_TIME || state == STATE_UP || state == STATE_SPEED || state == INTERVAL) && code == IR_DOWN) 
             next = STATE_DOWN;
+     else if((state == STATE_TIME || state == STATE_UP || state == STATE_DOWN || state == STATE_SPEED) && code == IR_RIGHT)
+            next = STATE_INTERVAL;
      else if(state == STATE_HH1 && code == IR_RIGHT) 
             next = STATE_HH2;
      else if(state == STATE_HH2 && code == IR_RIGHT) 
@@ -381,6 +400,8 @@ int get_next_state(int state,int code)
             next = STATE_MM2;
      else if(state == STATE_MM2 && code == IR_RIGHT) 
             next = STATE_HH1;
+     else if((state == STATE_UP || state == STATE_DOWN || state == STATE_SPEED || state = STATE_INTERVAL) && code == IR_ZERO)
+            next = STATE_TIME;
      else if((state == STATE_HH1 || state == STATE_HH2 || state == STATE_MM1 || state == STATE_MM2) && code == IR_ESC) 
      {
             next = STATE_TIME;
@@ -397,10 +418,126 @@ int get_next_state(int state,int code)
 	   } 
      else if(state == STATE_UP_COUNT_DOWN && timer1_counter_10 == 0)
 		next = STATE_UP_COUNTING;	
-     else
-            next = next;
-     
-     return next;
+    else if(state == STATE_UP_COUNTING && timer1_counter_min == timer1_up_limit_min && timer1_counter_10 == timer1_up_limit_sec)
+    {
+        next = STATE_UP_STOP;
+    }
+    else if((state == STATE_UP_STOP || state == STATE_UP_COUNTING ) && code == IR_GATO)
+        next = STATE_UP;
+    else if(state == STATE_UP && code == IR_ASTERISC)
+    {
+        next = STATE_UP_CFG_MM1;
+    }
+    else if((state == STATE_UP_CFG_MM1  || state == STATE_UP_CFG_MM2 || state == STATE_UP_CFG_SS1 || state == STATE_UP_CFG_SS2) && code == IR_GATO)
+    {
+        next = STATE_UP;
+        //lets save the limit configuration
+        timer1_up_limit_sec = aux1[1]*10+aux1[0];
+        timer1_up_limit_min = aux1[3]*10 + aux1[2];
+    }
+    else if(state == STATE_DOWN && code == IR_OK)
+    {
+        next = STATE_DOWN_COUNT_DOWN;
+        //lets activate timer1 counter
+        timer1_enable();
+    }
+    else if(state == STATE_DOWN_COUNT_DOWN && timer1_counter_10 == 0)
+    {
+        next = STATE_DOWN_COUNTING;
+        //lets load initial countdown on timers1_counter_10 and timer1_counter_min
+        timer1_counter_min = timer1_down_init_min;
+        timer1_counter_10 = timer1_down_init_sec;
+    }
+    else if(state == STATE_DOWN_COUNTING && timer1_counter_min == 0 && timer1_counter_10 == 0)
+    {
+        next = STATE_DOWN_STOP;
+    }
+    else if(state == STATE_DOWN_STOP && code == IR_GATO)
+    {
+        next = STATE_DOWN;
+    }
+    else if(state == STATE_DOWN && code == IR_ASTERISC)
+    {
+        next = STATE_DOWN_CFG_MM1;
+    }
+    else if((state == STATE_DOWN_CFG_MM1 || state == STATE_DOWN_CFG_MM2 || state == STATE_DOWN_CFG_SS1 || state == STATE_DOWN_CFG_SS2) && code == IR_GATO)
+    {
+        next = STATE_DOWN;
+        timer1_down_init_min = aux1[3]*10 + aux1[2];
+        timer1_down_init_sec = aux1[1]*10 + aux1[0];
+    }
+    else if((state == STATE_DOWN || state == STATE_UP || state == STATE_TIME) && code == IR_LEFT)
+    {
+        next = STATE_SPEED;
+    }
+    else if(state == STATE_SPEED && code == IR_OK)
+    {
+        next = STATE_SPEED_RUN;
+    }
+    else if(state == STATE_SPEED_RUN && code == IR_ASTERISC)
+    {
+        next = STATE_SPEED_PAUSE;
+    }
+    else if(state == STATE_SPEED_PAUSE && code == IR_OK)
+    {
+        next = STATE_SPEED_RUN;
+    }
+    else if((state == STATE_SPEED_RUN || state == STATE_SPEED_PAUSE) && code == IR_GATO)
+    {
+        next = STATE_SPEED;
+    }
+    else if(state == STATE_INTERVAL && code == IR_OK)
+    {
+        next = STATE_INTERVAL_FORCE;
+        current_program = 1;
+    }
+    else if(state == STATE_INTERVAL_FORCE && timer1_counter_min == 0 && timer1_counter_10 == 0)
+    {
+        next = STATE_INTERVAL_COLD;
+    }
+    else if(state == STATE_INTERVAL_COLD &&  timer1_counter_min == 0 && timer1_counter_10 == 0)
+    {
+        if(current_program <= max_program)
+        {
+            next = STATE_INTERVAL_FORCE;
+            current_program +=1;
+        }
+        else
+        {
+            next = STATE_INTERVAL_STOP;
+        }
+    }
+    else if(state == STATE_INTERVAL_STOP && code == IR_GATO)
+    {
+        next = STATE_INTERVAL;
+    }
+    else if((state == STATE_INTERVAL_CFG_MM1 || state == STATE_INTERVAL_CFG_MM2 || state == STATE_INTERVAL_CFG_SS1 || state == STATE_INTERVAL_CFG_SS2) && code == IR_ASTERISC)
+    {
+        if(current_program <= NUM_INTERVALS)
+        {
+            if(current_type == 'f')
+            {
+                intervals.force[current_program].seconds = aux1[1]*10 + aux1[0]; 
+                intervals.force[current_program].minutes = aux1[3]*10 + aux1[2]; 
+                current_type = 'c';
+            }
+            else
+            {
+                intervals.force[current_program].seconds = aux1[1]*10 + aux1[0]; 
+                intervals.force[current_program].minutes = aux1[3]*10 + aux1[2]; 
+                current_type = 'f';
+                current_program +=1;
+            }
+           
+        }
+        else
+        {
+
+        }
+    }
+    else
+        next = next;
+    return next;
 }
 
 /*is_code_number return 1 if human_code is a number or 0 if not*/
@@ -507,17 +644,63 @@ void get_timer1_counter( char data[])
 {
    data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
    data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
-   data[2] = 0;
-   data[3] = 0;
+   data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+   data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
    data[4] = 'P'; 
    data[5] = 'U';
 
 }
 
+void get_timer1_counter_down( char data[])
+{
+   data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
+   data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+   data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+   data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+   data[4] = 'N'; 
+   data[5] = 'D';
+}
+
+void get_timer1_counter_speed(char data[])
+{
+   data[0] = get_cents_reg(timer1_counter) & 0x0f;
+   data[1] = (get_cents_reg(timer1_counter) & 0xf0)>>4;
+   data[2] = get_seconds_reg(timer1_counter_10) & 0x0f;
+   data[3] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+   data[4] = get_seconds_reg(timer1_counter_min) & 0x0f;
+   data[5] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+}
+
+void get_timer1_counter_interval(char data[],char state, char current_program)
+{
+   data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
+   data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+   data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+   data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+
+   if(state == STATE_INTERVAL_FORCE)
+   {
+       data[4] = current_program;
+       data[5] = 'F';
+   }
+   else if(state == STATE_INTERVAL_COLD)
+   {
+       data[4] = current_program;
+       data[5] = 'C';    
+   }
+   else
+   {
+       data[4] = 0;
+       data[5] = 0;
+   }
+
+}
+ 
+
+
 void timer1_enable(void)
 {
 	    T1CON |= 1 << 0; //TMR1ON: START/STOP TMR1
-	
 }
 
 void timer1_disable(void)
@@ -530,23 +713,88 @@ void update_timer1_counter_10(char state, char *counter)
 	if(state == STATE_UP)
 		*counter = UP_INITIAL_COUNTDOWN;
 	else if(state == STATE_UP_COUNT_DOWN)
+    {
 	 	if(*counter>0)
+        {
 			if (*counter>3)
+            {
 				*counter-=1;
+            }
 			else
 			{
 				*counter-=1;
 				//put here logic to beep the buzzer
 			}
-		
+        }
+
+
+    }
 	else if(state == STATE_UP_COUNTING)
   		if(*counter<59)		
+        {
 			*counter+=1;
+        }
 		else
 		{
 			*counter= 0;
-			//put here the logic for increment minutes, meybee create and use other variable 
+			//put here the logic for increment minutes, maybe create and use other variable
+            if(timer1_counter_min < 59)
+                timer1_counter_min +=1;
+            else
+                timer1_counter_min = 0;
 		}
-
-
+    else if(state == STATE_DOWN)
+        *counter = DOWN_INITIAL_COUNTDOWN;
+    else if(state == STATE_DOWN_COUNT_DOWN)
+    {
+        if(*counter >0)
+        {
+            if(*counter>3)
+            {
+                *counter -=1;
+            }
+            else
+            {
+                *counter -=1;
+                //put here logic to beep the buzzer
+            }
+        }
+    }
+    else if(state == STATE_DOWN_COUNTING)
+    {
+        if(*counter>0)
+        {
+            *counter -=1;
+        }
+        else
+        {
+            if(timer1_counter_min > 0)
+            {
+                timer1_counter_min -=1;
+                *counter = 59;
+            }
+            
+        }
+    }
+    else if(state == STATE_SPEED)
+    {
+        *counter = 0;
+        timer1_speed_cents = 0;
+        timer1_counter_min = 0;
+    }
+    else if(state == STATE_SPEED_RUN)
+    {
+        if(*counter<59)
+        {
+            *counter +=1;
+        }
+        else
+        {
+            *counter = 0;
+            if(timer1_counter_min<59)
+            {
+                timer1_counter_min +=1;
+            }
+        }
+    }
 }

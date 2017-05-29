@@ -111,7 +111,7 @@
 #define STATE_MM2        4
 
 #define STATE_UP         5
-#define STATE_DOWN       6
+
 #define STATE_UP_CFG_MM1	7
 #define STATE_UP_CFG_MM2	8
 #define STATE_UP_CFG_SS1	9
@@ -119,6 +119,29 @@
 #define STATE_UP_COUNT_DOWN	11
 #define STATE_UP_COUNTING	12
 #define STATE_UP_STOP		13
+
+#define STATE_DOWN       	6
+#define STATE_DOWN_CFG_MM1	14
+#define STATE_DOWN_CFG_MM2	15
+#define STATE_DOWN_CFG_SS1  16
+#define STATE_DOWN_CFG_SS2  17
+#define STATE_DOWN_COUNT_DOWN 18
+#define STATE_DOWN_COUNTING 19
+#define STATE_DOWN_STOP     20
+
+#define STATE_SPEED				21
+#define STATE_SPEED_RUN			22
+#define STATE_SPEED_PAUSE			23
+
+#define STATE_INTERVAL 24
+#define STATE_INTERVAL_COUNT_DOWN 25
+#define STATE_INTERVAL_FORCE 26
+#define STATE_INTERVAL_COLD 27
+#define STATE_INTERVAL_STOP 28
+#define STATE_INTERVAL_CFG_MM1 29
+#define STATE_INTERVAL_CFG_MM2 30
+#define STATE_INTERVAL_CFG_SS1 31
+#define STATE_INTERVAL_CFG_SS2 32
 
 		
 
@@ -130,7 +153,7 @@
 
 /*Defines for UP*/
 #define UP_INITIAL_COUNTDOWN	10
-
+#define DOWN_INITIAL_COUNTDOWN	10
 
 int state, next;
 char human_code; //code contains the last received code
@@ -139,6 +162,33 @@ char buzzer_status; //buzzer_status: 1 buzzer enabled, 0 buzzer disabled
 
 char timer1_counter; //counter for timer1
 char timer1_counter_10; //counter for timer1 x10
+char timer1_counter_min; //counter for minutes
+
+char timer1_up_limit_sec, timer1_up_limit_min; // upper limit for up counter
+char timer1_down_init_min, timer1_down_init_sec; //init values for DOWN counter
+
+char timer1_speed_cents; //centesimas de segundo
+
+
+#define NUM_INTERVALS 20;
+
+char current_type; //'f': force, 'c': cold
+struct Tiempo
+{
+	char seconds;
+	char minutes;
+};
+
+struct Intervals
+{
+	Tiempo force[NUM_INTERVALS]; //init values for force part of intervals
+	Tiempo cold[NUM_INTERVALS];  //init values for cold part of intervals
+};
+
+Intervals intervals; //
+char max_program, current_program; //number of programs to run. A program is a set of force + cold.
+
+
 
 /*Display related functions*/
 void put_num(char num); //put a single number on the display
@@ -188,8 +238,10 @@ void timer1_disable(void);
 void update_timer1_counter_10(char state, char *counter);
 
 /*Functions related with down counter*/
+void get_timer1_counter_down( char data[]);
 /*Functions related with cron*/
+void get_timer1_counter_speed(char data[]);
 /*Functions related with interval*/
-
+void get_timer1_counter_interval(char data[])
 /*Function related with timer 1*/
 

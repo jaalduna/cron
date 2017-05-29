@@ -4341,7 +4341,7 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.42/include/stdbool.h"
 typedef unsigned char bool;
 
-# 135 "user.h"
+# 149 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
@@ -4349,6 +4349,12 @@ char buzzer_status;
 
 char timer1_counter;
 char timer1_counter_10;
+char timer1_counter_min;
+
+char timer1_up_limit_sec, timer1_up_limit_min;
+char timer1_down_init_min, timer1_down_init_sec;
+
+char timer1_speed_cents;
 
 
 void put_num(char num);
@@ -4397,6 +4403,9 @@ void timer1_enable(void);
 void timer1_disable(void);
 void update_timer1_counter_10(char state, char *counter);
 
+
+void get_timer1_counter_down( char data[]);
+
 # 21 "interrupts.c"
 char counter;
 char masked_digits[6];
@@ -4417,11 +4426,11 @@ char aux = 0;
 int i;
 char code[47];
 
-_delay((unsigned long)((40.7)*(20000000L/4000.0)));
+_delay((unsigned long)((40.63)*(20000000L/4000.0)));
 for(i = 0; i < 47 ; i ++)
 {
 code[i] = RB5;
-_delay((unsigned long)((565)*(20000000L/4000000.0)));
+_delay((unsigned long)((580)*(20000000L/4000000.0)));
 }
 int final_code = 0;
 for(i = 0; i<16;i++)
@@ -4514,12 +4523,19 @@ TMR0IF = 0;
 else if (TMR1IF == 1)
 {
 
-if(timer1_counter <9)
+if(timer1_counter <99)
+{
 timer1_counter += 1;
+
+}
+
 else
 {
 timer1_counter = 0;
 update_timer1_counter_10(state,&timer1_counter_10);
+
+
+next = get_next_state(state,0);
 }
 
 TMR1IF = 0;

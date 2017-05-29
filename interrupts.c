@@ -74,11 +74,11 @@ void high_isr(void)
         int i;
         char code[CODE_NUM_BITS];
         //lets wait 40.5 ms, to skip the common code
-        __delay_ms(40.7);
+        __delay_ms(40.63);
         for(i = 0; i < CODE_NUM_BITS ; i ++)
         {
             code[i] = IR;
-            __delay_us(565);
+            __delay_us(580);
         }
         int final_code = 0;
         for(i = 0; i<16;i++)
@@ -168,15 +168,23 @@ void high_isr(void)
 		TMR0IF = 0;
 	}
 
-     else if (TMR1IF == 1)
+    else if (TMR1IF == 1)
 	{
 		//lets update a counter and then write it to aux1 display varible			
-		if(timer1_counter <9)	
-			timer1_counter += 1;		
+		if(timer1_counter <99)	
+    {
+			timer1_counter += 1;
+      //put initial value to Timer1 to achieve a 10 ms delay between interrupts.
+
+    }
+
 		else
 		{
 			timer1_counter = 0;
-			update_timer1_counter_10(state,&timer1_counter_10);
+            update_timer1_counter_10(state,&timer1_counter_10);			
+
+      //lets update state
+      next = get_next_state(state,0);
 		}
 	
 		TMR1IF = 0;	

@@ -4344,7 +4344,7 @@ typedef unsigned char bool;
 # 19 "system.h"
 void ConfigureOscillator(void);
 
-# 135 "user.h"
+# 149 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
@@ -4352,6 +4352,12 @@ char buzzer_status;
 
 char timer1_counter;
 char timer1_counter_10;
+char timer1_counter_min;
+
+char timer1_up_limit_sec, timer1_up_limit_min;
+char timer1_down_init_min, timer1_down_init_sec;
+
+char timer1_speed_cents;
 
 
 void put_num(char num);
@@ -4399,6 +4405,9 @@ void get_timer1_counter( char data[]);
 void timer1_enable(void);
 void timer1_disable(void);
 void update_timer1_counter_10(char state, char *counter);
+
+
+void get_timer1_counter_down( char data[]);
 
 # 4 "/Applications/microchip/xc8/v1.42/include/__size_t.h"
 typedef unsigned size_t;
@@ -4548,7 +4557,108 @@ break;
 case 12:
 get_timer1_counter(aux1);
 break;
+case 13:
+get_timer1_counter(aux1);
+break;
+case 7:
+
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[3] = human_code;
+next = 8;
+human_code = -1;
+}
+break;
+case 8:
+
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[2] = human_code;
+next = 9;
+human_code = -1;
+}
+break;
+case 9:
+
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[1] = human_code;
+next = 10;
+human_code = -1;
+}
+break;
+case 10:
+
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[0] = human_code;
+next = 7;
+human_code = -1;
+}
+break;
 case 6:
+timer1_counter_10 = 10;
+get_timer1_counter_down(aux1);
+break;
+case 18:
+get_timer1_counter_down(aux1);
+break;
+case 19:
+get_timer1_counter_down(aux1);
+break;
+case 20:
+get_timer1_counter_down(aux1);
+break;
+case 14:
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[3] = human_code;
+next = 15;
+human_code = -1;
+}
+break;
+case 15:
+
+if(ir_is_code_number(human_code) && human_code <=9)
+{
+aux1[2] = human_code;
+next = 16;
+human_code = -1;
+}
+break;
+case 16:
+
+if(ir_is_code_number(human_code) && human_code <=5)
+{
+aux1[1] = human_code;
+next = 17;
+human_code = -1;
+}
+break;
+case 17:
+
+if(ir_is_code_number(human_code) && human_code <=9)
+{
+aux1[0] = human_code;
+next = 14;
+human_code = -1;
+}
+break;
+case 21:
+get_timer1_counter_speed(aux1);
+break;
+case 22:
+timer1_enable();
+get_timer1_counter_speed(aux1);
+break;
+case 23:
+timer1_disable();
+get_timer1_counter_speed(aux1);
 break;
 default: ;
 

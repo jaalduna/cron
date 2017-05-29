@@ -4341,7 +4341,7 @@ typedef uint16_t uintptr_t;
 # 12 "/Applications/microchip/xc8/v1.42/include/stdbool.h"
 typedef unsigned char bool;
 
-# 135 "user.h"
+# 149 "user.h"
 int state, next;
 char human_code;
 char aux1[6];
@@ -4349,6 +4349,12 @@ char buzzer_status;
 
 char timer1_counter;
 char timer1_counter_10;
+char timer1_counter_min;
+
+char timer1_up_limit_sec, timer1_up_limit_min;
+char timer1_down_init_min, timer1_down_init_sec;
+
+char timer1_speed_cents;
 
 
 void put_num(char num);
@@ -4397,6 +4403,9 @@ void timer1_enable(void);
 void timer1_disable(void);
 void update_timer1_counter_10(char state, char *counter);
 
+
+void get_timer1_counter_down( char data[]);
+
 # 28 "user.c"
 void InitApp(void)
 {
@@ -4440,6 +4449,12 @@ TRISA3 = 0;
 
 state = 0;
 next = 0;
+
+
+
+timer1_up_limit_sec = 59;
+timer1_up_limit_min = 59;
+
 
 }
 
@@ -4609,7 +4624,7 @@ byte_write(0x84,hour_reg);
 
 }
 
-# 242
+# 248
 void get_time(char data[], unsigned char format)
 {
 char aux = 0x81;
@@ -4683,6 +4698,12 @@ res = 5<<4 | (seconds -50);
 }
 
 return res;
+}
+
+char get_cents_reg(char cents)
+{
+char res = 0;
+res = (cents/10)<<4 | (cents % 10);
 }
 
 
@@ -4760,17 +4781,88 @@ char minutes = aux1[0] + aux1[1]*10;
 char hour = aux1[2] + aux1[3]*10;
 set_time(seconds,minutes,hour);
 }
-else if((state == 5 && code == 0xEAAA))
+else if(state == 5 && code == 0xEAAA)
 {
 next = 11;
 
 timer1_enable();
 }
-else if((state == 11 && timer1_counter_10 == 0))
+else if(state == 11 && timer1_counter_10 == 0)
 next = 12;
+else if(state == 12 && timer1_counter_min == timer1_up_limit_min && timer1_counter_10 == timer1_up_limit_sec)
+{
+next = 13;
+}
+else if(state == 13 && code == 0xAEBA)
+next = 5;
+else if(state == 5 && code == 0xAABA)
+{
+next = 7;
+}
+else if((state == 7 || state == 8 || state == 9 || state == 10) && code == 0xAEBA)
+{
+next = 5;
+
+timer1_up_limit_sec = aux1[1]*10+aux1[0];
+timer1_up_limit_min = aux1[3]*10 + aux1[2];
+}
+else if(state == 5 && code ==0xEBAE)
+{
+next = 6;
+}
+else if(state == 6 && code == 0xABBa)
+{
+next = 5;
+}
+else if(state == 6 && code == 0xEAAA)
+{
+next = 18;
+
+timer1_enable();
+}
+else if(state == 18 && timer1_counter_10 == 0)
+{
+next = 19;
+
+timer1_counter_min = timer1_down_init_min;
+timer1_counter_10 = timer1_down_init_sec;
+}
+else if(state == 19 && timer1_counter_min == 0 && timer1_counter_10 == 0)
+{
+next = 20;
+}
+else if(state == 20 && code == 0xAEBA)
+{
+next = 6;
+}
+else if(state == 6 && code == 0xAABA)
+{
+next = 14;
+}
+else if((state == 14 || state == 15 || state == 16 || state == 17) && code == 0xAEBA)
+{
+next = 6;
+timer1_down_init_min = aux1[3]*10 + aux1[2];
+timer1_down_init_sec = aux1[1]*10 + aux1[0];
+}
+else if(state == 21 && code == 0xEAAA)
+{
+next = 22;
+}
+else if(state == 22 && code == 0xAABA)
+{
+next = 23;
+}
+else if(state == 23 && code == 0xEAAA)
+{
+next = 22;
+}
+else if((state == 22 || state == 23) && code == 0xAEBA)
+{
+next = 21;
+}
 else
 next = next;
-
 return next;
 }
 
@@ -4876,27 +4968,39 @@ buzzer_disable();
 
 void get_timer1_counter( char data[])
 {
-char aux = 0x81;
-char seconds = byte_read(aux);
-aux = 0x83;
-char minutes = byte_read(aux);
-aux = 0x85;
-char hours = byte_read(aux);
-
-
 data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
 data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
-data[2] = 0;
-data[3] = 0;
+data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
 data[4] = 'P';
 data[5] = 'U';
 
 }
 
+void get_timer1_counter_down( char data[])
+{
+data[0] = get_seconds_reg(timer1_counter_10) & 0x0f;
+data[1] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+data[2] = get_seconds_reg(timer1_counter_min) & 0x0f;
+data[3] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+data[4] = 'N';
+data[5] = 'D';
+}
+
+void get_timer1_counter_speed(char data[])
+{
+data[0] = get_cents_reg(timer1_speed_cents) & 0x0f;
+data[1] = (get_cents_reg(timer1_speed_cents) & 0xf0)>>4;
+data[2] = get_seconds_reg(timer1_counter_10) & 0x0f;
+data[3] = (get_seconds_reg(timer1_counter_10) & 0xf0)>>4;
+data[4] = get_seconds_reg(timer1_counter_min) & 0x0f;
+data[5] = (get_seconds_reg(timer1_counter_min) & 0xf0)>>4;
+}
+
+
 void timer1_enable(void)
 {
 T1CON |= 1 << 0;
-
 }
 
 void timer1_disable(void)
@@ -4909,24 +5013,88 @@ void update_timer1_counter_10(char state, char *counter)
 if(state == 5)
 *counter = 10;
 else if(state == 11)
+{
 if(*counter>0)
+{
 if (*counter>3)
+{
 *counter-=1;
+}
 else
 {
 *counter-=1;
 
 }
-else
-*counter= 10;
+}
+
+
+}
 else if(state == 12)
 if(*counter<59)
+{
 *counter+=1;
+}
 else
 {
 *counter= 0;
 
+if(timer1_counter_min < 59)
+timer1_counter_min +=1;
+else
+timer1_counter_min = 0;
+}
+else if(state == 6)
+*counter = 10;
+else if(state == 18)
+{
+if(*counter >0)
+{
+if(*counter>3)
+{
+*counter -=1;
+}
+else
+{
+*counter -=1;
+
+}
+}
+}
+else if(state == 19)
+{
+if(*counter>0)
+{
+*counter -=1;
+}
+else
+{
+if(timer1_counter_min > 0)
+{
+timer1_counter_min -=1;
+*counter = 59;
 }
 
-
+}
+}
+else if(state == 21)
+{
+*counter = 0;
+timer1_speed_cents = 0;
+timer1_counter_min = 0;
+}
+else if(state == 22)
+{
+if(counter<59)
+{
+*counter +=1;
+}
+else
+{
+*counter = 0;
+if(timer1_counter_min<59)
+{
+timer1_counter_min +=1;
+}
+}
+}
 }
